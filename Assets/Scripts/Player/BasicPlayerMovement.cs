@@ -33,7 +33,6 @@ namespace Player
 
         private void Update()
         {
-            print(_jumpCount);
             _xInput = Input.GetAxisRaw("Horizontal");
 
             //Double Jump
