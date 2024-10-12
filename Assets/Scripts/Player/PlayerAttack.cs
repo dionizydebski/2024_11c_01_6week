@@ -22,6 +22,7 @@ namespace Player
 
         private void Attack()
         {
+            //Player Attack animation goes here
             Debug.Log("Attack");
             Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
 

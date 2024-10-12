@@ -80,6 +80,7 @@ namespace Player
 
         private void Jump()
         {
+            //Jump animation goes here
             if (_performJump)
             {
                 _performJump = false;
@@ -90,6 +91,7 @@ namespace Player
 
         private void Move()
         {
+            //Move animation goes here
             _rigidbody.velocity = new Vector2(_xInput*speed, _rigidbody.velocity.y);
         }
 
