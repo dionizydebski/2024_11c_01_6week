@@ -331,7 +331,7 @@ Transform:
   m_GameObject: {fileID: 770095966}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.91, y: -0.57, z: 0}
+  m_LocalPosition: {x: 5.929, y: -0.72, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -396,11 +396,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2016144345146188860, guid: 0dc81ad593e121c89857832c452879f1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.87
+      value: 5.02
       objectReference: {fileID: 0}
     - target: {fileID: 2016144345146188860, guid: 0dc81ad593e121c89857832c452879f1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.677
+      value: -0.706
       objectReference: {fileID: 0}
     - target: {fileID: 2016144345146188860, guid: 0dc81ad593e121c89857832c452879f1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -433,10 +433,6 @@ PrefabInstance:
     - target: {fileID: 2016144345146188860, guid: 0dc81ad593e121c89857832c452879f1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7081113256635750944, guid: 0dc81ad593e121c89857832c452879f1, type: 3}
-      propertyPath: jumpSlamForce
-      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
