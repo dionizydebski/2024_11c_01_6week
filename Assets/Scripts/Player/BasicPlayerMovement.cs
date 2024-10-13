@@ -9,15 +9,26 @@ namespace Player
     [RequireComponent(typeof(Rigidbody2D), typeof(SpriteRenderer))]
     public class BasicPlayerMovement : MonoBehaviour
     {
+        
         private Rigidbody2D _rigidbody;
-        private float _xInput;
-        [SerializeField] private float speed;
-        [SerializeField] private float jumpForce;
-        private bool _performJump;
-        private int _jumpCount;
         private SpriteRenderer _spriteRenderer;
         private Animator _animator;
         private BoxCollider2D _boxCollider;
+
+        private float _xInput;
+        [Header("Movement Parameters")]
+        [SerializeField] private float speed;
+        [SerializeField] private float jumpForce;
+        
+        [Header("Jump Parameters")]
+        private bool _performJump;
+        [SerializeField] private int extraJumps = 1;
+        private int _jumpCount;
+
+        [Header("Coyote Time")]
+        [SerializeField] private float coyoteTime;
+        private float _coyoteCooldown;
+
         private float _wallJumpCooldown;
         private float _mainGravityScale;
 
@@ -34,59 +45,60 @@ namespace Player
         private void Update()
         {
             _xInput = Input.GetAxisRaw("Horizontal");
-
-            //Double Jump
-            if (_wallJumpCooldown > 0.2f)
+            //Jump
+            if (Input.GetButtonDown("Jump"))
             {
-                if (Input.GetButtonDown("Jump") && _jumpCount > 0)
-                {
-                    _performJump = true;
-                }
-
-                if (OnWall() && !IsGrounded())
-                {
-                    _rigidbody.gravityScale = 0;
-                    _rigidbody.velocity = Vector2.zero;
-                }
-                else
-                {
-                    _rigidbody.gravityScale = _mainGravityScale;
-                }
+                _performJump = true;
+            }
+            if (IsGrounded())
+            {
+                _coyoteCooldown = coyoteTime; //Reseting coyote time cooldown
+                _jumpCount = extraJumps;
             }
             else
-            {
-                _wallJumpCooldown += Time.deltaTime;
-            }
+                _coyoteCooldown -= Time.fixedDeltaTime;
+
         }
 
         private void FixedUpdate()
         {
-
-            if (IsGrounded())
-            {
-                _jumpCount = 2;
-            }
-            else if (OnWall())
-            {
-                _jumpCount = 1;
-            }
-
             Move();
 
-            Jump();
+            if (_performJump)
+            {
+                Jump();
+            }
 
             FlipSprite();
         }
 
         private void Jump()
         {
+            if (_coyoteCooldown <= 0 && !OnWall() && _jumpCount <= 0) return;
             //Jump animation goes here
-            if (_performJump)
+            if (IsGrounded())
             {
                 _performJump = false;
                 _rigidbody.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
-                _jumpCount -= 1;
             }
+            else
+            {
+                if (_coyoteCooldown > 0)
+                {
+                    _performJump = false;
+                    _rigidbody.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+                }
+                else
+                {
+                    if (_jumpCount > 0)
+                    {
+                        _performJump = false;
+                        _rigidbody.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+                        _jumpCount--;
+                    }
+                }
+            }
+            _coyoteCooldown = 0;
         }
 
         private void Move()
