@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8466943744331186624}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pos B
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 925684979160669155}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Moving Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,7 +74,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4871107449712291734}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pos A
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 5484592008408728865}
   - component: {fileID: 7708912392372499414}
   - component: {fileID: 773078313269364186}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
