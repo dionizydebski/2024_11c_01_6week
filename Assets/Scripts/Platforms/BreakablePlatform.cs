@@ -1,22 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class BreakablePlatform : MonoBehaviour
+namespace Platforms
 {
-    [SerializeField] private float breakForce = 10f; 
-    [SerializeField] private float downwardVelocityThreshold = -2f; 
-
-    void OnCollisionEnter(Collision collision)
+    public class BreakablePlatform : MonoBehaviour
     {
-        if (collision.gameObject.CompareTag("Player"))
+        [SerializeField] private float breakForce = 10f; 
+        [SerializeField] private float downwardVelocityThreshold = -2f; 
+
+        void OnCollisionEnter(Collision collision)
         {
-            Rigidbody playerRb = collision.gameObject.GetComponent<Rigidbody>();
-            if (playerRb != null && playerRb.velocity.y < downwardVelocityThreshold)
+            if (collision.gameObject.CompareTag("Player"))
             {
-                if (collision.relativeVelocity.magnitude > breakForce)
+                Rigidbody playerRb = collision.gameObject.GetComponent<Rigidbody>();
+                if (playerRb != null && playerRb.velocity.y < downwardVelocityThreshold)
                 {
-                    Destroy(gameObject);
+                    if (collision.relativeVelocity.magnitude > breakForce)
+                    {
+                        Destroy(gameObject);
+                    }
                 }
             }
         }

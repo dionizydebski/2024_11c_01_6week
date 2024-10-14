@@ -1,24 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class HangingPlatform : MonoBehaviour
+namespace Platforms
 {
-    [SerializeField] private float breakForce = 10f; 
-    [SerializeField] private float downwardVelocityThreshold = -2f; 
-    [SerializeField] private Rigidbody2D rb;
-
-    void OnCollisionEnter2D(Collision2D collision)
+    public class HangingPlatform : MonoBehaviour
     {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            Rigidbody2D playerRb = collision.gameObject.GetComponent<Rigidbody2D>();
+        [SerializeField] private float breakForce = 10f; 
+        [SerializeField] private float downwardVelocityThreshold = -2f; 
+        [SerializeField] private Rigidbody2D rb;
 
-            if (playerRb != null && playerRb.velocity.y < downwardVelocityThreshold)
+        void OnCollisionEnter2D(Collision2D collision)
+        {
+            if (collision.gameObject.CompareTag("Player"))
             {
-                if (collision.relativeVelocity.magnitude > breakForce)
+                Rigidbody2D playerRb = collision.gameObject.GetComponent<Rigidbody2D>();
+
+                if (playerRb != null && playerRb.velocity.y < downwardVelocityThreshold)
                 {
-                    rb.bodyType = RigidbodyType2D.Dynamic;
+                    if (collision.relativeVelocity.magnitude > breakForce)
+                    {
+                        rb.bodyType = RigidbodyType2D.Dynamic;
+                    }
                 }
             }
         }

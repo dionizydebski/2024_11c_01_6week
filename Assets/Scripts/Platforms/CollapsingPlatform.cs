@@ -1,28 +1,29 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class CollapsingPlatform : MonoBehaviour
+namespace Platforms
 {
-    private float collapsDelay = 1f;
-    private float destroyDelay = 2f;
-
-    [SerializeField] private Rigidbody2D rb;
-
-    private void OnCollisionEnter2D(Collision2D collision)
+    public class CollapsingPlatform : MonoBehaviour
     {
-        if (collision.gameObject.CompareTag("Player"))
+        private float collapsDelay = 1f;
+        private float destroyDelay = 2f;
+
+        [SerializeField] private Rigidbody2D rb;
+
+        private void OnCollisionEnter2D(Collision2D collision)
         {
-            StartCoroutine(Collaps());
+            if (collision.gameObject.CompareTag("Player"))
+            {
+                StartCoroutine(Collaps());
+            }
         }
-    }
 
-    private IEnumerator Collaps()
-    {
-        yield return new WaitForSeconds(collapsDelay);
-        rb.bodyType = RigidbodyType2D.Dynamic;
-        Destroy(gameObject, destroyDelay);
-    }
+        private IEnumerator Collaps()
+        {
+            yield return new WaitForSeconds(collapsDelay);
+            rb.bodyType = RigidbodyType2D.Dynamic;
+            Destroy(gameObject, destroyDelay);
+        }
 
+    }
 }
