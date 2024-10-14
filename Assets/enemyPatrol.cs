@@ -9,38 +9,38 @@ public class enemyPatrol : MonoBehaviour
 
     public GameObject pointB;
 
-    private Rigidbody2D rb;
+    private Rigidbody2D _rb;
 
-    private Transform currentPoint;
+    private Transform _currentPoint;
 
     public float speed;
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        currentPoint = pointB.transform;
+        _rb = GetComponent<Rigidbody2D>();
+        _currentPoint = pointB.transform;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector2 point = currentPoint.position - transform.position;
-        if (currentPoint == pointB.transform)
+        Vector2 point = _currentPoint.position - transform.position;
+        if (_currentPoint == pointB.transform)
         {
-            rb.velocity = new Vector2(speed, 0);
+            _rb.velocity = new Vector2(speed, 0);
         }
         else
         {
-            rb.velocity = new Vector2(-speed, 0);
+            _rb.velocity = new Vector2(-speed, 0);
         }
 
-        if (Vector2.Distance(transform.position, currentPoint.position) < 1.5f && currentPoint == pointB.transform)
+        if (Vector2.Distance(transform.position, _currentPoint.position) < 1.5f && _currentPoint == pointB.transform)
         {
-            currentPoint = pointA.transform;
+            _currentPoint = pointA.transform;
         }
-        if (Vector2.Distance(transform.position, currentPoint.position) < 1.5f && currentPoint == pointA.transform)
+        if (Vector2.Distance(transform.position, _currentPoint.position) < 1.5f && _currentPoint == pointA.transform)
         {
-            currentPoint = pointB.transform;
+            _currentPoint = pointB.transform;
         }
     }
 }
