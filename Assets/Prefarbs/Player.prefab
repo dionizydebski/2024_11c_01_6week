@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6428986171454278949}
   - component: {fileID: 9113385628442991051}
   - component: {fileID: 7081113256635750944}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -231,7 +231,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8568628551618966713}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: JumpSlamAttackPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -262,7 +262,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1689541632505751376}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: AttackPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
