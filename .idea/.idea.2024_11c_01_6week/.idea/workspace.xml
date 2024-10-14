@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="dea43f36-78a4-49aa-83f7-be453a95d980" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.2024_11c_01_6week/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2024_11c_01_6week/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefarbs/Platforms/CollapsingPlatform.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Platforms/CollapsingPlatform.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefarbs/Platforms/CollapsingPlatform.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Platforms/CollapsingPlatform.cs.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +16,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Platforms/BreakablePlatform.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Platforms/CollapsingPlatform.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Platforms/MovingPlatform.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -97,7 +96,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1728920330447</updated>
-      <workItem from="1728920333034" duration="3385000" />
+      <workItem from="1728920333034" duration="4826000" />
     </task>
     <servers />
   </component>
