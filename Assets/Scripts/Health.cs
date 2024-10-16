@@ -1,78 +1,69 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
+using System.Collections;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] 
-    private int _maxHp = 100;
+    [Header ("Health")]
+    [SerializeField] private float startingHealth;
+    public float currentHealth { get; private set; }
+    private Animator anim;
+    private bool dead;
 
-    private int _hp;
+    [Header("iFrames")]
+    [SerializeField] private float iFramesDuration;
+    [SerializeField] private int numberOfFlashes;
+    private SpriteRenderer spriteRend;
 
-    public int MaxHp()
+    [Header("Components")]
+    [SerializeField] private Behaviour[] components;
+    private bool invulnerable;
+
+    private void Awake()
     {
-        return _maxHp;
+        currentHealth = startingHealth;
+        anim = GetComponent<Animator>();
+        spriteRend = GetComponent<SpriteRenderer>();
     }
-
-    public int Hp
+    public void TakeDamage(float _damage)
     {
-        get
+        if (invulnerable) return;
+        currentHealth = Mathf.Clamp(currentHealth - _damage, 0, startingHealth);
+
+        if (currentHealth > 0)
         {
-            return _hp;
+            anim.SetTrigger("hurt");
+            StartCoroutine(Invunerability());
         }
-        private set
+        else
         {
-            var isDamage = value < _hp;
-            _hp = Mathf.Clamp(value, 0, _maxHp);
-            
-            if (isDamage)
+            if (!dead)
             {
-                Damaged?.Invoke(_hp);
-            }
-            else
-            {
-                Healed?.Invoke(_hp);
-            }
+                anim.SetTrigger("die");
 
-            if (_hp <= 0)
-            {
-                Died?.Invoke();
+                //Deactivate all attached component classes
+                foreach (Behaviour component in components)
+                    component.enabled = false;
+
+                dead = true;
             }
         }
     }
-
-    public UnityEvent<int> Healed;
-    public UnityEvent<int> Damaged;
-    public UnityEvent Died;
-
-    void Awake()
+    public void AddHealth(float _value)
     {
-        _hp = _maxHp;
+        currentHealth = Mathf.Clamp(currentHealth + _value, 0, startingHealth);
     }
-
-    public void Damage(int amount)
+    private IEnumerator Invunerability()
     {
-        Hp -= amount;
-    }
-
-    public void Heal(int amount)
-    {
-        Hp += amount;
-    }
-
-    public void HealFull()
-    {
-        Hp = _maxHp;
-    }
-
-    public void Kill()
-    {
-        Hp = 0;
-    }
-
-    public void Adjust(int value)
-    {
-        Hp = value;
+        invulnerable = true;
+        Physics2D.IgnoreLayerCollision(10, 11, true);
+        for (int i = 0; i < numberOfFlashes; i++)
+        {
+            spriteRend.color = new Color(1, 0, 0, 0.5f);
+            yield return new WaitForSeconds(iFramesDuration / (numberOfFlashes * 2));
+            spriteRend.color = Color.white;
+            yield return new WaitForSeconds(iFramesDuration / (numberOfFlashes * 2));
+        }
+        Physics2D.IgnoreLayerCollision(10, 11, false);
+        invulnerable = false;
     }
 }

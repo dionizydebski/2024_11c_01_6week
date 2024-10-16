@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dea43f36-78a4-49aa-83f7-be453a95d980" name="Changes" comment="" />
+    <list default="true" id="dea43f36-78a4-49aa-83f7-be453a95d980" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.2024_11c_01_6week/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2024_11c_01_6week/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Health.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Health.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/enemy/EnemyPatrol.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/enemy/EnemyPatrol.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/enemy/MeleeEnemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/enemy/MeleeEnemy.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -111,7 +116,7 @@
       <updated>1728920330447</updated>
       <workItem from="1728920333034" duration="6418000" />
       <workItem from="1728939468713" duration="9000" />
-      <workItem from="1729081627743" duration="5073000" />
+      <workItem from="1729081627743" duration="6666000" />
     </task>
     <servers />
   </component>

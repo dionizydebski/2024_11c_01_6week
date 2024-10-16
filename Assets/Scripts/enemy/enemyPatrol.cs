@@ -1,46 +1,30 @@
-using System;
 using UnityEngine;
 
 public class EnemyPatrol : MonoBehaviour
 {
-    [Header("Patrol Points")]
+    [Header ("Patrol Points")]
     [SerializeField] private Transform leftEdge;
     [SerializeField] private Transform rightEdge;
 
     [Header("Enemy")]
     [SerializeField] private Transform enemy;
 
-    [Header("Movement Parameters")]
+    [Header("Movement parameters")]
     [SerializeField] private float speed;
-    private Vector3 _initScale;
-    private bool _movingLeft;
+    private Vector3 initScale;
+    private bool movingLeft;
+
+    [Header("Idle Behaviour")]
+    [SerializeField] private float idleDuration;
+    private float idleTimer;
 
     [Header("Enemy Animator")]
     [SerializeField] private Animator anim;
 
-    [Header("Idle Behaviour")]
-    [SerializeField] private float idleDuration;
-    private float _idleTimer;
-
-    private void MoveInDirection(int direction)
-    {
-        _idleTimer = 0;
-        anim.SetBool("moving", true);
-        
-        //Make enemy face direction
-        enemy.localScale = new Vector3(Mathf.Abs(_initScale.x) * direction,
-            _initScale.y, _initScale.z);
-        
-        //Move in that direction
-        enemy.position = new Vector3(enemy.position.x + Time.deltaTime * direction * speed,
-            enemy.position.y, enemy.position.z);
-    }
-
     private void Awake()
     {
-        _initScale = enemy.localScale;
+        initScale = enemy.localScale;
     }
-
     private void OnDisable()
     {
         anim.SetBool("moving", false);
@@ -48,41 +32,42 @@ public class EnemyPatrol : MonoBehaviour
 
     private void Update()
     {
-        if (_movingLeft)
+        if (movingLeft)
         {
             if (enemy.position.x >= leftEdge.position.x)
-            {
                 MoveInDirection(-1);
-            }
             else
-            {
                 DirectionChange();
-                
-            }
-            
         }
         else
         {
             if (enemy.position.x <= rightEdge.position.x)
-            {
                 MoveInDirection(1);
-            }
             else
-            {
                 DirectionChange();
-                
-            }
         }
     }
 
     private void DirectionChange()
     {
         anim.SetBool("moving", false);
-        _idleTimer += Time.deltaTime;
+        idleTimer += Time.deltaTime;
 
-        if (_idleTimer > idleDuration)
-        {
-            _movingLeft = !_movingLeft;
-        }
+        if(idleTimer > idleDuration)
+            movingLeft = !movingLeft;
+    }
+
+    private void MoveInDirection(int _direction)
+    {
+        idleTimer = 0;
+        anim.SetBool("moving", true);
+
+        //Make enemy face direction
+        enemy.localScale = new Vector3(Mathf.Abs(initScale.x) * _direction * -1,
+            initScale.y, initScale.z);
+
+        //Move in that direction
+        enemy.position = new Vector3(enemy.position.x + Time.deltaTime * _direction * speed,
+            enemy.position.y, enemy.position.z);
     }
 }
