@@ -1,55 +1,88 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
-using UnityEngine.UIElements;
 
-public class enemyPatrol : MonoBehaviour
+public class EnemyPatrol : MonoBehaviour
 {
     [Header("Patrol Points")]
-    [SerializeField] private Transform pointA;
-    [SerializeField] private Transform pointB;
+    [SerializeField] private Transform leftEdge;
+    [SerializeField] private Transform rightEdge;
 
     [Header("Enemy")]
     [SerializeField] private Transform enemy;
 
-    [Header("Movement parameters")]
+    [Header("Movement Parameters")]
     [SerializeField] private float speed;
+    private Vector3 _initScale;
+    private bool _movingLeft;
 
-    private void MoveInDirection(int _direction)
+    [Header("Enemy Animator")]
+    [SerializeField] private Animator anim;
+
+    [Header("Idle Behaviour")]
+    [SerializeField] private float idleDuration;
+    private float _idleTimer;
+
+    private void MoveInDirection(int direction)
     {
-        enemy.position = new Vector3(enemy.position.x + Time.deltaTime * _direction * speed,
+        _idleTimer = 0;
+        anim.SetBool("moving", true);
+        
+        //Make enemy face direction
+        enemy.localScale = new Vector3(Mathf.Abs(_initScale.x) * direction,
+            _initScale.y, _initScale.z);
+        
+        //Move in that direction
+        enemy.position = new Vector3(enemy.position.x + Time.deltaTime * direction * speed,
             enemy.position.y, enemy.position.z);
     }
-    
-    
-    private Rigidbody2D _rb;
-    private Transform _currentPoint;
-    void Start()
+
+    private void Awake()
     {
-        _rb = GetComponent<Rigidbody2D>();
-        _currentPoint = pointB.transform;
+        _initScale = enemy.localScale;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDisable()
     {
-        Vector2 point = _currentPoint.position - transform.position;
-        if (_currentPoint == pointB.transform)
+        anim.SetBool("moving", false);
+    }
+
+    private void Update()
+    {
+        if (_movingLeft)
         {
-            _rb.velocity = new Vector2(speed, 0);
+            if (enemy.position.x >= leftEdge.position.x)
+            {
+                MoveInDirection(-1);
+            }
+            else
+            {
+                DirectionChange();
+                
+            }
+            
         }
         else
         {
-            _rb.velocity = new Vector2(-speed, 0);
+            if (enemy.position.x <= rightEdge.position.x)
+            {
+                MoveInDirection(1);
+            }
+            else
+            {
+                DirectionChange();
+                
+            }
         }
+    }
 
-        if (Vector2.Distance(transform.position, _currentPoint.position) < 1.5f && _currentPoint == pointB.transform)
+    private void DirectionChange()
+    {
+        anim.SetBool("moving", false);
+        _idleTimer += Time.deltaTime;
+
+        if (_idleTimer > idleDuration)
         {
-            _currentPoint = pointA.transform;
-        }
-        if (Vector2.Distance(transform.position, _currentPoint.position) < 1.5f && _currentPoint == pointA.transform)
-        {
-            _currentPoint = pointB.transform;
+            _movingLeft = !_movingLeft;
         }
     }
 }
