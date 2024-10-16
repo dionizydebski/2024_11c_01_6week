@@ -5,16 +5,25 @@ using UnityEngine.UIElements;
 
 public class enemyPatrol : MonoBehaviour
 {
-    public GameObject pointA;
+    [Header("Patrol Points")]
+    [SerializeField] private Transform pointA;
+    [SerializeField] private Transform pointB;
 
-    public GameObject pointB;
+    [Header("Enemy")]
+    [SerializeField] private Transform enemy;
 
+    [Header("Movement parameters")]
+    [SerializeField] private float speed;
+
+    private void MoveInDirection(int _direction)
+    {
+        enemy.position = new Vector3(enemy.position.x + Time.deltaTime * _direction * speed,
+            enemy.position.y, enemy.position.z);
+    }
+    
+    
     private Rigidbody2D _rb;
-
     private Transform _currentPoint;
-
-    public float speed;
-    // Start is called before the first frame update
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
