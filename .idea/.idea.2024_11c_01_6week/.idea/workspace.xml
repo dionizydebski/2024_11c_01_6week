@@ -4,19 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dea43f36-78a4-49aa-83f7-be453a95d980" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.2024_11c_01_6week/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2024_11c_01_6week/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Content/Animations/Enemy/Die.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Content/Animations/Enemy/Die.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Content/Animations/Enemy/Enemy.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Content/Animations/Enemy/Enemy.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Content/Animations/Enemy/Hurt.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Content/Animations/Enemy/Hurt.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Content/Animations/Enemy/Idle.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Content/Animations/Enemy/Idle.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Content/Animations/Enemy/MeleeAttack.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Content/Animations/Enemy/MeleeAttack.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Content/Animations/Enemy/Run.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Content/Animations/Enemy/Run.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefarbs/Enemy/EnemyPatrol 1.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefarbs/Enemy/EnemyPatrol 1.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Kacper_scena.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Kacper_scena.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
-    </list>
+    <list default="true" id="dea43f36-78a4-49aa-83f7-be453a95d980" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,6 +14,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Health/HealthBar.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Platforms/BreakablePlatform.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Platforms/CollapsingPlatform.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Platforms/HangingPlatform.cs" root0="FORCE_HIGHLIGHTING" />
@@ -124,7 +113,7 @@
       <workItem from="1728920333034" duration="6418000" />
       <workItem from="1728939468713" duration="9000" />
       <workItem from="1729081627743" duration="7376000" />
-      <workItem from="1729156182184" duration="615000" />
+      <workItem from="1729156182184" duration="891000" />
     </task>
     <servers />
   </component>
