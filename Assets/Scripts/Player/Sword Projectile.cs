@@ -1,14 +1,16 @@
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Player
 {
+    //BUG: swords changing positions after flipping character
+    //TODO: triggering enemy hit detection
     public class SwordProjectile : MonoBehaviour
     {
         [SerializeField] private float speed;
         private float _direction;
         private bool _hit;
         [SerializeField] private float lifeTime;
+        [SerializeField] private string layerName;
 
         private BoxCollider2D _boxCollider;
         private Rigidbody2D _rigidbody;
@@ -22,7 +24,7 @@ namespace Player
         private void Update()
         {
             if(_hit) return;
-            _rigidbody.velocity = new Vector2(speed, 0);
+            transform.Translate(speed * Time.deltaTime * _direction, 0, 0);
 
             lifeTime += Time.deltaTime;
             if (lifeTime > 5) gameObject.SetActive(false);
@@ -32,7 +34,12 @@ namespace Player
         {
             _hit = true;
             _boxCollider.enabled = false;
-            //Play hit animation
+            if (other.gameObject.layer == LayerMask.NameToLayer(layerName)) {
+                Debug.Log("enemy hit with ranged attack"); //TODO: implement Dmg after hitting enemy
+                //Destroy projectile animation
+                Deactivate();
+            }
+
         }
 
         public void SetDirection(float direction)

@@ -381,7 +381,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6034271340303312761, guid: 6a688a98236ec7c6798eeed0d8f3579c, type: 3}
       propertyPath: lifeTime
-      value: 3
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6034271340303312761, guid: 6a688a98236ec7c6798eeed0d8f3579c, type: 3}
+      propertyPath: triggerLayerMask.m_Bits
+      value: 256
       objectReference: {fileID: 0}
     - target: {fileID: 7158224154434763686, guid: 6a688a98236ec7c6798eeed0d8f3579c, type: 3}
       propertyPath: m_Name
