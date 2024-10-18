@@ -2,8 +2,6 @@ using UnityEngine;
 
 namespace Player
 {
-    //BUG: swords changing positions after flipping character
-    //TODO: triggering enemy hit detection
     public class SwordProjectile : MonoBehaviour
     {
         [SerializeField] private float speed;
@@ -37,8 +35,8 @@ namespace Player
             if (other.gameObject.layer == LayerMask.NameToLayer(layerName)) {
                 Debug.Log("enemy hit with ranged attack"); //TODO: implement Dmg after hitting enemy
                 //Destroy projectile animation
-                Deactivate();
             }
+            Deactivate();
 
         }
 
