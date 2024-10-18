@@ -31,6 +31,10 @@ namespace Player
         [SerializeField] private float coyoteTime;
         private float _coyoteCooldown;
 
+        [Header("Wall Sliding Parameters")]
+        [SerializeField] private float wallSlideSpeed;
+        private bool _isWallSliding;
+
         private float _wallJumpCooldown;
         private float _mainGravityScale;
 
@@ -62,6 +66,7 @@ namespace Player
             else
                 _coyoteCooldown -= Time.fixedDeltaTime;
 
+            WallSlide();
         }
 
         private void FixedUpdate()
@@ -121,6 +126,18 @@ namespace Player
             {
                 transform.localScale = _faceLeft;
             }
+        }
+
+        private void WallSlide()
+        {
+            if (OnWall() && !IsGrounded() && _xInput != 0f)
+            {
+                Debug.Log("Walls Slide");
+                _isWallSliding = true;
+                _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, Mathf.Clamp(_rigidbody.velocity.y, -wallSlideSpeed, float.MaxValue));
+            }
+            else
+                _isWallSliding = false;
         }
 
         private bool IsGrounded()
