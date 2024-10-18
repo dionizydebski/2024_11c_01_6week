@@ -4,6 +4,8 @@ using UnityEditor.ShortcutManagement;
 using UnityEngine;
 using UnityEngine.Serialization;
 
+
+//TODO: Delete Debug.Log-s before final build
 namespace Player
 {
     public class PlayerAttack : MonoBehaviour
@@ -11,14 +13,23 @@ namespace Player
         private Animator _animator;
         private BoxCollider2D _boxCollider;
         private Rigidbody2D _rigidbody;
+        private BasicPlayerMovement _basicPlayerMovement;
 
         private bool _jumpSlamed;
 
         [Header("Melee Attack")]
         [SerializeField] private Transform attackPoint;
         [SerializeField] private float attackRange = 0.5f;
+        [SerializeField] private float meleeAttackCooldown;
+        private float _meleeAttackCooldownTimer = Mathf.Infinity;
         [SerializeField]private LayerMask enemyLayer;
-
+        
+        [Header("Ranged Attack")]
+        [SerializeField] private float rangedAttackCooldown;
+        [SerializeField] private Transform firePoint;
+        [SerializeField] private GameObject[] projectilePrefabs;
+        private float _rangedAttackCooldownTimer = Mathf.Infinity;
+        
         [Header("JumpSlam")]
         [SerializeField] private float jumpSlamForce = 10;
         [SerializeField] private Transform jumpSlamPoint;
@@ -30,14 +41,13 @@ namespace Player
         {
             _boxCollider = GetComponent<BoxCollider2D>();
             _rigidbody = GetComponent<Rigidbody2D>();
+            _basicPlayerMovement = GetComponent<BasicPlayerMovement>();
         }
 
         private void Update()
         {
-            if (Input.GetButtonDown("Fire1"))
-            {
-                Attack();
-            }
+            if (Input.GetButtonDown("Fire1") && _meleeAttackCooldownTimer > meleeAttackCooldown && _basicPlayerMovement.CanAttack())
+                MeleeAttack();
 
             if(InAir())
                 if (Input.GetButtonDown("Fire1") && Input.GetKey(KeyCode.S) ||
@@ -47,16 +57,22 @@ namespace Player
                     _rigidbody.AddForce(Vector2.down * jumpSlamForce, ForceMode2D.Impulse);
                 }
 
-            if ((CollideWithEnemy() || !InAir()) && _jumpSlamed) //TODO: Fix hit regitration after jumping onto enemy
+            if (Input.GetButtonDown("Fire2") && _rangedAttackCooldownTimer > rangedAttackCooldown && _basicPlayerMovement.CanAttack())
+                RangedAttack();
+
+            if ((CollideWithEnemy() || !InAir()) && _jumpSlamed)
             {
                 JumpSlam();
                 _jumpSlamed = false;
             }
-
+            
+            _meleeAttackCooldownTimer += Time.deltaTime;
+            _rangedAttackCooldownTimer += Time.deltaTime;
         }
 
-        private void Attack()
+        private void MeleeAttack()
         {
+            _meleeAttackCooldownTimer = 0;
             //Player Attack animation goes here
             Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
 
@@ -80,6 +96,13 @@ namespace Player
             }
         }
 
+        private void RangedAttack()
+        {
+            _rangedAttackCooldownTimer = 0;
+            projectilePrefabs[FindProjectile()].transform.position = firePoint.position;
+            projectilePrefabs[FindProjectile()].GetComponent<SwordProjectile>().SetDirection(Mathf.Sign(transform.localScale.x));
+        }
+
         private void OnDrawGizmosSelected()
         {
             if (attackPoint == null && jumpSlamPoint == null)
@@ -100,6 +123,17 @@ namespace Player
         {
             RaycastHit2D reycastHit = Physics2D.BoxCast(_boxCollider.bounds.center, _boxCollider.bounds.size,0, Vector2.down, 0.1f, LayerMask.GetMask("Enemy"));
             return reycastHit.collider != null;
+        }
+
+        private int FindProjectile()
+        {
+            for (int i = 0; i < projectilePrefabs.Length; i++)
+            {
+                if (!projectilePrefabs[i].activeInHierarchy)
+                    return i;
+            }
+
+            return 0;
         }
     }
 }
