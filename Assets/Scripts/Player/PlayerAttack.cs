@@ -6,6 +6,7 @@ using UnityEngine.Serialization;
 
 
 //TODO: Delete Debug.Log-s before final build
+//TODO: Find better way to holding projectiles so that it can be attached to player prefab
 namespace Player
 {
     public class PlayerAttack : MonoBehaviour

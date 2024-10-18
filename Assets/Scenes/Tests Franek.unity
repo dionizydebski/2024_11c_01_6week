@@ -521,9 +521,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4167151893665243556, guid: 0dc81ad593e121c89857832c452879f1, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6428986171454278949, guid: 0dc81ad593e121c89857832c452879f1, type: 3}
-      propertyPath: wallSlideSpeed
+      propertyPath: wallJumpingPower.x
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6428986171454278949, guid: 0dc81ad593e121c89857832c452879f1, type: 3}
+      propertyPath: wallJumpingPower.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6428986171454278949, guid: 0dc81ad593e121c89857832c452879f1, type: 3}
+      propertyPath: wallJumpingDuration
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 7081113256635750944, guid: 0dc81ad593e121c89857832c452879f1, type: 3}
       propertyPath: projectilePrefabs.Array.data[0]

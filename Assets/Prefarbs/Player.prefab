@@ -181,6 +181,8 @@ MonoBehaviour:
   extraJumps: 1
   coyoteTime: 0.25
   wallSlideSpeed: 2
+  wallJumpingTime: 0.2
+  wallJumpingDuration: 0.4
 --- !u!114 &7081113256635750944
 MonoBehaviour:
   m_ObjectHideFlags: 0
