@@ -12,7 +12,12 @@
       <change beforePath="$PROJECT_DIR$/Assets/Content/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Background/Small Cloud 2.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Content/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Background/Small Cloud 2.png.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Content/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Background/Small Cloud 3.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Content/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Background/Small Cloud 3.png.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Dionizy_scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Dionizy_scene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Background/ParallaxBackground.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Background/ParallaxBackground.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Background/ParallaxCamera.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Background/ParallaxCamera.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Background/ParallaxLayer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Background/ParallaxLayer.cs.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,6 +117,9 @@
       <workItem from="1729167059095" duration="239000" />
       <workItem from="1729167315254" duration="60000" />
       <workItem from="1729167606625" duration="1576000" />
+      <workItem from="1729179544931" duration="185000" />
+      <workItem from="1729180798343" duration="110000" />
+      <workItem from="1729181180670" duration="258000" />
     </task>
     <servers />
   </component>
