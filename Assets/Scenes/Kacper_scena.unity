@@ -603,6 +603,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 245917347705455548, guid: ea2e5fba56b2e874f86e11367676e5cb, type: 3}
+      propertyPath: range
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 245917347705455548, guid: ea2e5fba56b2e874f86e11367676e5cb, type: 3}
+      propertyPath: attackCooldown
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 245917347705455548, guid: ea2e5fba56b2e874f86e11367676e5cb, type: 3}
+      propertyPath: colliderDistance
+      value: 0.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 949111047345854071, guid: ea2e5fba56b2e874f86e11367676e5cb, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1e8883b61a8447e4a8e9552663e6e2fc, type: 3}
     - target: {fileID: 1020540504552847263, guid: ea2e5fba56b2e874f86e11367676e5cb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.70551795

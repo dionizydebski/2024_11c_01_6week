@@ -25,9 +25,12 @@ namespace Player
         [SerializeField] private float jumpSlamBoxWidth = 0.5f;
         [SerializeField] private float jumpSlamBoxHeight = 0.5f;
         [SerializeField] private float jumpSlamBoxPositionOffset = 0.5f;
+        
+        private Health enemyHealth;
 
         private void Awake()
         {
+            _animator = GetComponent<Animator>();
             _boxCollider = GetComponent<BoxCollider2D>();
             _rigidbody = GetComponent<Rigidbody2D>();
         }
@@ -58,6 +61,7 @@ namespace Player
         private void Attack()
         {
             //Player Attack animation goes here
+            _animator.SetTrigger("meleeAttack");
             Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
 
             foreach (var enemy in hitEnemies)

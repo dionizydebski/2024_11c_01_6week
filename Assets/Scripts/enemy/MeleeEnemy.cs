@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class MeleeEnemy : MonoBehaviour
@@ -17,7 +18,7 @@ public class MeleeEnemy : MonoBehaviour
 
     //References
     private Animator anim;
-    private Health playerHealth;
+    [SerializeField] private PlayerHealth playerHealth;
     private EnemyPatrol enemyPatrol;
 
     private void Awake()
@@ -44,6 +45,14 @@ public class MeleeEnemy : MonoBehaviour
             enemyPatrol.enabled = !PlayerInSight();
     }
 
+    private void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "Player")
+        {
+            playerHealth.TakeDamage(damage);
+        }
+    }
+
     private bool PlayerInSight()
     {
         RaycastHit2D hit = 
@@ -52,7 +61,7 @@ public class MeleeEnemy : MonoBehaviour
             0, Vector2.left, 0, playerLayer);
 
         if (hit.collider != null)
-            playerHealth = hit.transform.GetComponent<Health>();
+            playerHealth = hit.transform.GetComponent<PlayerHealth>();
 
         return hit.collider != null;
     }

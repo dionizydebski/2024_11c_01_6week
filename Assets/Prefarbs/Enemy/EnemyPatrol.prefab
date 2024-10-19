@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1020540504552847263}
   - component: {fileID: 5618263609823251340}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: EnemyPatrol
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -51,7 +51,7 @@ MonoBehaviour:
   rightEdge: {fileID: 2430342150473606531}
   enemy: {fileID: 1576723044454454490}
   speed: 2
-  idleDuration: 0
+  idleDuration: 2
   anim: {fileID: 1558721788624597215}
 --- !u!1 &3937455597156994660
 GameObject:
@@ -161,7 +161,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: bb9280c5429007a47af73d96bc954c4f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1e8883b61a8447e4a8e9552663e6e2fc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -250,14 +250,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6e5783bb2f1a6a43b2a6851c8b53434, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackCooldown: 1
-  range: 1
+  attackCooldown: 2
+  range: 1.5
   damage: 1
-  colliderDistance: -0.22
+  colliderDistance: -0.19
   boxCollider: {fileID: 881636985642689}
   playerLayer:
     serializedVersion: 2
     m_Bits: 512
+  playerHealth: {fileID: 0}
 --- !u!114 &4864983566191936992
 MonoBehaviour:
   m_ObjectHideFlags: 0
