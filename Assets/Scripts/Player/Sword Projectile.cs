@@ -12,11 +12,13 @@ namespace Player
 
         private BoxCollider2D _boxCollider;
         private Rigidbody2D _rigidbody;
+        private Animator _animator;
 
         private void Awake()
         {
             _boxCollider = GetComponent<BoxCollider2D>();
             _rigidbody = GetComponent<Rigidbody2D>();
+            _animator = GetComponent<Animator>();
         }
 
         private void Update()

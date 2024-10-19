@@ -43,6 +43,7 @@ namespace Player
             _boxCollider = GetComponent<BoxCollider2D>();
             _rigidbody = GetComponent<Rigidbody2D>();
             _basicPlayerMovement = GetComponent<BasicPlayerMovement>();
+            _animator = GetComponent<Animator>();
         }
 
         private void Update()
@@ -73,8 +74,9 @@ namespace Player
 
         private void MeleeAttack()
         {
+            Debug.Log("melee attack");
             _meleeAttackCooldownTimer = 0;
-            //Player Attack animation goes here
+            _animator.SetTrigger("melee attack");
             Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
 
             foreach (var enemy in hitEnemies)
@@ -100,6 +102,7 @@ namespace Player
         private void RangedAttack()
         {
             _rangedAttackCooldownTimer = 0;
+            _animator.SetTrigger("ranged attack");
             projectilePrefabs[FindProjectile()].transform.position = firePoint.position;
             projectilePrefabs[FindProjectile()].GetComponent<SwordProjectile>().SetDirection(Mathf.Sign(transform.localScale.x));
         }

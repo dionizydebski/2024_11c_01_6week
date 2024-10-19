@@ -206,8 +206,8 @@ namespace Player
 
         private bool OnEnemy()
         {
-            RaycastHit2D reycastHit = Physics2D.BoxCast(_boxCollider.bounds.center, _boxCollider.bounds.size,0, Vector2.down, 0.1f, LayerMask.GetMask("Enemy"));
-            return reycastHit.collider != null;
+            RaycastHit2D raycastHit = Physics2D.BoxCast(_boxCollider.bounds.center, _boxCollider.bounds.size,0, Vector2.down, 0.1f, LayerMask.GetMask("Enemy"));
+            return raycastHit.collider != null;
         }
 
         public bool CanAttack()

@@ -6,8 +6,31 @@
   <component name="ChangeListManager">
     <list default="true" id="dea43f36-78a4-49aa-83f7-be453a95d980" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.2024_11c_01_6week/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2024_11c_01_6week/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Content/Animations/Fall with Sword.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Content/Animations/Fall with Sword.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Content/Animations/Ground with Sword.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Content/Animations/Ground with Sword.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Content/Animations/Idle with sword.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Content/Animations/Idle with sword.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Content/Animations/Idle without sword.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Content/Animations/Idle without sword.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Content/Animations/Jump with Sword.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Content/Animations/Jump with Sword.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Content/Animations/Jump without Sword.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Content/Animations/Jump without Sword.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Content/Animations/Melee Attack.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Content/Animations/Melee Attack.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Content/Animations/Player Controller.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Content/Animations/Player Controller.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Content/Animations/Running with sword.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Content/Animations/Running with sword.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Content/Animations/Running without sword.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Content/Animations/Running without sword.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefarbs/Projectlles/Sword Projectile.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefarbs/Projectlles/Sword Projectile.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Tests Franek.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Tests Franek.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/BasicPlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/BasicPlayerMovement.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerAttack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerAttack.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Sword Projectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/Sword Projectile.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +124,7 @@
       <workItem from="1728920333034" duration="6418000" />
       <workItem from="1728939468713" duration="9000" />
       <workItem from="1729248278498" duration="16961000" />
-      <workItem from="1729336842786" duration="7210000" />
+      <workItem from="1729336842786" duration="9726000" />
     </task>
     <servers />
   </component>
