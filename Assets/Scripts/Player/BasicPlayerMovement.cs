@@ -57,7 +57,7 @@ namespace Player
         {
             _xInput = Input.GetAxisRaw("Horizontal");
             //Jump
-            if (Input.GetButtonDown("Jump"))
+            if (Input.GetButtonDown("Jump") && !OnWall())
             {
                 _performJump = true;
             }
@@ -73,8 +73,8 @@ namespace Player
             {
                 FlipSprite();
             }
-
-
+            WallJump();
+            WallSlide();
         }
 
         private void FixedUpdate()
@@ -88,8 +88,7 @@ namespace Player
             {
                 Jump();
             }
-            WallJump();
-            WallSlide();
+
         }
 
         private void Jump()
@@ -124,6 +123,7 @@ namespace Player
         private void Move()
         {
             //Move animation goes here
+            _animator.SetBool("run", _xInput != 0);
             _rigidbody.velocity = new Vector2(_xInput*speed, _rigidbody.velocity.y);
         }
 
@@ -207,7 +207,7 @@ namespace Player
 
         public bool CanAttack()
         {
-            return !OnWall(); //Add other conditions for attack
+            return !OnWall(); //TODO: Possibly add other conditions for attack
         }
     }
 }

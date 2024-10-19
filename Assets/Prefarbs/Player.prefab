@@ -182,7 +182,7 @@ MonoBehaviour:
   coyoteTime: 0.25
   wallSlideSpeed: 2
   wallJumpingTime: 0.2
-  wallJumpingDuration: 0.2
+  wallJumpingDuration: 0.4
   wallJumpingPower: {x: 2, y: 4}
 --- !u!114 &7081113256635750944
 MonoBehaviour:
@@ -230,7 +230,7 @@ Animator:
   m_GameObject: {fileID: 6338843962022591}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0c63e3382c48947fcb4e7cd68b93b9da, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
