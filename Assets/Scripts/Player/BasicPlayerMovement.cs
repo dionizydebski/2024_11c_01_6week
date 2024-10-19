@@ -75,6 +75,8 @@ namespace Player
             }
             WallJump();
             WallSlide();
+            _animator.SetBool("run", _xInput != 0);
+            _animator.SetBool("grounded", IsGrounded());
         }
 
         private void FixedUpdate()
@@ -94,7 +96,7 @@ namespace Player
         private void Jump()
         {
             if (_coyoteCooldown <= 0 && !OnWall() && _jumpCount <= 0) return;
-            //Jump animation goes here
+            _animator.Play("jump");
             if (IsGrounded() || OnEnemy()) //TODO: think about jump of enemies head - can double jump? coyote time?
             {
                 _performJump = false;
@@ -123,7 +125,6 @@ namespace Player
         private void Move()
         {
             //Move animation goes here
-            _animator.SetBool("run", _xInput != 0);
             _rigidbody.velocity = new Vector2(_xInput*speed, _rigidbody.velocity.y);
         }
 
