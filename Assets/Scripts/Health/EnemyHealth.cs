@@ -1,7 +1,8 @@
 using UnityEngine;
 using System.Collections;
+using System.Threading;
 
-public class Health : MonoBehaviour
+public class EnemyHealth : MonoBehaviour
 {
     [Header ("Health")]
     [SerializeField] private float startingHealth;
@@ -41,10 +42,18 @@ public class Health : MonoBehaviour
                 anim.SetTrigger("die");
 
                 //Deactivate all attached component classes
-                foreach (Behaviour component in components)
-                    component.enabled = false;
+                if (GetComponentInParent<EnemyPatrol>() != null)
+                {
+                    GetComponentInParent<EnemyPatrol>().enabled = false;
+                }
+
+                if (GetComponent<MeleeEnemy>() != null)
+                {
+                    GetComponent<MeleeEnemy>().enabled = false;
+                }
 
                 dead = true;
+                //Destroy(gameObject);
             }
         }
     }

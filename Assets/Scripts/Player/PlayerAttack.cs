@@ -17,7 +17,8 @@ namespace Player
         [Header("Melee Attack")]
         [SerializeField] private Transform attackPoint;
         [SerializeField] private float attackRange = 0.5f;
-        [SerializeField]private LayerMask enemyLayer;
+        [SerializeField] private LayerMask enemyLayer;
+        [SerializeField] private int damage;
 
         [Header("JumpSlam")]
         [SerializeField] private float jumpSlamForce = 10;
@@ -25,8 +26,8 @@ namespace Player
         [SerializeField] private float jumpSlamBoxWidth = 0.5f;
         [SerializeField] private float jumpSlamBoxHeight = 0.5f;
         [SerializeField] private float jumpSlamBoxPositionOffset = 0.5f;
-        
-        private Health enemyHealth;
+
+        public EnemyHealth enemyHealth;
 
         private void Awake()
         {
@@ -67,6 +68,7 @@ namespace Player
             foreach (var enemy in hitEnemies)
             {
                 //TODO: Add deal damage component
+                enemyHealth.TakeDamage(damage);
                 Debug.Log("We hit" + enemy);
             }
         }

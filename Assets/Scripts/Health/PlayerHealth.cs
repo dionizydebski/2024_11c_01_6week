@@ -1,30 +1,59 @@
 using System.Collections;
 using System.Collections.Generic;
+using Player;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
     public int maxHealth = 10;
-    public int health;
+    public int currentHealth;
+    
+    private SpriteRenderer spriteRend;
+    private Animator anim;
+    private bool dead;
     
     // Start is called before the first frame update
     void Start()
     {
-        health = maxHealth;
+        currentHealth = maxHealth;
     }
 
     public void TakeDamage(int damage)
     {
-        health -= damage;
-        if (health <= 0)
+        currentHealth -= damage;
+        if (currentHealth > 0)
         {
-            Destroy(gameObject);
+            anim.SetTrigger("hurt");
+            //Destroy(gameObject);
+        }
+        else
+        {
+            if (!dead)
+            {
+                anim.SetTrigger("die");
+
+                //Deactivate all attached component classes
+                if (GetComponentInParent<PlayerAttack>() != null)
+                {
+                    GetComponentInParent<PlayerAttack>().enabled = false;
+                }
+
+                if (GetComponent<BasicPlayerMovement>() != null)
+                {
+                    GetComponent<BasicPlayerMovement>().enabled = false;
+                }
+
+                dead = true;
+                //Destroy(gameObject);
+            }
         }
     }
 
     // Update is called once per frame
-    void Update()
+    private void Awake()
     {
-        
+        currentHealth = maxHealth;
+        anim = GetComponent<Animator>();
+        spriteRend = GetComponent<SpriteRenderer>();
     }
 }
