@@ -6,6 +6,7 @@ using UnityEngine.Serialization;
 
 
 //TODO: Delete Debug.Log-s before final build
+//TODO: Create condition for attacking only if player "has" a sword
 namespace Player
 {
     public class PlayerAttack : MonoBehaviour

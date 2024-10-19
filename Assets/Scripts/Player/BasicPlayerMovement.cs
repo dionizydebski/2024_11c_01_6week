@@ -15,6 +15,8 @@ namespace Player
 
         private bool _isFacingRight = true;
         private float _xInput;
+        private float prevY;
+
         [Header("Movement Parameters")]
         [SerializeField] private float speed;
         [SerializeField] private float jumpForce;
@@ -91,6 +93,8 @@ namespace Player
                 Jump();
             }
 
+            //TODO: falling animation
+            //TODO: check if player sprite becoming larger is intended
         }
 
         private void Jump()
@@ -209,6 +213,16 @@ namespace Player
         public bool CanAttack()
         {
             return !OnWall(); //TODO: Possibly add other conditions for attack
+        }
+
+        private bool IsFalling()
+        {
+            float currY = transform.position.y;
+
+            float travel = currY - prevY;
+            prevY = currY;
+
+            return travel < 0;
         }
     }
 }
