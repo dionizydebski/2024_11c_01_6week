@@ -7,43 +7,42 @@ namespace Player
     [RequireComponent(typeof(Rigidbody2D), typeof(SpriteRenderer))]
     public class BasicPlayerMovement : MonoBehaviour
     {
-        
-        private Rigidbody2D _rigidbody;
-        private SpriteRenderer _spriteRenderer;
-        private Animator _animator;
-        private BoxCollider2D _boxCollider;
-
-        private bool _isFacingRight = true;
-        private float _xInput;
-        private float prevY;
-
         [Header("Movement Parameters")]
         [SerializeField] private float speed;
+
         [SerializeField] private float jumpForce;
-        
-        [Header("Jump Parameters")]
-        private bool _performJump;
         [SerializeField] private int extraJumps = 1;
-        private int _jumpCount;
 
         [Header("Coyote Time")]
         [SerializeField] private float coyoteTime;
-        private float _coyoteCooldown;
 
         [Header("Wall Sliding Parameters")]
         [SerializeField] private float wallSlideSpeed;
-        private bool _isWallSliding;
+        [SerializeField] private float wallJumpingTime;
+        [SerializeField] private float wallJumpingDuration;
+        [SerializeField] private Vector2 wallJumpingPower = new(8, 16);
 
         [Header("Wall Jumping Parameters")]
         private bool _isWallJumping;
-        private float _wallJumpingDirection;
-        [SerializeField]private float wallJumpingTime;
-        private float _wallJumpingCounter;
-        [SerializeField] private float wallJumpingDuration;
-        [SerializeField]private Vector2 wallJumpingPower = new Vector2(8, 16);
+        private bool _isWallSliding;
+        private int _jumpCount;
+        private float _mainGravityScale;
+
+        [Header("Jump Parameters")]
+        private bool _performJump;
+
+        private Rigidbody2D _rigidbody;
+        private SpriteRenderer _spriteRenderer;
 
         private float _wallJumpCooldown;
-        private float _mainGravityScale;
+        private float _wallJumpingCounter;
+        private float _wallJumpingDirection;
+        private float _xInput;
+        private float _prevY;
+        private Animator _animator;
+        private BoxCollider2D _boxCollider;
+        private float _coyoteCooldown;
+        private bool _isFacingRight = true;
 
         private void Awake()
         {
@@ -59,22 +58,18 @@ namespace Player
         {
             _xInput = Input.GetAxisRaw("Horizontal");
             //Jump
-            if (Input.GetButtonDown("Jump") && !OnWall())
-            {
-                _performJump = true;
-            }
+            if (Input.GetButtonDown("Jump") && !OnWall()) _performJump = true;
             if (IsGrounded() || OnEnemy())
             {
                 _coyoteCooldown = coyoteTime; //Resetting coyote time cooldown
                 _jumpCount = extraJumps;
             }
             else
-                _coyoteCooldown -= Time.fixedDeltaTime;
-
-            if (!_isWallJumping)
             {
-                FlipSprite();
+                _coyoteCooldown -= Time.fixedDeltaTime;
             }
+
+            if (!_isWallJumping) FlipSprite();
             WallJump();
             WallSlide();
             _animator.SetBool("run", _xInput != 0);
@@ -83,15 +78,9 @@ namespace Player
 
         private void FixedUpdate()
         {
-            if (!_isWallJumping)
-            {
-                Move();
-            }
+            if (!_isWallJumping) Move();
 
-            if (_performJump)
-            {
-                Jump();
-            }
+            if (_performJump) Jump();
 
             //TODO: falling animation
             //TODO: check if player sprite becoming larger is intended
@@ -123,21 +112,22 @@ namespace Player
                     }
                 }
             }
+
             _coyoteCooldown = 0;
         }
 
         private void Move()
         {
             //Move animation goes here
-            _rigidbody.velocity = new Vector2(_xInput*speed, _rigidbody.velocity.y);
+            _rigidbody.velocity = new Vector2(_xInput * speed, _rigidbody.velocity.y);
         }
 
         private void FlipSprite()
         {
-            if (_isFacingRight && _xInput < 0f || !_isFacingRight && _xInput > 0f)
+            if ((_isFacingRight && _xInput < 0f) || (!_isFacingRight && _xInput > 0f))
             {
                 _isFacingRight = !_isFacingRight;
-                Vector3 localScale = transform.localScale;
+                var localScale = transform.localScale;
                 localScale.x *= -1;
                 transform.localScale = localScale;
             }
@@ -148,10 +138,13 @@ namespace Player
             if (OnWall() && !IsGrounded() && _xInput != 0f)
             {
                 _isWallSliding = true;
-                _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, Mathf.Clamp(_rigidbody.velocity.y, -wallSlideSpeed, float.MaxValue));
+                _rigidbody.velocity = new Vector2(_rigidbody.velocity.x,
+                    Mathf.Clamp(_rigidbody.velocity.y, -wallSlideSpeed, float.MaxValue));
             }
             else
+            {
                 _isWallSliding = false;
+            }
         }
 
         private void WallJump()
@@ -179,7 +172,7 @@ namespace Player
                 if (transform.localScale.x != _wallJumpingDirection)
                 {
                     _isFacingRight = !_isFacingRight;
-                    Vector3 localScale = transform.localScale;
+                    var localScale = transform.localScale;
                     localScale.x *= -1;
                     transform.localScale = localScale;
                 }
@@ -195,18 +188,22 @@ namespace Player
 
         private bool IsGrounded()
         {
-            RaycastHit2D raycastHit = Physics2D.BoxCast(_boxCollider.bounds.center, _boxCollider.bounds.size,0, Vector2.down, 0.1f, LayerMask.GetMask("Ground"));
+            var raycastHit = Physics2D.BoxCast(_boxCollider.bounds.center, _boxCollider.bounds.size, 0, Vector2.down,
+                0.1f, LayerMask.GetMask("Ground"));
             return raycastHit.collider != null;
         }
+
         private bool OnWall()
         {
-            RaycastHit2D raycastHit = Physics2D.BoxCast(_boxCollider.bounds.center, _boxCollider.bounds.size,0, new Vector2(transform.localScale.x, 0), 0.1f, LayerMask.GetMask("Wall"));
+            var raycastHit = Physics2D.BoxCast(_boxCollider.bounds.center, _boxCollider.bounds.size, 0,
+                new Vector2(transform.localScale.x, 0), 0.1f, LayerMask.GetMask("Wall"));
             return raycastHit.collider != null;
         }
 
         private bool OnEnemy()
         {
-            RaycastHit2D raycastHit = Physics2D.BoxCast(_boxCollider.bounds.center, _boxCollider.bounds.size,0, Vector2.down, 0.1f, LayerMask.GetMask("Enemy"));
+            var raycastHit = Physics2D.BoxCast(_boxCollider.bounds.center, _boxCollider.bounds.size, 0, Vector2.down,
+                0.1f, LayerMask.GetMask("Enemy"));
             return raycastHit.collider != null;
         }
 
@@ -217,13 +214,12 @@ namespace Player
 
         private bool IsFalling()
         {
-            float currY = transform.position.y;
+            var currY = transform.position.y;
 
-            float travel = currY - prevY;
-            prevY = currY;
+            var travel = currY - _prevY;
+            _prevY = currY;
 
             return travel < 0;
         }
     }
 }
-
