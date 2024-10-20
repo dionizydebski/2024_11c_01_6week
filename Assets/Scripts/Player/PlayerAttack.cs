@@ -18,6 +18,7 @@ namespace Player
         [SerializeField] private Transform attackPoint;
         [SerializeField] private float attackRange = 0.5f;
         [SerializeField] private LayerMask enemyLayer;
+        [SerializeField] private LayerMask platformLayer;
         [SerializeField] private int damage;
 
         [Header("JumpSlam")]
@@ -64,19 +65,28 @@ namespace Player
             //Player Attack animation goes here
             _animator.SetTrigger("meleeAttack");
             Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
+            Collider2D[] hitPlatforms = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, platformLayer);
 
             foreach (var enemy in hitEnemies)
             {
                 //TODO: Add deal damage component
-                health.TakeDamage(damage);
+                enemy.GetComponent<Health>().TakeDamage(damage);
                 Debug.Log("We hit" + enemy);
+            }
+            
+            foreach (var platform in hitPlatforms)
+            {
+                //TODO: Add deal damage component
+                platform.GetComponent<Health>().TakeDamage(damage);
+                Debug.Log("We hit" + platform);
             }
         }
 
         private void JumpSlam()
         {
             Debug.Log("Ground attack");
-            Collider2D[] hitEnemies = Physics2D.OverlapBoxAll(jumpSlamPoint.position + new Vector3(0,jumpSlamBoxPositionOffset, 0), new Vector3(jumpSlamBoxWidth, jumpSlamBoxHeight, 0), 0f,enemyLayer);
+            Collider2D[] hitEnemies = Physics2D.OverlapBoxAll(jumpSlamPoint.position + new Vector3(0,jumpSlamBoxPositionOffset, 0), 
+                new Vector3(jumpSlamBoxWidth, jumpSlamBoxHeight, 0), 0f,enemyLayer);
 
             Debug.Log(hitEnemies.Length);
             foreach (var enemy in hitEnemies)

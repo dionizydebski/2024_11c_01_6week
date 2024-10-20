@@ -32,14 +32,14 @@ public class Health : MonoBehaviour
 
         if (currentHealth > 0)
         {
-            anim.SetTrigger("hurt");
+            //anim.SetTrigger("hurt");
             StartCoroutine(Invunerability());
         }
         else
         {
             if (!dead)
             {
-                anim.SetTrigger("die");
+                //anim.SetTrigger("die");
 
                 //Deactivate all attached component classes
                 if (GetComponentInParent<EnemyPatrol>() != null)
