@@ -217,11 +217,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 451712483}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ce27d3d1cc24864bbc26a51f1958d49, type: 3}
+  m_Script: {fileID: 11500000, guid: 077e4cd20f78e7a468c27b0cbe21c407, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 3
   currentHealth: 0
+  iFramesDuration: 0
+  numberOfFlashes: 0
 --- !u!1 &479815564
 GameObject:
   m_ObjectHideFlags: 0
@@ -652,7 +654,7 @@ PrefabInstance:
     - target: {fileID: 245917347705455548, guid: ea2e5fba56b2e874f86e11367676e5cb, type: 3}
       propertyPath: playerHealth
       value: 
-      objectReference: {fileID: 451712484}
+      objectReference: {fileID: 0}
     - target: {fileID: 1020540504552847263, guid: ea2e5fba56b2e874f86e11367676e5cb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.70551795
@@ -696,6 +698,10 @@ PrefabInstance:
     - target: {fileID: 1029607657553901894, guid: ea2e5fba56b2e874f86e11367676e5cb, type: 3}
       propertyPath: m_Name
       value: EnemyPatrol
+      objectReference: {fileID: 0}
+    - target: {fileID: 4864983566191936992, guid: ea2e5fba56b2e874f86e11367676e5cb, type: 3}
+      propertyPath: maxHealth
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4864983566191936992, guid: ea2e5fba56b2e874f86e11367676e5cb, type: 3}
       propertyPath: components.Array.size

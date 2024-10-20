@@ -63,10 +63,21 @@ public class Health : MonoBehaviour
                 }
 
                 dead = true;
-                //Destroy(gameObject);
+                StartCoroutine(WaitAndDie());
+                
             }
         }
     }
+    
+    IEnumerator WaitAndDie()
+    {
+        // Czekaj 5 sekund
+        yield return new WaitForSeconds(2f);
+    
+        // Po 5 sekundach wykonaj akcję
+        Destroy(gameObject);
+    }
+    
     public void AddHealth(float _value)
     {
         currentHealth = Mathf.Clamp(currentHealth + _value, 0, maxHealth);
