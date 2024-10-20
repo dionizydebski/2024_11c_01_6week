@@ -176,7 +176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  jumpForce: 7
+  jumpForce: 10
   extraJumps: 1
   coyoteTime: 0.25
 --- !u!95 &9113385628442991051

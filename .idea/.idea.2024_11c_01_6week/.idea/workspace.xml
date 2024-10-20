@@ -6,18 +6,26 @@
   <component name="ChangeListManager">
     <list default="true" id="dea43f36-78a4-49aa-83f7-be453a95d980" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.2024_11c_01_6week/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2024_11c_01_6week/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Content/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Background/BG Image.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Content/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Background/BG Image.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Content/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Background/Big Clouds.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Content/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Background/Big Clouds.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Content/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Background/Small Cloud 1.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Content/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Background/Small Cloud 1.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Content/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Background/Small Cloud 2.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Content/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Background/Small Cloud 2.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Content/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Background/Small Cloud 3.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Content/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Background/Small Cloud 3.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Dionizy_scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Dionizy_scene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Background/ParallaxBackground.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Background/ParallaxBackground.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Background/ParallaxCamera.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Background/ParallaxCamera.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Background/ParallaxLayer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Background/ParallaxLayer.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Content/Sprites/Player/Idle 01.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Content/Sprites/Player/Idle 01.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Content/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Background/BG Image.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Content/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Background/BG Image.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Content/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Background/Big Clouds.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Content/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Background/Big Clouds.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Content/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Background/Small Cloud 1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Content/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Background/Small Cloud 1.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Content/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Background/Small Cloud 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Content/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Background/Small Cloud 2.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Content/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Background/Small Cloud 3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Content/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Background/Small Cloud 3.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Content/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Terrain/Sprite Atlas.spriteatlasv2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Content/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Terrain/Sprite Atlas.spriteatlasv2.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Content/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Terrain/Terrain (32x32).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Content/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Terrain/Terrain (32x32).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefarbs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefarbs/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Background/Parallax.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Background/Parallax.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Background/ParallaxController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Background/ParallaxController.cs.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +41,14 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Platforms/HangingPlatform.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Platforms/MovingPlatform.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
+  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
+  <component name="KubernetesApiProvider"><![CDATA[{
+  "isMigrated": true
+}]]></component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
@@ -120,6 +135,10 @@
       <workItem from="1729179544931" duration="185000" />
       <workItem from="1729180798343" duration="110000" />
       <workItem from="1729181180670" duration="258000" />
+      <workItem from="1729358331957" duration="1419000" />
+      <workItem from="1729359791466" duration="645000" />
+      <workItem from="1729360664701" duration="5260000" />
+      <workItem from="1729367579847" duration="10539000" />
     </task>
     <servers />
   </component>
