@@ -9,7 +9,7 @@ namespace Player
     [RequireComponent(typeof(Rigidbody2D), typeof(SpriteRenderer))]
     public class BasicPlayerMovement : MonoBehaviour
     {
-        
+        public GameManager gameManager;
         private Rigidbody2D _rigidbody;
         private SpriteRenderer _spriteRenderer;
         private Animator _animator;
