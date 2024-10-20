@@ -1,34 +1,31 @@
 using UnityEngine;
 using System.Collections;
-using System.Threading;
+using Player;
 
-public class EnemyHealth : MonoBehaviour
+public class Health : MonoBehaviour
 {
     [Header ("Health")]
-    [SerializeField] private float startingHealth;
+    [SerializeField] private float maxHealth;
     public float currentHealth { get; private set; }
     private Animator anim;
     private bool dead;
+    private bool invulnerable;
 
     [Header("iFrames")]
     [SerializeField] private float iFramesDuration;
     [SerializeField] private int numberOfFlashes;
     private SpriteRenderer spriteRend;
 
-    [Header("Components")]
-    [SerializeField] private Behaviour[] components;
-    private bool invulnerable;
-
     private void Awake()
     {
-        currentHealth = startingHealth;
+        currentHealth = maxHealth;
         anim = GetComponent<Animator>();
         spriteRend = GetComponent<SpriteRenderer>();
     }
     public void TakeDamage(float _damage)
     {
         if (invulnerable) return;
-        currentHealth = Mathf.Clamp(currentHealth - _damage, 0, startingHealth);
+        currentHealth = Mathf.Clamp(currentHealth - _damage, 0, maxHealth);
 
         if (currentHealth > 0)
         {
@@ -51,6 +48,16 @@ public class EnemyHealth : MonoBehaviour
                 {
                     GetComponent<MeleeEnemy>().enabled = false;
                 }
+                
+                if (GetComponentInParent<PlayerAttack>() != null)
+                {
+                    GetComponentInParent<PlayerAttack>().enabled = false;
+                }
+
+                if (GetComponent<BasicPlayerMovement>() != null)
+                {
+                    GetComponent<BasicPlayerMovement>().enabled = false;
+                }
 
                 dead = true;
                 //Destroy(gameObject);
@@ -59,7 +66,7 @@ public class EnemyHealth : MonoBehaviour
     }
     public void AddHealth(float _value)
     {
-        currentHealth = Mathf.Clamp(currentHealth + _value, 0, startingHealth);
+        currentHealth = Mathf.Clamp(currentHealth + _value, 0, maxHealth);
     }
     private IEnumerator Invunerability()
     {

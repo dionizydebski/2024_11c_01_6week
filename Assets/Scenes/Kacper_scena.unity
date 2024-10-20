@@ -182,11 +182,46 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7081113256635750944, guid: 0dc81ad593e121c89857832c452879f1, type: 3}
+      propertyPath: damage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7081113256635750944, guid: 0dc81ad593e121c89857832c452879f1, type: 3}
+      propertyPath: attackRange
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7081113256635750944, guid: 0dc81ad593e121c89857832c452879f1, type: 3}
+      propertyPath: enemyHealth
+      value: 
+      objectReference: {fileID: 1478704486}
+    m_RemovedComponents:
+    - {fileID: -5586485214562136425, guid: 0dc81ad593e121c89857832c452879f1, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6338843962022591, guid: 0dc81ad593e121c89857832c452879f1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 451712484}
   m_SourcePrefab: {fileID: 100100000, guid: 0dc81ad593e121c89857832c452879f1, type: 3}
+--- !u!1 &451712483 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6338843962022591, guid: 0dc81ad593e121c89857832c452879f1, type: 3}
+  m_PrefabInstance: {fileID: 45199323}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &451712484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 451712483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ce27d3d1cc24864bbc26a51f1958d49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 3
+  currentHealth: 0
 --- !u!1 &479815564
 GameObject:
   m_ObjectHideFlags: 0
@@ -595,6 +630,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1478704486 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4864983566191936992, guid: ea2e5fba56b2e874f86e11367676e5cb, type: 3}
+  m_PrefabInstance: {fileID: 8218038108808943628}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 077e4cd20f78e7a468c27b0cbe21c407, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8218038108808943628
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -604,21 +650,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 245917347705455548, guid: ea2e5fba56b2e874f86e11367676e5cb, type: 3}
-      propertyPath: range
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 245917347705455548, guid: ea2e5fba56b2e874f86e11367676e5cb, type: 3}
-      propertyPath: attackCooldown
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 245917347705455548, guid: ea2e5fba56b2e874f86e11367676e5cb, type: 3}
-      propertyPath: colliderDistance
-      value: 0.16
-      objectReference: {fileID: 0}
-    - target: {fileID: 949111047345854071, guid: ea2e5fba56b2e874f86e11367676e5cb, type: 3}
-      propertyPath: m_Sprite
+      propertyPath: playerHealth
       value: 
-      objectReference: {fileID: 21300000, guid: 1e8883b61a8447e4a8e9552663e6e2fc, type: 3}
+      objectReference: {fileID: 451712484}
     - target: {fileID: 1020540504552847263, guid: ea2e5fba56b2e874f86e11367676e5cb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.70551795
@@ -663,17 +697,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyPatrol
       objectReference: {fileID: 0}
-    - target: {fileID: 1029607657553901894, guid: ea2e5fba56b2e874f86e11367676e5cb, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1029607657553901894, guid: ea2e5fba56b2e874f86e11367676e5cb, type: 3}
-      propertyPath: m_TagString
-      value: Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 5618263609823251340, guid: ea2e5fba56b2e874f86e11367676e5cb, type: 3}
-      propertyPath: idleDuration
-      value: 2
+    - target: {fileID: 4864983566191936992, guid: ea2e5fba56b2e874f86e11367676e5cb, type: 3}
+      propertyPath: components.Array.size
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

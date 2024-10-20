@@ -27,7 +27,7 @@ namespace Player
         [SerializeField] private float jumpSlamBoxHeight = 0.5f;
         [SerializeField] private float jumpSlamBoxPositionOffset = 0.5f;
 
-        public EnemyHealth enemyHealth;
+        [FormerlySerializedAs("enemyHealth")] public Health health;
 
         private void Awake()
         {
@@ -68,7 +68,7 @@ namespace Player
             foreach (var enemy in hitEnemies)
             {
                 //TODO: Add deal damage component
-                enemyHealth.TakeDamage(damage);
+                health.TakeDamage(damage);
                 Debug.Log("We hit" + enemy);
             }
         }
