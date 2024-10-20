@@ -6,7 +6,10 @@ public class Health : MonoBehaviour
 {
     [Header ("Health")]
     [SerializeField] private float maxHealth;
-    public float currentHealth { get; private set; }
+
+    [SerializeField] private float currentHealth;
+    
+    [Header("Other")]
     private Animator anim;
     private bool dead;
     private bool invulnerable;

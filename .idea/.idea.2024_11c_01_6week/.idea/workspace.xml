@@ -5,12 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dea43f36-78a4-49aa-83f7-be453a95d980" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.2024_11c_01_6week/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2024_11c_01_6week/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Content/Animations/Enemy/Die.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Content/Animations/Enemy/Die.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Kacper_scena.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Kacper_scena.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Health/EnemyHealth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Health/EnemyHealth.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Health/PlayerHealth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Health/PlayerHealth.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/enemy/MeleeEnemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/enemy/MeleeEnemy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Health/Health.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Health/Health.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,7 +16,6 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Health/PlayerHealth.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Platforms/BreakablePlatform.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Platforms/CollapsingPlatform.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Platforms/HangingPlatform.cs" root0="FORCE_HIGHLIGHTING" />
@@ -125,7 +119,7 @@
       <workItem from="1729264339651" duration="829000" />
       <workItem from="1729377014714" duration="3160000" />
       <workItem from="1729421649778" duration="67000" />
-      <workItem from="1729421730731" duration="590000" />
+      <workItem from="1729421730731" duration="940000" />
     </task>
     <servers />
   </component>
