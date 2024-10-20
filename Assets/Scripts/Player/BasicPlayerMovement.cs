@@ -149,6 +149,7 @@ namespace Player
 
         private void WallJump()
         {
+            Debug.Log("Wall jump");
             if (_isWallSliding)
             {
                 _isWallJumping = false;
