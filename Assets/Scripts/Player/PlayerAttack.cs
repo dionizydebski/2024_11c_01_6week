@@ -27,7 +27,7 @@ namespace Player
         [SerializeField] private float jumpSlamBoxHeight = 0.5f;
         [SerializeField] private float jumpSlamBoxPositionOffset = 0.5f;
 
-        [FormerlySerializedAs("enemyHealth")] public Health health;
+        public Health health;
 
         private void Awake()
         {
