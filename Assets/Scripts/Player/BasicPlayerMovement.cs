@@ -115,11 +115,11 @@ namespace Player
         {
             if (_xInput > 0)
             {
-                transform.localScale = _faceRight;
+                transform.rotation = Quaternion.Euler(0, 0, 0); 
             }
-            else if(_xInput < 0)
+            else if (_xInput < 0)
             {
-                transform.localScale = _faceLeft;
+                transform.rotation = Quaternion.Euler(0, 180, 0); 
             }
         }
 
