@@ -89,7 +89,7 @@ namespace Player
         private void Jump()
         {
             if (_coyoteCooldown <= 0 && !OnWall() && _jumpCount <= 0) return;
-            _animator.Play("jump");
+            _animator.SetTrigger("jump");
             if (IsGrounded() || OnEnemy()) //TODO: think about jump of enemies head - can double jump? coyote time?
             {
                 _performJump = false;
@@ -149,7 +149,6 @@ namespace Player
 
         private void WallJump()
         {
-            Debug.Log("Wall jump");
             if (_isWallSliding)
             {
                 _isWallJumping = false;
