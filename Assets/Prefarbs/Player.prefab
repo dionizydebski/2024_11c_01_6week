@@ -176,7 +176,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a325776c8bb2c07ba551c277299fb26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 0}
+  gameManager: {fileID: 3326216855809151626, guid: 8473a48d4892f451dacb2ef317b0e054, type: 3}
+  coin: {fileID: 6304147116233145594, guid: f4ad78a5789044e1ba5405f84d2b4a72, type: 3}
   speed: 5
   jumpForce: 7
   extraJumps: 1
@@ -236,6 +237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ed962ea047f44be2a288c487be51b47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
 --- !u!1 &1647693037331982278
 GameObject:
   m_ObjectHideFlags: 0

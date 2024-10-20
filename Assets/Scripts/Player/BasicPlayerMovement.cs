@@ -10,6 +10,7 @@ namespace Player
     public class BasicPlayerMovement : MonoBehaviour
     {
         public GameManager gameManager;
+        
         private Rigidbody2D _rigidbody;
         private SpriteRenderer _spriteRenderer;
         private Animator _animator;
