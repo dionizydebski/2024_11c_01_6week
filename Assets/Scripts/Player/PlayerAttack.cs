@@ -20,6 +20,8 @@ namespace Player
         [SerializeField] private GameObject[] projectilePrefabs;
 
         [Header("JumpSlam")] [SerializeField] private float jumpSlamForce = 10;
+        [SerializeField] private LayerMask platformLayer;
+        [SerializeField] private int damage;
 
         [SerializeField] private Transform jumpSlamPoint;
         [SerializeField] private float jumpSlamBoxWidth = 0.5f;
@@ -35,8 +37,11 @@ namespace Player
         private float _rangedAttackCooldownTimer = Mathf.Infinity;
         private Rigidbody2D _rigidbody;
 
+        public Health health;
+
         private void Awake()
         {
+            _animator = GetComponent<Animator>();
             _boxCollider = GetComponent<BoxCollider2D>();
             _rigidbody = GetComponent<Rigidbody2D>();
             _basicPlayerMovement = GetComponent<BasicPlayerMovement>();
@@ -83,21 +88,30 @@ namespace Player
         {
             _meleeAttackCooldownTimer = 0;
             _animator.SetTrigger("melee attack" + _meleeAttackIndex);
-            var hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
+            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
+            Collider2D[] hitPlatforms = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, platformLayer);
 
             foreach (var enemy in hitEnemies)
-                //TODO: Add deal damage component
+            {
+                enemy.GetComponent<Health>().TakeDamage(damage);
                 Debug.Log("We hit" + enemy);
+            }
+            
             if (_meleeAttackIndex == 3) _meleeAttackIndex = 1;
             else _meleeAttackIndex++;
+            
+            foreach (var platform in hitPlatforms)
+            {
+                platform.GetComponent<Health>().TakeDamage(damage);
+                Debug.Log("We hit" + platform);
+            }
         }
 
         private void JumpSlam()
         {
             Debug.Log("Ground attack");
-            var hitEnemies =
-                Physics2D.OverlapBoxAll(jumpSlamPoint.position + new Vector3(0, jumpSlamBoxPositionOffset, 0),
-                    new Vector3(jumpSlamBoxWidth, jumpSlamBoxHeight, 0), 0f, enemyLayer);
+            Collider2D[] hitEnemies = Physics2D.OverlapBoxAll(jumpSlamPoint.position + new Vector3(0,jumpSlamBoxPositionOffset, 0), 
+                new Vector3(jumpSlamBoxWidth, jumpSlamBoxHeight, 0), 0f,enemyLayer);
 
             Debug.Log(hitEnemies.Length);
             foreach (var enemy in hitEnemies)
