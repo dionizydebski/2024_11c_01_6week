@@ -31,6 +31,19 @@ AnimationClip:
     classID: 212
     script: {fileID: 0}
     flags: 2
+  - serializedVersion: 2
+    curve:
+    - time: 0.016666668
+      value: {fileID: 21300000, guid: ccb2fe08f9c5f1c4483448b7ce890457, type: 3}
+    - time: 0.1
+      value: {fileID: 21300000, guid: 23f9fea32895a35418562a0c3cd07a2d, type: 3}
+    - time: 0.18333334
+      value: {fileID: 21300000, guid: c017d1408c63b804d8859c1fc60ea757, type: 3}
+    attribute: m_Sprite
+    path: Sword Slash
+    classID: 212
+    script: {fileID: 0}
+    flags: 2
   m_SampleRate: 60
   m_WrapMode: 0
   m_Bounds:
@@ -47,16 +60,28 @@ AnimationClip:
       isPPtrCurve: 1
       isIntCurve: 0
       isSerializeReferenceCurve: 0
+    - serializedVersion: 2
+      path: 2342108824
+      attribute: 0
+      script: {fileID: 0}
+      typeID: 212
+      customType: 23
+      isPPtrCurve: 1
+      isIntCurve: 0
+      isSerializeReferenceCurve: 0
     pptrCurveMapping:
     - {fileID: 21300000, guid: bd6aeb9a7613da74887ff7ead052abff, type: 3}
     - {fileID: 21300000, guid: 55187993d482f804a8f5c0f200fec168, type: 3}
     - {fileID: 21300000, guid: e65a972c994529149a09db917355cad0, type: 3}
+    - {fileID: 21300000, guid: ccb2fe08f9c5f1c4483448b7ce890457, type: 3}
+    - {fileID: 21300000, guid: 23f9fea32895a35418562a0c3cd07a2d, type: 3}
+    - {fileID: 21300000, guid: c017d1408c63b804d8859c1fc60ea757, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.18333334
+    m_StopTime: 0.2
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
