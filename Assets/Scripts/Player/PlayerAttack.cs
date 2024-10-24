@@ -92,31 +92,26 @@ namespace Player
             Collider2D[] hitPlatforms = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, platformLayer);
 
             foreach (var enemy in hitEnemies)
-            {
                 enemy.GetComponent<Health>().TakeDamage(damage);
-                Debug.Log("We hit" + enemy);
-            }
-            
+
+
             if (_meleeAttackIndex == 3) _meleeAttackIndex = 1;
             else _meleeAttackIndex++;
-            
+
             foreach (var platform in hitPlatforms)
-            {
                 platform.GetComponent<Health>().TakeDamage(damage);
-                Debug.Log("We hit" + platform);
-            }
         }
 
         private void JumpSlam()
         {
             Debug.Log("Ground attack");
-            Collider2D[] hitEnemies = Physics2D.OverlapBoxAll(jumpSlamPoint.position + new Vector3(0,jumpSlamBoxPositionOffset, 0), 
-                new Vector3(jumpSlamBoxWidth, jumpSlamBoxHeight, 0), 0f,enemyLayer);
+            Collider2D[] hitEnemies = Physics2D.OverlapBoxAll(
+                jumpSlamPoint.position + new Vector3(0, jumpSlamBoxPositionOffset, 0),
+                new Vector3(jumpSlamBoxWidth, jumpSlamBoxHeight, 0), 0f, enemyLayer);
 
             Debug.Log(hitEnemies.Length);
             foreach (var enemy in hitEnemies)
-                //TODO: Add deal damage component
-                Debug.Log("We hit" + enemy + "with slam");
+                enemy.GetComponent<Health>().TakeDamage(damage);
         }
 
         private void RangedAttack()
@@ -130,16 +125,16 @@ namespace Player
 
         private bool InAir()
         {
-            var reycastHit = Physics2D.BoxCast(_boxCollider.bounds.center, _boxCollider.bounds.size, 0, Vector2.down,
+            var raycastHit = Physics2D.BoxCast(_boxCollider.bounds.center, _boxCollider.bounds.size, 0, Vector2.down,
                 0.1f, LayerMask.GetMask("Ground"));
-            return reycastHit.collider == null;
+            return raycastHit.collider == null;
         }
 
         private bool CollideWithEnemy()
         {
-            var reycastHit = Physics2D.BoxCast(_boxCollider.bounds.center, _boxCollider.bounds.size, 0, Vector2.down,
+            var raycastHit = Physics2D.BoxCast(_boxCollider.bounds.center, _boxCollider.bounds.size, 0, Vector2.down,
                 0.1f, LayerMask.GetMask("Enemy"));
-            return reycastHit.collider != null;
+            return raycastHit.collider != null;
         }
 
         private int FindProjectile()

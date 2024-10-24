@@ -172,7 +172,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f0343673d558b0a79d6a239043e9841, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 5
+  projectileDamage: 1
   lifeTime: 5
   layerName: Enemy
 --- !u!95 &8708042827113429554

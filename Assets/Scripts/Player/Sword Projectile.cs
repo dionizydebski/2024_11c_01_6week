@@ -5,6 +5,7 @@ namespace Player
     public class SwordProjectile : MonoBehaviour
     {
         [SerializeField] private float speed;
+        [SerializeField] private float projectileDamage;
         private float _direction;
         private bool _hit;
         [SerializeField] private float lifeTime;
@@ -35,7 +36,8 @@ namespace Player
             _hit = true;
             _boxCollider.enabled = false;
             if (other.gameObject.layer == LayerMask.NameToLayer(layerName)) {
-                Debug.Log("enemy hit with ranged attack"); //TODO: implement Dmg after hitting enemy
+                Debug.Log("enemy hit with ranged attack");
+                other.GetComponent<Health>().TakeDamage(projectileDamage);//TODO: implement Dmg after hitting enemy
                 //Destroy projectile animation
             }
             Deactivate();
