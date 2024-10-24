@@ -63,6 +63,7 @@ namespace Player
             {
                 _coyoteCooldown = coyoteTime; //Resetting coyote time cooldown
                 _jumpCount = extraJumps;
+                _animator.ResetTrigger("jump");
             }
             else
             {
@@ -74,6 +75,7 @@ namespace Player
             WallSlide();
             _animator.SetBool("run", _xInput != 0);
             _animator.SetBool("grounded", IsGrounded());
+            _animator.SetBool("falling", IsFalling());
         }
 
         private void FixedUpdate()
