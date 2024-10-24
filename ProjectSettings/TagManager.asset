@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Ground
   - Enemy
+  - Checkpoint
+  - Coin
+  - Diamond
+  - Health Potion
   layers:
   - Default
   - TransparentFX

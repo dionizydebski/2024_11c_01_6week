@@ -75,7 +75,7 @@ public class Health : MonoBehaviour
         yield return new WaitForSeconds(2f);
     
         // Po 5 sekundach wykonaj akcję
-        Destroy(gameObject);
+        if (!gameObject.CompareTag("Player")) Destroy(gameObject);
     }
     
     public void AddHealth(float _value)
@@ -95,5 +95,40 @@ public class Health : MonoBehaviour
         }
         Physics2D.IgnoreLayerCollision(10, 11, false);
         invulnerable = false;
+    }
+
+    public void Respawn()
+    {
+        dead = false;
+        AddHealth(maxHealth);
+        anim.ResetTrigger("die");
+        anim.Play("Idle");
+        StartCoroutine(Invunerability());
+
+        //Deactivate all attached component classes
+        if (GetComponentInParent<EnemyPatrol>() != null)
+        {
+            GetComponentInParent<EnemyPatrol>().enabled = true;
+        }
+
+        if (GetComponent<MeleeEnemy>() != null)
+        {
+            GetComponent<MeleeEnemy>().enabled = true;
+        }
+
+        if (GetComponentInParent<PlayerAttack>() != null)
+        {
+            GetComponentInParent<PlayerAttack>().enabled = true;
+        }
+
+        if (GetComponent<BasicPlayerMovement>() != null)
+        {
+            GetComponent<BasicPlayerMovement>().enabled = true;
+        }
+    }
+
+    private void Deactivate()
+    {
+        gameObject.SetActive(false);
     }
 }
