@@ -6,6 +6,8 @@ namespace Player
     public class PlayerHealth : Health.Health
     {
         [SerializeField] private GameObject sword;
+        [SerializeField] private Behaviour[] components;
+        [SerializeField] private float knockbackForce;
         protected override IEnumerator WaitAndDie()
         {
             ItemDrop();
@@ -21,25 +23,36 @@ namespace Player
             Anim.Play("Idle");
             StartCoroutine(Invunerability());
 
-            //Deactivate all attached component classes
-            if (GetComponentInParent<EnemyPatrol>() != null)
+            foreach (var component in components)
             {
-                GetComponentInParent<EnemyPatrol>().enabled = true;
+                component.enabled = true;
             }
 
-            if (GetComponent<MeleeEnemy>() != null)
-            {
-                GetComponent<MeleeEnemy>().enabled = true;
-            }
+        }
+        public override void TakeDamage(float _damage)
+        {
+            if (Invulnerable) return;
+            currentHealth = Mathf.Clamp(currentHealth - _damage, 0, maxHealth);
 
-            if (GetComponentInParent<PlayerAttack>() != null)
+            if (currentHealth > 0)
             {
-                GetComponentInParent<PlayerAttack>().enabled = true;
+                Anim.SetTrigger("hurt");
+                StartCoroutine(Invunerability());
             }
-
-            if (GetComponent<BasicPlayerMovement>() != null)
+            else
             {
-                GetComponent<BasicPlayerMovement>().enabled = true;
+                if (!Dead)
+                {
+                    Anim.SetTrigger("die");
+
+                    foreach (var component in components)
+                    {
+                        component.enabled = false;
+                    }
+
+                    Dead = true;
+                    StartCoroutine(WaitAndDie());
+                }
             }
         }
 

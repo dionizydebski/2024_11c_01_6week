@@ -28,7 +28,7 @@ namespace Health
             _spriteRend = GetComponent<SpriteRenderer>();
         }
 
-        public void TakeDamage(float _damage)
+        public virtual void TakeDamage(float _damage)
         {
             if (Invulnerable) return;
             currentHealth = Mathf.Clamp(currentHealth - _damage, 0, maxHealth);
