@@ -10,9 +10,7 @@ namespace Platforms
         
         private Vector3 initialPosition;
         private Quaternion initialRotation;
-        
-        private bool isCollapsing = false;
-        
+
         private Collider2D platformCollider;
         private Renderer platformRenderer;
 
@@ -55,8 +53,6 @@ namespace Platforms
             
             platformRenderer.enabled = true;
             platformCollider.enabled = true;
-
-            isCollapsing = false;
         }
 
     }
