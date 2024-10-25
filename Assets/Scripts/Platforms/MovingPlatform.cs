@@ -28,15 +28,18 @@ namespace Platforms
         {
             if (collision.CompareTag("Player"))
             {
-                collision.transform.parent = this.transform;
+                collision.transform.SetParent(this.transform);
             }
         }
-    
+
         private void OnTriggerExit2D(Collider2D collision)
         {
             if (collision.CompareTag("Player"))
             {
-                collision.transform.parent = null;
+                if (this.gameObject.activeInHierarchy) // Sprawdzenie, czy platforma jest aktywna
+                {
+                    collision.transform.SetParent(null);
+                }
             }
         }
     }
