@@ -1,15 +1,16 @@
 using UnityEngine;
+using Health;
 
 namespace Player
 {
     public class PlayerRespawn : MonoBehaviour
     {
        private Transform _currentCheckpoint;
-       private Health _playerHealth;
+       private PlayerHealth _playerHealth;
 
        private void Awake()
        {
-           _playerHealth = GetComponent<Health>();
+           _playerHealth = GetComponent<PlayerHealth>();
        }
 
        private void CheckpointRespawn()

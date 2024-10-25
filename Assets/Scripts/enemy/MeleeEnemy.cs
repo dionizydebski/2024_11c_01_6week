@@ -18,7 +18,7 @@ public class MeleeEnemy : MonoBehaviour
 
     //References
     private Animator anim;
-    [SerializeField] public Health playerHealth;
+    [SerializeField] public Health.Health playerHealth;
     private EnemyPatrol enemyPatrol;
 
     private void Awake()
@@ -61,7 +61,7 @@ public class MeleeEnemy : MonoBehaviour
             0, Vector2.left, 0, playerLayer);
 
         if (hit.collider != null)
-            playerHealth = hit.transform.GetComponent<Health>();
+            playerHealth = hit.transform.GetComponent<Health.Health>();
 
         return hit.collider != null;
     }

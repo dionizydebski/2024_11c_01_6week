@@ -37,7 +37,7 @@ namespace Player
         private float _rangedAttackCooldownTimer = Mathf.Infinity;
         private Rigidbody2D _rigidbody;
 
-        public Health health;
+        public Health.Health health;
 
         private void Awake()
         {
@@ -92,14 +92,14 @@ namespace Player
             Collider2D[] hitPlatforms = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, platformLayer);
 
             foreach (var enemy in hitEnemies)
-                enemy.GetComponent<Health>().TakeDamage(damage);
+                enemy.GetComponent<Health.Health>().TakeDamage(damage);
 
 
             if (_meleeAttackIndex == 3) _meleeAttackIndex = 1;
             else _meleeAttackIndex++;
 
             foreach (var platform in hitPlatforms)
-                platform.GetComponent<Health>().TakeDamage(damage);
+                platform.GetComponent<Health.Health>().TakeDamage(damage);
         }
 
         private void JumpSlam()
@@ -111,7 +111,7 @@ namespace Player
 
             Debug.Log(hitEnemies.Length);
             foreach (var enemy in hitEnemies)
-                enemy.GetComponent<Health>().TakeDamage(damage);
+                enemy.GetComponent<Health.Health>().TakeDamage(damage);
         }
 
         private void RangedAttack()

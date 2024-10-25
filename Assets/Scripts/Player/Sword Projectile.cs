@@ -37,7 +37,7 @@ namespace Player
             _boxCollider.enabled = false;
             if (other.gameObject.layer == LayerMask.NameToLayer(layerName)) {
                 Debug.Log("enemy hit with ranged attack");
-                other.GetComponent<Health>().TakeDamage(projectileDamage);//TODO: implement Dmg after hitting enemy
+                other.GetComponent<Health.Health>().TakeDamage(projectileDamage);//TODO: implement Dmg after hitting enemy
                 //Destroy projectile animation
             }
             Deactivate();

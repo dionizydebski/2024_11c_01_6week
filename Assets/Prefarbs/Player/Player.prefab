@@ -15,9 +15,9 @@ GameObject:
   - component: {fileID: 6428986171454278949}
   - component: {fileID: 7081113256635750944}
   - component: {fileID: 9113385628442991051}
-  - component: {fileID: 222550240737827367}
   - component: {fileID: 1231014687278908854}
   - component: {fileID: 8140652382867845113}
+  - component: {fileID: 488161733268173898}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -82,8 +82,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1473838885
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 7dddda0446357b044aa24a56c9c0e2a6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -250,22 +250,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &222550240737827367
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6338843962022591}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 077e4cd20f78e7a468c27b0cbe21c407, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 3
-  currentHealth: 0
-  iFramesDuration: 0
-  numberOfFlashes: 0
 --- !u!114 &1231014687278908854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -290,6 +274,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac508bcc195506c3fa2478219f503e03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &488161733268173898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6338843962022591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 115195536b079d0c3b3509476de2754c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 3
+  currentHealth: 0
+  iFramesDuration: 0
+  numberOfFlashes: 0
+  sword: {fileID: 4158477626553808652, guid: 5ff15716133d9e34ca70edd5b1ec3cde, type: 3}
 --- !u!1 &1647693037331982278
 GameObject:
   m_ObjectHideFlags: 0
