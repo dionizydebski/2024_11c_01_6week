@@ -6,6 +6,8 @@ namespace Player
 {
     public class PlayerAttack : MonoBehaviour
     {
+        private static readonly int Property = Animator.StringToHash("ranged attack");
+
         [Header("Melee Attack")] [SerializeField]
         private Transform attackPoint;
 
@@ -104,12 +106,9 @@ namespace Player
 
         private void JumpSlam()
         {
-            Debug.Log("Ground attack");
             Collider2D[] hitEnemies = Physics2D.OverlapBoxAll(
                 jumpSlamPoint.position + new Vector3(0, jumpSlamBoxPositionOffset, 0),
                 new Vector3(jumpSlamBoxWidth, jumpSlamBoxHeight, 0), 0f, enemyLayer);
-
-            Debug.Log(hitEnemies.Length);
             foreach (var enemy in hitEnemies)
                 enemy.GetComponent<Health.Health>().TakeDamage(damage, transform.position);
         }
@@ -117,7 +116,7 @@ namespace Player
         private void RangedAttack()
         {
             _rangedAttackCooldownTimer = 0;
-            _animator.SetTrigger("ranged attack");
+            _animator.SetTrigger(Property);
             projectilePrefabs[FindProjectile()].transform.position = firePoint.position;
             projectilePrefabs[FindProjectile()].GetComponent<SwordProjectile>()
                 .SetDirection(Mathf.Sign(transform.localScale.x));

@@ -29,11 +29,6 @@ namespace Player
             }
         }
 
-        private void Deactivate()
-        {
-            gameObject.SetActive(false);
-        }
-
         private void ItemDrop()
         {
             Instantiate(sword, transform.position + Vector3.right, Quaternion.identity);
