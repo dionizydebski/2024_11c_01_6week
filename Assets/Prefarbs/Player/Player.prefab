@@ -274,6 +274,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac508bcc195506c3fa2478219f503e03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkpointSound: {fileID: 8300000, guid: 2667a0a008b044e218b63df62e2be749, type: 3}
 --- !u!114 &488161733268173898
 MonoBehaviour:
   m_ObjectHideFlags: 0

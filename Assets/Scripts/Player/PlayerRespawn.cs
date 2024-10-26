@@ -4,6 +4,7 @@ namespace Player
 {
     public class PlayerRespawn : MonoBehaviour
     {
+        [SerializeField] private AudioClip checkpointSound;
        private Transform _currentCheckpoint;
        private PlayerHealth _playerHealth;
 
@@ -27,6 +28,7 @@ namespace Player
                _currentCheckpoint = other.transform;
                other.GetComponent<Collider2D>().enabled = false;
                Debug.Log("Checkpoint enabled");
+               SoundManager.instance.PlaySound(checkpointSound);
                //TODO: Add animation or smth for checkpoint unlock
            }
        }
