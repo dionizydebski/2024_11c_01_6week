@@ -127,7 +127,7 @@ namespace Health
 
         private void KnockBack(Vector2 knockBack)
         {
-            _rigidbody.MovePosition(_rigidbody.position + (knockBack*knockBackForce*Time.deltaTime));
+            _rigidbody.MovePosition(_rigidbody.position + (knockBack*knockBackForce*Time.fixedDeltaTime));
         }
     }
 }

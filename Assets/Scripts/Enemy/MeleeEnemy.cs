@@ -45,11 +45,11 @@ public class MeleeEnemy : MonoBehaviour
             enemyPatrol.enabled = !PlayerInSight();
     }
 
-    private void OnCollisionEnter2D(Collision2D col)
+    private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == "Player")
         {
-            playerHealth.TakeDamage(damage);
+            col.GetComponent<Health.Health>().TakeDamage(damage, transform.position);
         }
     }
 
