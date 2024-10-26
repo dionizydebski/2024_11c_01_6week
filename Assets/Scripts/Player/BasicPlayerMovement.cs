@@ -83,9 +83,6 @@ namespace Player
             if (!_isWallJumping) Move();
 
             if (_performJump) Jump();
-
-            //TODO: falling animation
-            //TODO: check if player sprite becoming larger is intended
         }
 
         private void Jump()
@@ -120,7 +117,6 @@ namespace Player
 
         private void Move()
         {
-            //Move animation goes here
             _rigidbody.velocity = new Vector2(_xInput * speed, _rigidbody.velocity.y);
         }
 

@@ -7,7 +7,7 @@ namespace Player
     {
         [SerializeField] private GameObject sword;
         [SerializeField] private Behaviour[] components;
-        [SerializeField] private float knockbackForce;
+
         protected override IEnumerator WaitAndDie()
         {
             ItemDrop();
@@ -26,33 +26,6 @@ namespace Player
             foreach (var component in components)
             {
                 component.enabled = true;
-            }
-
-        }
-        public override void TakeDamage(float _damage)
-        {
-            if (Invulnerable) return;
-            currentHealth = Mathf.Clamp(currentHealth - _damage, 0, maxHealth);
-
-            if (currentHealth > 0)
-            {
-                Anim.SetTrigger("hurt");
-                StartCoroutine(Invunerability());
-            }
-            else
-            {
-                if (!Dead)
-                {
-                    Anim.SetTrigger("die");
-
-                    foreach (var component in components)
-                    {
-                        component.enabled = false;
-                    }
-
-                    Dead = true;
-                    StartCoroutine(WaitAndDie());
-                }
             }
         }
 

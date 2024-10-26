@@ -92,7 +92,7 @@ namespace Player
             Collider2D[] hitPlatforms = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, platformLayer);
 
             foreach (var enemy in hitEnemies)
-                enemy.GetComponent<Health.Health>().TakeDamage(damage);
+                enemy.GetComponent<Health.Health>().TakeDamage(damage, transform.position);
 
 
             if (_meleeAttackIndex == 3) _meleeAttackIndex = 1;
@@ -111,7 +111,7 @@ namespace Player
 
             Debug.Log(hitEnemies.Length);
             foreach (var enemy in hitEnemies)
-                enemy.GetComponent<Health.Health>().TakeDamage(damage);
+                enemy.GetComponent<Health.Health>().TakeDamage(damage, transform.position);
         }
 
         private void RangedAttack()

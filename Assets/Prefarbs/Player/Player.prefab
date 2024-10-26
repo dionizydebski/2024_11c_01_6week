@@ -288,9 +288,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   currentHealth: 0
+  knockBackForce: 10
   iFramesDuration: 0
   numberOfFlashes: 0
   sword: {fileID: 4158477626553808652, guid: 5ff15716133d9e34ca70edd5b1ec3cde, type: 3}
+  components:
+  - {fileID: 6428986171454278949}
+  - {fileID: 7081113256635750944}
 --- !u!1 &1647693037331982278
 GameObject:
   m_ObjectHideFlags: 0
@@ -452,7 +456,7 @@ GameObject:
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8347993847289453345
 Transform:
   m_ObjectHideFlags: 0
@@ -462,7 +466,7 @@ Transform:
   m_GameObject: {fileID: 7626995009387359584}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.551, y: -0.084, z: 0}
+  m_LocalPosition: {x: 0.611, y: -0.007, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

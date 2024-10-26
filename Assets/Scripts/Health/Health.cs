@@ -1,6 +1,8 @@
+using System;
 using UnityEngine;
 using System.Collections;
 using Player;
+using UnityEngine.Serialization;
 
 namespace Health
 {
@@ -8,13 +10,16 @@ namespace Health
     {
         [Header ("Health")]
         [SerializeField] protected float maxHealth;
-
         [SerializeField] protected float currentHealth;
 
         [Header("Other")]
+        [SerializeField] private float knockBackForce;
         protected Animator Anim;
+        private Rigidbody2D _rigidbody;
         protected bool Dead;
         protected bool Invulnerable;
+        private bool _hit;
+        private Vector2 _hitDirection;
 
         [Header("iFrames")]
         [SerializeField] private float iFramesDuration;
@@ -26,13 +31,27 @@ namespace Health
             currentHealth = maxHealth;
             Anim = GetComponent<Animator>();
             _spriteRend = GetComponent<SpriteRenderer>();
+            _rigidbody = GetComponent<Rigidbody2D>();
         }
 
-        public virtual void TakeDamage(float _damage)
+        private void FixedUpdate()
+        {
+            if (_hit)
+            {
+                Vector2 knockBackDirection = new Vector2(Mathf.Sign(_hitDirection.x - transform.position.x) * -1, 1);
+                Debug.Log(knockBackDirection);
+                Debug.Log(_rigidbody);
+                _hit = false;
+                KnockBack(knockBackDirection);
+            }
+        }
+
+        public void TakeDamage(float damage)
         {
             if (Invulnerable) return;
-            currentHealth = Mathf.Clamp(currentHealth - _damage, 0, maxHealth);
-
+            _hit = true;
+            currentHealth = Mathf.Clamp(currentHealth - damage, 0, maxHealth);
+            
             if (currentHealth > 0)
             {
                 Anim.SetTrigger("hurt");
@@ -72,6 +91,12 @@ namespace Health
             }
         }
 
+        public void TakeDamage(float damage, Vector2 hitDirection)
+        {
+            _hitDirection = hitDirection;
+            TakeDamage(damage);
+        }
+
         protected virtual IEnumerator WaitAndDie()
         {
             // Czekaj 5 sekund
@@ -81,9 +106,9 @@ namespace Health
             Destroy(gameObject);
         }
 
-        public void AddHealth(float _value)
+        public void AddHealth(float value)
         {
-            currentHealth = Mathf.Clamp(currentHealth + _value, 0, maxHealth);
+            currentHealth = Mathf.Clamp(currentHealth + value, 0, maxHealth);
         }
         protected IEnumerator Invunerability()
         {
@@ -98,6 +123,11 @@ namespace Health
             }
             Physics2D.IgnoreLayerCollision(10, 11, false);
             Invulnerable = false;
+        }
+
+        private void KnockBack(Vector2 knockBack)
+        {
+            _rigidbody.MovePosition(_rigidbody.position + (knockBack*knockBackForce*Time.deltaTime));
         }
     }
 }
