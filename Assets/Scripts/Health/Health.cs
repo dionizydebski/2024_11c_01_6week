@@ -39,8 +39,6 @@ namespace Health
             if (_hit)
             {
                 Vector2 knockBackDirection = new Vector2(Mathf.Sign(_hitDirection.x - transform.position.x) * -1, 1);
-                Debug.Log(knockBackDirection);
-                Debug.Log(_rigidbody);
                 _hit = false;
                 KnockBack(knockBackDirection);
             }
@@ -127,6 +125,8 @@ namespace Health
 
         private void KnockBack(Vector2 knockBack)
         {
+            if (gameObject.GetComponent<MeleeEnemy>() != null) gameObject.GetComponent<MeleeEnemy>().knockedBack = true;
+
             _rigidbody.MovePosition(_rigidbody.position + (knockBack*knockBackForce*Time.fixedDeltaTime));
         }
     }

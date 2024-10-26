@@ -32,20 +32,29 @@ public class EnemyPatrol : MonoBehaviour
 
     private void Update()
     {
-        if (movingLeft)
+        if (enemy.GetComponent<MeleeEnemy>().knockedBack == false)
         {
-            if (enemy.position.x >= leftEdge.position.x)
-                MoveInDirection(-1);
+            if (movingLeft)
+            {
+                if (enemy.position.x >= leftEdge.position.x)
+                    MoveInDirection(-1);
+                else
+                    DirectionChange();
+            }
             else
-                DirectionChange();
+            {
+                if (enemy.position.x <= rightEdge.position.x)
+                    MoveInDirection(1);
+                else
+                    DirectionChange();
+            }
         }
         else
         {
-            if (enemy.position.x <= rightEdge.position.x)
-                MoveInDirection(1);
-            else
-                DirectionChange();
+            enemy.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            anim.SetBool("moving", false);
         }
+
     }
 
     private void DirectionChange()
@@ -67,7 +76,10 @@ public class EnemyPatrol : MonoBehaviour
             initScale.y, initScale.z);
 
         //Move in that direction
-        enemy.position = new Vector3(enemy.position.x + Time.deltaTime * _direction * speed,
-            enemy.position.y, enemy.position.z);
+        //enemy.position = new Vector3(enemy.position.x + Time.deltaTime * _direction * speed,
+            //enemy.position.y, enemy.position.z);
+
+        enemy.GetComponent<Rigidbody2D>()
+            .MovePosition(new Vector2(enemy.position.x + Time.deltaTime * _direction * speed, enemy.position.y));
     }
 }

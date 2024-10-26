@@ -31,7 +31,7 @@ namespace Player
         {
             _hit = true;
             _boxCollider.enabled = false;
-            if (other.gameObject.layer == LayerMask.NameToLayer(layerName))
+            if (other.gameObject.layer == LayerMask.NameToLayer(layerName) && other.isTrigger)
             {
                 other.GetComponent<Health.Health>().TakeDamage(projectileDamage, transform.position); //TODO: Add rigid body to enemy to fix knock back effect
                 //Destroy projectile animation

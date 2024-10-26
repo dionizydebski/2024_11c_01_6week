@@ -94,7 +94,8 @@ namespace Player
             Collider2D[] hitPlatforms = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, platformLayer);
 
             foreach (var enemy in hitEnemies)
-                enemy.GetComponent<Health.Health>().TakeDamage(damage, transform.position);
+                if(enemy.isTrigger)
+                    enemy.GetComponent<Health.Health>().TakeDamage(damage, transform.position);
 
 
             if (_meleeAttackIndex == 3) _meleeAttackIndex = 1;

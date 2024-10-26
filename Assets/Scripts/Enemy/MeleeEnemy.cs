@@ -21,6 +21,8 @@ public class MeleeEnemy : MonoBehaviour
     [SerializeField] public Health.Health playerHealth;
     private EnemyPatrol enemyPatrol;
 
+    public bool knockedBack = false;
+
     private void Awake()
     {
         anim = GetComponent<Animator>();
@@ -43,6 +45,8 @@ public class MeleeEnemy : MonoBehaviour
 
         if (enemyPatrol != null)
             enemyPatrol.enabled = !PlayerInSight();
+
+        if (IsGrounded()) knockedBack = false;
     }
 
     private void OnTriggerEnter2D(Collider2D col)
@@ -76,5 +80,12 @@ public class MeleeEnemy : MonoBehaviour
     {
         if (PlayerInSight())
             playerHealth.TakeDamage(damage, transform.position);
+    }
+
+    private bool IsGrounded()
+    {
+        var raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down,
+            0.1f, LayerMask.GetMask("Ground"));
+        return raycastHit.collider != null;
     }
 }

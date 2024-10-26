@@ -78,7 +78,7 @@ Transform:
   m_GameObject: {fileID: 3937455597156994660}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.4476805, y: -1.8272687, z: -0.017479982}
+  m_LocalPosition: {x: 0.49, y: -1.8, z: -0.017479982}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -116,7 +116,7 @@ Transform:
   m_GameObject: {fileID: 4426946770927553887}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.08, y: -1.6538686, z: -0.02294312}
+  m_LocalPosition: {x: -4.31, y: -1.61, z: -0.02294312}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -306,6 +306,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   playerHealth: {fileID: 0}
+  knockedBack: 0
 --- !u!114 &4864983566191936992
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -318,9 +319,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 077e4cd20f78e7a468c27b0cbe21c407, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 2
+  maxHealth: 1
   currentHealth: 0
-  knockBackForce: 20
+  knockBackForce: 15
   iFramesDuration: 0
   numberOfFlashes: 0
 --- !u!50 &2188002037184929685
@@ -338,7 +339,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 2
+  m_GravityScale: 7
   m_Material: {fileID: 6200000, guid: fc697f4c8d99892578bf49f2764bccb8, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
@@ -375,7 +376,7 @@ Transform:
   m_GameObject: {fileID: 6537069854012257389}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.772317, y: -1.7872688, z: -0.03659788}
+  m_LocalPosition: {x: -5.93, y: -1.79, z: -0.03659788}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
