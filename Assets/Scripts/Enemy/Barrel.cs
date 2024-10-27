@@ -11,7 +11,7 @@ namespace enemy
         [SerializeField] private float rotationSpeed;
         [SerializeField] private float respawnTime;
         [SerializeField] private int damage;
-        [SerializeField] private Health playerHealth;
+        [SerializeField] private Health.Health playerHealth;
 
         private Quaternion initialRotation;
         private Collider2D platformCollider;

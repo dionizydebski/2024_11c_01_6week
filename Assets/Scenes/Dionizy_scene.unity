@@ -118165,7 +118165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 3
-  playerHealth: {fileID: 1759293005}
+  playerHealth: {fileID: 1759293004}
 --- !u!19719996 &1036438199
 TilemapCollider2D:
   m_ObjectHideFlags: 0
@@ -122770,7 +122770,7 @@ PrefabInstance:
     - target: {fileID: 2521274839624024541, guid: 78703977ff67e4f4c9411f212190dc2e, type: 3}
       propertyPath: playerHealth
       value: 
-      objectReference: {fileID: 1759293005}
+      objectReference: {fileID: 1759293004}
     - target: {fileID: 2521274839624024541, guid: 78703977ff67e4f4c9411f212190dc2e, type: 3}
       propertyPath: rotationSpeed
       value: -360
@@ -123072,15 +123072,15 @@ MonoBehaviour:
   coins: 0
   diamonds: 0
   health: 100
---- !u!114 &1759293005 stripped
+--- !u!114 &1759293004 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 222550240737827367, guid: 0dc81ad593e121c89857832c452879f1, type: 3}
+  m_CorrespondingSourceObject: {fileID: 488161733268173898, guid: 0dc81ad593e121c89857832c452879f1, type: 3}
   m_PrefabInstance: {fileID: 73527938}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1759292994}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 077e4cd20f78e7a468c27b0cbe21c407, type: 3}
+  m_Script: {fileID: 11500000, guid: 115195536b079d0c3b3509476de2754c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1763534163

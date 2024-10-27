@@ -5,7 +5,7 @@ namespace enemy
     public class Spikes : MonoBehaviour
     {
         [SerializeField] private int damage;
-        [SerializeField] private Health playerHealth;
+        [SerializeField] private Health.Health playerHealth;
 
         private void OnCollisionEnter2D(Collision2D col)
         {
