@@ -44,12 +44,12 @@ namespace Player
             if (healthPotions > 0 && playerHealth != null)
             {
                 healthPotions--;
-                playerHealth.AddHealth(1);
+                playerHealth.AddHealth(1); 
                 playerHUD.UpdateHealthPotionsHUD(healthPotions);
                 Debug.Log("Used a health potion. Remaining: " + healthPotions);
                 return true;
             }
-            Debug.Log("No health potions available!");
+            Debug.Log("No health potions available");
             return false;
         }
 

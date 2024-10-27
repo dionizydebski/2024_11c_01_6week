@@ -6,14 +6,13 @@ namespace HUD
 {
     public class HealthUI : MonoBehaviour
     {
-        [SerializeField] private Text healthText;  // Przypisz ten Text w Inspectorze
-        [SerializeField] private float lowHealthThreshold = 30f; // Ustal próg zdrowia
+        [SerializeField] private Text healthText; 
+        [SerializeField] private float lowHealthThreshold = 3;
         private Health playerHealth;
         private PlayerInventory playerInventory;
 
         private void Start()
         {
-            // Znajdź komponent Health i PlayerInventory w obiekcie Player
             playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<Health>();
             playerInventory = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInventory>();
         
@@ -28,11 +27,10 @@ namespace HUD
         private void Update()
         {
             UpdateHealthText();
-
-            // Sprawdź, czy klawisz "E" został naciśnięty
+            
             if (Input.GetKeyDown(KeyCode.E))
             {
-                playerInventory.UseHealthPotion(); // Użyj mikstury zdrowia
+                playerInventory.UseHealthPotion(); 
             }
         }
 
@@ -40,15 +38,14 @@ namespace HUD
         {
             if (playerHealth != null)
             {
-                // Sprawdź, czy zdrowie jest poniżej progu
                 if (playerHealth.getCurrentHealth() < lowHealthThreshold)
                 {
-                    healthText.text = "E"; // Wyświetl "E"
-                    healthText.enabled = true; // Włącz widoczność tekstu
+                    healthText.text = "E"; 
+                    healthText.enabled = true;
                 }
                 else
                 {
-                    healthText.enabled = false; // Ukryj tekst, gdy zdrowie jest powyżej progu
+                    healthText.enabled = false;
                 }
             }
         }
