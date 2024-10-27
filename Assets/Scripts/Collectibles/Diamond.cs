@@ -12,6 +12,7 @@ namespace Collectibles
             {
                 playerInventory.AddDiamond();
             }
+            Destroy(gameObject);
         }
     }
 }

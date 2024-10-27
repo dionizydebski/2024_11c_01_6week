@@ -1,32 +1,33 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Player
 {
     public class PlayerInventory : MonoBehaviour
     {
-        private int _coins = 0;
-        private int _diamonds = 0;
+        [SerializeField] private int coins = 0;
+        [SerializeField] private int diamonds = 0;
 
         public void AddCoin()
         {
-            _coins++;
-            Debug.Log("Coins collected: " + _coins);
+            coins++;
+            Debug.Log("Coins collected: " + coins);
         }
 
         public void AddDiamond()
         {
-            _diamonds++;
-            Debug.Log("Diamonds collected: " + _diamonds);
+            diamonds++;
+            Debug.Log("Diamonds collected: " + diamonds);
         }
 
         public int GetCoins()
         {
-            return _coins;
+            return coins;
         }
 
         public int GetDiamonds()
         {
-            return _diamonds;
+            return diamonds;
         }
     }
 }
