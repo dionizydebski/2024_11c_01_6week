@@ -106971,7 +106971,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5922687125442727271, guid: 977f89a1d76624b899eccc050ee43040, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 648859559}
   m_SourcePrefab: {fileID: 100100000, guid: 977f89a1d76624b899eccc050ee43040, type: 3}
 --- !u!1 &536175773
 GameObject:
@@ -107727,6 +107730,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &648859554 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5922687125442727271, guid: 977f89a1d76624b899eccc050ee43040, type: 3}
+  m_PrefabInstance: {fileID: 465801118}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &648859559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 648859554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c3ad1e732ea41ac8ac69e867aa4bd2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _healthPotionConfig: {fileID: 0}
 --- !u!4 &653867430 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 725082770810208877, guid: 24fc6cf3710214e77976154a91bb33cc, type: 3}
@@ -112279,13 +112300,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2039376724}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca98cc8bb78a6ce4b8edb6f478a14fab, type: 3}
+  m_Script: {fileID: 11500000, guid: 6b879c9da6da48c58982ff1ce1eae32d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   coinsText: {fileID: 903360038}
   diamondsText: {fileID: 1475817664}
   healthPotionsText: {fileID: 1194967678}
-  playerInventory: {fileID: 0}
 --- !u!114 &2039376730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112295,13 +112315,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2039376724}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75526e39f489434eb8fb4a5b28e0fb8e, type: 3}
+  m_Script: {fileID: 11500000, guid: 04af1791473c4082a38f50a5d9c449d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   healthText: {fileID: 2037189402}
   lowHealthThreshold: 3
-  playerHealth: {fileID: 0}
-  playerInventory: {fileID: 0}
 --- !u!1001 &2051387172
 PrefabInstance:
   m_ObjectHideFlags: 0
