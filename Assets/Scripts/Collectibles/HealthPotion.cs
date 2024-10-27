@@ -1,3 +1,4 @@
+using Player;
 using UnityEngine;
 using static Health;
 
@@ -9,11 +10,17 @@ namespace Collectibles
 
         protected override void Collect()
         {
-            Health playerHealth = FindObjectOfType<Health>();
+            PlayerInventory playerInventory = FindObjectOfType<PlayerInventory>();
+            if (playerInventory != null)
+            {
+                playerInventory.AddHealthPotion();
+            }
+
+            /*Health playerHealth = FindObjectOfType<Health>();
             if (playerHealth != null)
             {
                // Health.AddHealth(_healthPotionConfig.HealAmount);
-            }
+            }*/
             
             Destroy(gameObject);
         }

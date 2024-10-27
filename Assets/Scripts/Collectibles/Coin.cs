@@ -23,10 +23,13 @@ namespace Collectibles
             if (playerInventory != null)
             {
                 playerInventory.AddCoin();
+                coinCollect.Invoke();
+                Destroy(gameObject);
             }
-            
-            coinCollect.Invoke();
-            Destroy(gameObject);
+            else
+            {
+                Debug.LogError("PlayerInventory not found! Coin collection failed.");
+            }
         }
     }
 }
