@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Ground
   - Enemy
+  - Diamond
+  - Health Potion
+  - Coin
+  - UIController
   layers:
   - Default
   - TransparentFX
@@ -48,4 +52,7 @@ TagManager:
     locked: 0
   - name: Foreground
     uniqueID: 1473838885
+    locked: 0
+  - name: UI
+    uniqueID: 682727261
     locked: 0

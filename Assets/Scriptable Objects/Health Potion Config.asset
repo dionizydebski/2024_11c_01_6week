@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8387108d508394ee98ff530e8d701d9d, type: 3}
   m_Name: Health Potion Config
   m_EditorClassIdentifier: 
-  Name: 
-  HealAmount: 0
+  Name: Health Potion 1
+  HealAmount: 1
