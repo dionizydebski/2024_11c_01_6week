@@ -6,6 +6,8 @@ namespace Player
 {
     public class PlayerAttack : MonoBehaviour
     {
+        private static readonly int Property = Animator.StringToHash("ranged attack");
+
         [Header("Melee Attack")] [SerializeField]
         private Transform attackPoint;
 
@@ -37,7 +39,7 @@ namespace Player
         private float _rangedAttackCooldownTimer = Mathf.Infinity;
         private Rigidbody2D _rigidbody;
 
-        public Health health;
+        public Health.Health health;
 
         private void Awake()
         {
@@ -92,37 +94,30 @@ namespace Player
             Collider2D[] hitPlatforms = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, platformLayer);
 
             foreach (var enemy in hitEnemies)
-            {
-                enemy.GetComponent<Health>().TakeDamage(damage);
-                Debug.Log("We hit" + enemy);
-            }
-            
+                if(enemy.isTrigger)
+                    enemy.GetComponent<Health.Health>().TakeDamage(damage, transform.position);
+
+
             if (_meleeAttackIndex == 3) _meleeAttackIndex = 1;
             else _meleeAttackIndex++;
-            
+
             foreach (var platform in hitPlatforms)
-            {
-                platform.GetComponent<Health>().TakeDamage(damage);
-                Debug.Log("We hit" + platform);
-            }
+                platform.GetComponent<Health.Health>().TakeDamage(damage);
         }
 
         private void JumpSlam()
         {
-            Debug.Log("Ground attack");
-            Collider2D[] hitEnemies = Physics2D.OverlapBoxAll(jumpSlamPoint.position + new Vector3(0,jumpSlamBoxPositionOffset, 0), 
-                new Vector3(jumpSlamBoxWidth, jumpSlamBoxHeight, 0), 0f,enemyLayer);
-
-            Debug.Log(hitEnemies.Length);
+            Collider2D[] hitEnemies = Physics2D.OverlapBoxAll(
+                jumpSlamPoint.position + new Vector3(0, jumpSlamBoxPositionOffset, 0),
+                new Vector3(jumpSlamBoxWidth, jumpSlamBoxHeight, 0), 0f, enemyLayer);
             foreach (var enemy in hitEnemies)
-                //TODO: Add deal damage component
-                Debug.Log("We hit" + enemy + "with slam");
+                enemy.GetComponent<Health.Health>().TakeDamage(damage, transform.position);
         }
 
         private void RangedAttack()
         {
             _rangedAttackCooldownTimer = 0;
-            _animator.SetTrigger("ranged attack");
+            _animator.SetTrigger(Property);
             projectilePrefabs[FindProjectile()].transform.position = firePoint.position;
             projectilePrefabs[FindProjectile()].GetComponent<SwordProjectile>()
                 .SetDirection(Mathf.Sign(transform.localScale.x));
@@ -130,16 +125,16 @@ namespace Player
 
         private bool InAir()
         {
-            var reycastHit = Physics2D.BoxCast(_boxCollider.bounds.center, _boxCollider.bounds.size, 0, Vector2.down,
+            var raycastHit = Physics2D.BoxCast(_boxCollider.bounds.center, _boxCollider.bounds.size, 0, Vector2.down,
                 0.1f, LayerMask.GetMask("Ground"));
-            return reycastHit.collider == null;
+            return raycastHit.collider == null;
         }
 
         private bool CollideWithEnemy()
         {
-            var reycastHit = Physics2D.BoxCast(_boxCollider.bounds.center, _boxCollider.bounds.size, 0, Vector2.down,
+            var raycastHit = Physics2D.BoxCast(_boxCollider.bounds.center, _boxCollider.bounds.size, 0, Vector2.down,
                 0.1f, LayerMask.GetMask("Enemy"));
-            return reycastHit.collider != null;
+            return raycastHit.collider != null;
         }
 
         private int FindProjectile()

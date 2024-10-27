@@ -5,25 +5,22 @@ namespace Player
     public class SwordProjectile : MonoBehaviour
     {
         [SerializeField] private float speed;
-        private float _direction;
-        private bool _hit;
+        [SerializeField] private float projectileDamage;
         [SerializeField] private float lifeTime;
         [SerializeField] private string layerName;
 
         private BoxCollider2D _boxCollider;
-        private Rigidbody2D _rigidbody;
-        private Animator _animator;
+        private float _direction;
+        private bool _hit;
 
         private void Awake()
         {
             _boxCollider = GetComponent<BoxCollider2D>();
-            _rigidbody = GetComponent<Rigidbody2D>();
-            _animator = GetComponent<Animator>();
         }
 
         private void Update()
         {
-            if(_hit) return;
+            if (_hit) return;
             transform.Translate(speed * Time.deltaTime * _direction, 0, 0);
 
             lifeTime += Time.deltaTime;
@@ -34,12 +31,13 @@ namespace Player
         {
             _hit = true;
             _boxCollider.enabled = false;
-            if (other.gameObject.layer == LayerMask.NameToLayer(layerName)) {
-                Debug.Log("enemy hit with ranged attack"); //TODO: implement Dmg after hitting enemy
+            if (other.gameObject.layer == LayerMask.NameToLayer(layerName) && other.isTrigger)
+            {
+                other.GetComponent<Health.Health>().TakeDamage(projectileDamage, transform.position); //TODO: Add rigid body to enemy to fix knock back effect
                 //Destroy projectile animation
             }
-            Deactivate();
 
+            Deactivate();
         }
 
         public void SetDirection(float direction)
@@ -50,8 +48,8 @@ namespace Player
             _hit = false;
             _boxCollider.enabled = true;
 
-            float localScaleX = transform.localScale.x;
-            if(Mathf.Sign(localScaleX) != direction)
+            var localScaleX = transform.localScale.x;
+            if (!Mathf.Approximately(Mathf.Sign(localScaleX), direction))
                 localScaleX = -localScaleX;
 
             transform.localScale = new Vector3(localScaleX, transform.localScale.y, transform.localScale.z);
@@ -63,4 +61,3 @@ namespace Player
         }
     }
 }
-
