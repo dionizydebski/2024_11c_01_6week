@@ -1,72 +1,66 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Barrel : MonoBehaviour
+namespace enemy
 {
-    public Transform posA; // Punkt startowy
-    public Transform posB; // Punkt końcowy
-    public float speed; // Prędkość platformy
-    
-    private float collapseDelay = 1f;
-    private float respawnTime = 3f;
-    
-    private Quaternion initialRotation;
-    
-    private bool isCollapsing = false;
-    
-    private Collider2D platformCollider;
-    private Renderer platformRenderer;
-
-    [SerializeField] private Rigidbody2D rb;
-
-    private void Start()
+    public class Barrel : MonoBehaviour
     {
-        initialRotation = transform.rotation;
-        
-        platformCollider = GetComponent<Collider2D>();
-        platformRenderer = GetComponent<Renderer>();
-    }
+        [SerializeField] private Transform posA;
+        [SerializeField] private Transform posB;
+        [SerializeField] private float speed;
+        [SerializeField] private float rotationSpeed;
+        [SerializeField] private float respawnTime;
+        [SerializeField] private int damage;
+        [SerializeField] private Health playerHealth;
 
-    private void Update()
-    {
-        if (Vector3.Distance(transform.position, posB.position) < 0.1f)
+        private Quaternion initialRotation;
+        private Collider2D platformCollider;
+        private Renderer platformRenderer;
+
+        private void Start()
         {
-            StartCoroutine(Collapse());
-        }
-        
-        transform.position = Vector3.MoveTowards(transform.position, posB.position, speed * Time.deltaTime);
-    }
+            initialRotation = transform.rotation;
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
+            platformCollider = GetComponent<Collider2D>();
+            platformRenderer = GetComponent<Renderer>();
+        }
+
+        private void Update()
         {
-            
+            if (Vector3.Distance(transform.position, posB.position) < 0.1f)
+            {
+                StartCoroutine(Die());
+            }
+
+            transform.Rotate(0, 0, rotationSpeed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, posB.position, speed * Time.deltaTime);
         }
-    }
-    
-    private IEnumerator Collapse()
-    {
-        yield return new WaitForSeconds(collapseDelay);
 
-        // Wyłącz platformę (ukryj i dezaktywuj collider)
-        platformRenderer.enabled = false;
-        platformCollider.enabled = false;
-            
-        yield return new WaitForSeconds(respawnTime);
-            
-        RespawnPlatform();
-    }
-        
-    private void RespawnPlatform()
-    {
-        transform.position = posA.position;
-        transform.rotation = initialRotation;
-            
-        platformRenderer.enabled = true;
-        platformCollider.enabled = true;
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.CompareTag("Player"))
+            {
+                playerHealth.TakeDamage(damage);
+            }
+        }
 
-        isCollapsing = false;
+        private IEnumerator Die()
+        {
+            platformCollider.enabled = false;
+            platformRenderer.enabled = false;
+
+            yield return new WaitForSeconds(respawnTime);
+
+            RespawnPlatform();
+        }
+
+        private void RespawnPlatform()
+        {
+            transform.position = posA.position;
+            transform.rotation = initialRotation;
+
+            platformRenderer.enabled = true;
+            platformCollider.enabled = true;
+        }
     }
 }

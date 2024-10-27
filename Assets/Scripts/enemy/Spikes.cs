@@ -1,25 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Tilemaps;
 
-public class Spikes : MonoBehaviour
+namespace enemy
 {
-    [Header ("Attack Parameters")]
-    [SerializeField] private int damage;
-
-    [Header("Collider Parameters")]
-    [SerializeField] private TilemapCollider2D tilemapCollider;
-
-    [Header("Player Parameters")]
-    [SerializeField] private LayerMask playerLayer;
-    [SerializeField] public Health playerHealth;
-    
-    private void OnCollisionEnter2D(Collision2D col)
+    public class Spikes : MonoBehaviour
     {
-        if (col.gameObject.tag == "Player")
+        [SerializeField] private int damage;
+        [SerializeField] private Health playerHealth;
+
+        private void OnCollisionEnter2D(Collision2D col)
         {
-            playerHealth.TakeDamage(damage);
+            if (col.gameObject.CompareTag("Player"))
+            {
+                playerHealth.TakeDamage(damage);
+            }
         }
     }
 }
