@@ -11,10 +11,12 @@ namespace Player
         [SerializeField] private int healthPotions = 0;
 
         private PlayerHUD playerHUD;
+        private Health playerHealth;
         
         private void Start()
         {
             playerHUD = FindObjectOfType<PlayerHUD>();
+            playerHealth = FindObjectOfType<Health>();
         }
         public void AddCoin()
         {
@@ -35,6 +37,20 @@ namespace Player
             healthPotions++;
             playerHUD.UpdateHealthPotionsHUD(healthPotions);
             Debug.Log("Hpotions collected: " + healthPotions);
+        }
+        
+        public bool UseHealthPotion()
+        {
+            if (healthPotions > 0 && playerHealth != null)
+            {
+                healthPotions--;
+                playerHealth.AddHealth(1); 
+                playerHUD.UpdateHealthPotionsHUD(healthPotions);
+                Debug.Log("Used a health potion. Remaining: " + healthPotions);
+                return true;
+            }
+            Debug.Log("No health potions available");
+            return false;
         }
 
         public int GetCoins()
