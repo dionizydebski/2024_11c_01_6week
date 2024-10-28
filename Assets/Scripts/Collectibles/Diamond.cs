@@ -22,7 +22,7 @@ namespace Collectibles
             }
             else
             {
-                Debug.LogError("PlayerInventory not found! Coin collection failed.");
+                Debug.LogError("PlayerInventory not found! Diamond collection failed.");
             }
         }
         
