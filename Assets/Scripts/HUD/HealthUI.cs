@@ -38,7 +38,7 @@ namespace HUD
         {
             if (playerHealth != null)
             {
-                if (playerHealth.getCurrentHealth() < lowHealthThreshold)
+                if (playerHealth.getCurrentHealth() < lowHealthThreshold && playerInventory.GetHealthPotions() > 0)
                 {
                     healthText.text = "E"; 
                     healthText.enabled = true;
