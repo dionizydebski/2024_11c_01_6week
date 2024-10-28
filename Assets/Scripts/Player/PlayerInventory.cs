@@ -9,6 +9,7 @@ namespace Player
         [SerializeField] private int coins = 0;
         [SerializeField] private int diamonds = 0;
         [SerializeField] private int healthPotions = 0;
+        [SerializeField] private int skull = 0;
 
         private PlayerHUD playerHUD;
         private Health playerHealth;
@@ -39,6 +40,13 @@ namespace Player
             Debug.Log("Hpotions collected: " + healthPotions);
         }
         
+        public void AddSkull()
+        {
+            skull++;
+            playerHUD.UpdateSkullsHUD(skull);
+            Debug.Log("skulls collected: " + skull);
+        }
+        
         public bool UseHealthPotion()
         {
             if (healthPotions > 0 && playerHealth != null)
@@ -66,6 +74,11 @@ namespace Player
         public int GetHealthPotions()
         {
             return healthPotions;
+        }
+        
+        public int GetSkulls()
+        {
+            return skull;
         }
     }
 }
