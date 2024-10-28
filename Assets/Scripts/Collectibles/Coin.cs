@@ -1,5 +1,4 @@
 using System;
-using Managers;
 using UnityEngine;
 using Player;
 using UnityEngine.Events;
@@ -10,12 +9,6 @@ namespace Collectibles
     {
         public UnityEvent coinCollect;
         private Animator _animator;
-
-        private void Start()
-        {
-            coinCollect.AddListener(GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>().IncrementCoinsScore);
-            coinCollect.AddListener(GameObject.FindGameObjectWithTag("UIController").GetComponent<UIController>().UpdateCoinsScore);
-        }
 
         private void Awake()
         {
