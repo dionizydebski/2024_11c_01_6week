@@ -5,31 +5,31 @@ namespace Platforms
 {
     public class CollapsingPlatform : MonoBehaviour
     {
-        private float collapseDelay = 1f;
-        private float respawnTime = 3f;
+        private float _collapseDelay = 1f;
+        private float _respawnTime = 3f;
         
-        private Vector3 initialPosition;
-        private Quaternion initialRotation;
+        private Vector3 _initialPosition;
+        private Quaternion _initialRotation;
         
-        private bool isCollapsing = false;
+        private bool _isCollapsing = false;
         
-        private Collider2D platformCollider;
-        private Renderer platformRenderer;
+        private Collider2D _platformCollider;
+        private Renderer _platformRenderer;
 
         [SerializeField] private Rigidbody2D rb;
         
         private void Start()
         {
-            initialPosition = transform.position;
-            initialRotation = transform.rotation;
+            _initialPosition = transform.position;
+            _initialRotation = transform.rotation;
             
-            platformCollider = GetComponent<Collider2D>();
-            platformRenderer = GetComponent<Renderer>();
+            _platformCollider = GetComponent<Collider2D>();
+            _platformRenderer = GetComponent<Renderer>();
         }
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            if (collision.gameObject.CompareTag("Player"))
+            if (!_isCollapsing && collision.gameObject.CompareTag("Player"))
             {
                 StartCoroutine(Collapse());
             }
@@ -37,26 +37,27 @@ namespace Platforms
 
         private IEnumerator Collapse()
         {
-            yield return new WaitForSeconds(collapseDelay);
+            _isCollapsing = true;
+            yield return new WaitForSeconds(_collapseDelay);
 
             // Wyłącz platformę (ukryj i dezaktywuj collider)
-            platformRenderer.enabled = false;
-            platformCollider.enabled = false;
+            _platformRenderer.enabled = false;
+            _platformCollider.enabled = false;
             
-            yield return new WaitForSeconds(respawnTime);
+            yield return new WaitForSeconds(_respawnTime);
             
             RespawnPlatform();
         }
         
         private void RespawnPlatform()
         {
-            transform.position = initialPosition;
-            transform.rotation = initialRotation;
+            transform.position = _initialPosition;
+            transform.rotation = _initialRotation;
             
-            platformRenderer.enabled = true;
-            platformCollider.enabled = true;
+            _platformRenderer.enabled = true;
+            _platformCollider.enabled = true;
 
-            isCollapsing = false;
+            _isCollapsing = false;
         }
 
     }
