@@ -1,13 +1,10 @@
-using System;
 using UnityEngine;
 using Player;
-using UnityEngine.Events;
 
 namespace Collectibles
 {
     public class Coin : Collectible
     {
-        public UnityEvent coinCollect;
         private Animator _animator;
 
         private void Awake()
@@ -21,10 +18,7 @@ namespace Collectibles
             if (playerInventory != null)
             {
                 playerInventory.AddCoin();
-                coinCollect.Invoke();
-                Debug.Log("Setting isPickedUp to true");
                 _animator.SetBool("isPickedUp", true);
-                //Destroy(gameObject);
                 Invoke(nameof(DestroyCoin), 0.5f);
             }
             else
