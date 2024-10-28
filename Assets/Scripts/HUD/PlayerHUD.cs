@@ -10,6 +10,7 @@ namespace HUD
         [SerializeField] private Text diamondsText;
         [SerializeField] private Text healthPotionsText;
         [SerializeField] private Text skullText;
+        [SerializeField] private Text keyText;
 
         private PlayerInventory playerInventory;
 
@@ -20,6 +21,7 @@ namespace HUD
             UpdateDiamondsHUD(playerInventory.GetDiamonds());
             UpdateHealthPotionsHUD(playerInventory.GetHealthPotions());
             UpdateSkullsHUD(playerInventory.GetSkulls());
+            UpdateKeysHUD(playerInventory.GetKeys());
         }
 
         public void UpdateCoinsHUD(int coinCount)
@@ -37,9 +39,14 @@ namespace HUD
             healthPotionsText.text = healthPotionCount.ToString();
         }
         
-        public void UpdateSkullsHUD(int skullCount)
+        public void UpdateSkullsHUD(int skullsCount)
         {
-            skullText.text = skullCount.ToString();
+            skullText.text = skullsCount.ToString();
+        }
+        
+        public void UpdateKeysHUD(int keysCount)
+        {
+            keyText.text = keysCount.ToString();
         }
     }
 }
