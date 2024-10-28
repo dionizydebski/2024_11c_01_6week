@@ -9,7 +9,7 @@ namespace Collectibles
 
         private void Awake()
         {
-            //_animator = GetComponent<Animator>();
+            _animator = GetComponent<Animator>();
         }
 
         protected override void Collect()
@@ -18,7 +18,7 @@ namespace Collectibles
             if (playerInventory != null)
             {
                 playerInventory.AddKey();
-                //_animator.SetBool("isPickedUp", true);
+                _animator.SetBool("isPickedUp", true);
                 Invoke(nameof(DestroyKey), 0.5f);
             }
             else
