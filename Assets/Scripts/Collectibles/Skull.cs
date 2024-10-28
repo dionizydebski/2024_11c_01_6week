@@ -10,7 +10,7 @@ public class Skull : Collectible
 
     private void Awake()
     {
-        //_animator = GetComponent<Animator>();
+        _animator = GetComponent<Animator>();
     }
 
     protected override void Collect()
@@ -19,7 +19,7 @@ public class Skull : Collectible
         if (playerInventory != null)
         {
             playerInventory.AddSkull();
-            //_animator.SetBool("isPickedUp", true);
+            _animator.SetBool("isPickedUp", true);
             Invoke(nameof(DestroyCoin), 0.5f);
         }
         else
