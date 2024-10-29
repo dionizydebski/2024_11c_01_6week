@@ -50,7 +50,7 @@ MonoBehaviour:
   leftEdge: {fileID: 7217540106871621596}
   rightEdge: {fileID: 2430342150473606531}
   enemy: {fileID: 1576723044454454490}
-  speed: 2
+  speed: 10
   idleDuration: 2
   anim: {fileID: 1558721788624597215}
 --- !u!1 &3937455597156994660
@@ -78,7 +78,7 @@ Transform:
   m_GameObject: {fileID: 3937455597156994660}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.49, y: -1.8, z: -0.017479982}
+  m_LocalPosition: {x: -1.72, y: -1.8, z: -0.017479982}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -116,7 +116,7 @@ Transform:
   m_GameObject: {fileID: 4426946770927553887}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.31, y: -1.61, z: -0.02294312}
+  m_LocalPosition: {x: -5.84, y: -1.61, z: -0.02294312}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
