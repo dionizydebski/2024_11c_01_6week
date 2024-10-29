@@ -13,12 +13,12 @@ namespace Player
         [SerializeField] private int keys = 0;
         
         private PlayerHUD playerHUD;
-        private Health playerHealth;
+        private PlayerHealth playerHealth;
         
         private void Start()
         {
             playerHUD = FindObjectOfType<PlayerHUD>();
-            playerHealth = FindObjectOfType<Health>();
+            playerHealth = FindObjectOfType<PlayerHealth>();
         }
         public void AddCoin()
         {

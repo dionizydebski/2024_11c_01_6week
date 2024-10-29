@@ -1,6 +1,5 @@
 using Player;
 using UnityEngine;
-using static Health;
 
 namespace Collectibles
 {

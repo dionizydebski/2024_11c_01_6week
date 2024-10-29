@@ -8,12 +8,12 @@ namespace HUD
     {
         [SerializeField] private Text healthText; 
         [SerializeField] private float lowHealthThreshold = 3;
-        private Health playerHealth;
+        private PlayerHealth playerHealth;
         private PlayerInventory playerInventory;
 
         private void Start()
         {
-            playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<Health>();
+            playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
             playerInventory = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInventory>();
         
             if (playerHealth == null)
