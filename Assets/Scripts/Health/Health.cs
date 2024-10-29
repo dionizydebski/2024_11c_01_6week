@@ -129,5 +129,11 @@ namespace Health
 
             _rigidbody.MovePosition(_rigidbody.position + (knockBack*knockBackForce*Time.fixedDeltaTime));
         }
+
+        public float getCurrentHealth()
+        {
+            return currentHealth;
+        }
     }
 }
+
