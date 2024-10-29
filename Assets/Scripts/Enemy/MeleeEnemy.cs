@@ -1,4 +1,5 @@
 using System;
+using Player;
 using UnityEngine;
 
 public class MeleeEnemy : MonoBehaviour
@@ -18,7 +19,7 @@ public class MeleeEnemy : MonoBehaviour
 
     //References
     private Animator anim;
-    [SerializeField] public Health.Health playerHealth;
+    [SerializeField] public PlayerHealth playerHealth;
     private EnemyPatrol enemyPatrol;
 
     public bool knockedBack = false;
@@ -53,7 +54,7 @@ public class MeleeEnemy : MonoBehaviour
     {
         if (col.gameObject.tag == "Player")
         {
-            col.GetComponent<Health.Health>().TakeDamage(damage, transform.position);
+            col.GetComponent<PlayerHealth>().TakeDamage(damage, transform.position);
         }
     }
 
@@ -65,7 +66,7 @@ public class MeleeEnemy : MonoBehaviour
             0, Vector2.left, 0, playerLayer);
 
         if (hit.collider != null)
-            playerHealth = hit.transform.GetComponent<Health.Health>();
+            playerHealth = hit.transform.GetComponent<PlayerHealth>();
 
         return hit.collider != null;
     }
