@@ -109,6 +109,7 @@ namespace Player
                     if (_jumpCount > 0)
                     {
                         _performJump = false;
+                        _rigidbody.velocity = Vector2.zero;
                         _rigidbody.AddForce(new Vector2(0, jumpForce * extraJumpForceModifier), ForceMode2D.Impulse);
                         _jumpCount--;
                     }
