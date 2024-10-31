@@ -17,6 +17,7 @@ namespace Player
 
         [SerializeField] private float jumpForce;
         [SerializeField] private int extraJumps = 1;
+        [SerializeField] private float extraJumpForceModifier = 0.5f;
 
         [Header("Coyote Time")]
         [SerializeField] private float coyoteTime;
@@ -108,7 +109,7 @@ namespace Player
                     if (_jumpCount > 0)
                     {
                         _performJump = false;
-                        _rigidbody.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+                        _rigidbody.AddForce(new Vector2(0, jumpForce * extraJumpForceModifier), ForceMode2D.Impulse);
                         _jumpCount--;
                     }
                 }
