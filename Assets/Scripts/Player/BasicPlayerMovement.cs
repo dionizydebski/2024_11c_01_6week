@@ -75,8 +75,8 @@ namespace Player
             WallJump();
             WallSlide();
             _animator.SetBool(Run, _xInput != 0);
-            _animator.SetBool(Grounded, IsGrounded());
-            _animator.SetBool(Falling, IsFalling());
+            _animator.SetBool(Grounded, IsGrounded() && IsFalling());
+            _animator.SetBool(Falling, IsFalling() && !IsGrounded());
         }
 
         private void FixedUpdate()
