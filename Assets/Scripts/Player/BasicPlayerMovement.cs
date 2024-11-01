@@ -2,8 +2,6 @@ using UnityEngine;
 
 namespace Player
 {
-    //TODO: Fix incosistancies of wall jump - sometimes it pushes u higher and further sometime lower
-
     [RequireComponent(typeof(Rigidbody2D), typeof(SpriteRenderer))]
     public class BasicPlayerMovement : MonoBehaviour
     {
@@ -17,6 +15,7 @@ namespace Player
 
         [SerializeField] private float jumpForce;
         [SerializeField] private int extraJumps = 1;
+        [SerializeField] private float extraJumpForceModifier = 0.5f;
 
         [Header("Coyote Time")]
         [SerializeField] private float coyoteTime;
@@ -76,8 +75,8 @@ namespace Player
             WallJump();
             WallSlide();
             _animator.SetBool(Run, _xInput != 0);
-            _animator.SetBool(Grounded, IsGrounded());
-            _animator.SetBool(Falling, IsFalling());
+            _animator.SetBool(Grounded, IsGrounded() && IsFalling());
+            _animator.SetBool(Falling, IsFalling() && !IsGrounded());
         }
 
         private void FixedUpdate()
@@ -108,7 +107,8 @@ namespace Player
                     if (_jumpCount > 0)
                     {
                         _performJump = false;
-                        _rigidbody.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+                        _rigidbody.velocity = Vector2.zero;
+                        _rigidbody.AddForce(new Vector2(0, jumpForce * extraJumpForceModifier), ForceMode2D.Impulse);
                         _jumpCount--;
                     }
                 }
@@ -120,13 +120,6 @@ namespace Player
         private void Move()
         {
             _rigidbody.velocity = new Vector2(_xInput * speed, _rigidbody.velocity.y);
-            //TODO: Try to make move function using MovePosition
-            /*
-            Vector2 tempVect = new Vector2(_xInput, 0);
-            tempVect = tempVect.normalized * speed * Time.fixedDeltaTime;
-            _rigidbody.MovePosition(_rigidbody.position + tempVect);
-            */
-
         }
 
         private void FlipSprite()

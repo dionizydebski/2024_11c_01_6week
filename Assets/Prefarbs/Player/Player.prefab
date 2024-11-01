@@ -12,13 +12,12 @@ GameObject:
   - component: {fileID: 2376154638217155096}
   - component: {fileID: 7123195797720519757}
   - component: {fileID: 4167151893665243556}
+  - component: {fileID: 9113385628442991051}
   - component: {fileID: 6428986171454278949}
   - component: {fileID: 7081113256635750944}
-  - component: {fileID: 9113385628442991051}
-  - component: {fileID: 1231014687278908854}
   - component: {fileID: 8140652382867845113}
   - component: {fileID: 488161733268173898}
-  - component: {fileID: 7002164368116090814}
+  - component: {fileID: 3904614644429424952}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -170,6 +169,27 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!95 &9113385628442991051
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6338843962022591}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0c63e3382c48947fcb4e7cd68b93b9da, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &6428986171454278949
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,6 +205,7 @@ MonoBehaviour:
   speed: 5
   jumpForce: 10
   extraJumps: 1
+  extraJumpForceModifier: 1
   coyoteTime: 0.25
   wallSlideSpeed: 2
   wallJumpingTime: 0.2
@@ -231,39 +252,6 @@ MonoBehaviour:
   jumpSlamBoxHeight: 0.25
   jumpSlamBoxPositionOffset: 0.1
   health: {fileID: 0}
---- !u!95 &9113385628442991051
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6338843962022591}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0c63e3382c48947fcb4e7cd68b93b9da, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1231014687278908854
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6338843962022591}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ed962ea047f44be2a288c487be51b47, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &8140652382867845113
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -298,7 +286,7 @@ MonoBehaviour:
   components:
   - {fileID: 6428986171454278949}
   - {fileID: 7081113256635750944}
---- !u!114 &7002164368116090814
+--- !u!114 &3904614644429424952
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -307,12 +295,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 6338843962022591}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6850dab862a8848828977d4baed8e84e, type: 3}
+  m_Script: {fileID: 11500000, guid: 21200d1a266714942b3f53095fa608f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   coins: 0
   diamonds: 0
-  health: 100
+  healthPotions: 0
+  skulls: 0
+  keys: 0
 --- !u!1 &1647693037331982278
 GameObject:
   m_ObjectHideFlags: 0
