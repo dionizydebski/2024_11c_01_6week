@@ -7,6 +7,11 @@ namespace Player
     [RequireComponent(typeof(Rigidbody2D), typeof(SpriteRenderer))]
     public class BasicPlayerMovement : MonoBehaviour
     {
+        private static readonly int Run = Animator.StringToHash("run");
+        private static readonly int Grounded = Animator.StringToHash("grounded");
+        private static readonly int Falling = Animator.StringToHash("falling");
+        private static readonly int Jump1 = Animator.StringToHash("jump");
+
         [Header("Movement Parameters")]
         [SerializeField] private float speed;
 
@@ -26,13 +31,11 @@ namespace Player
         private bool _isWallJumping;
         private bool _isWallSliding;
         private int _jumpCount;
-        private float _mainGravityScale;
 
         [Header("Jump Parameters")]
         private bool _performJump;
 
         private Rigidbody2D _rigidbody;
-        private SpriteRenderer _spriteRenderer;
 
         private float _wallJumpCooldown;
         private float _wallJumpingCounter;
@@ -48,10 +51,9 @@ namespace Player
         {
             _rigidbody = GetComponent<Rigidbody2D>();
             _rigidbody.freezeRotation = true;
-            _spriteRenderer = GetComponent<SpriteRenderer>();
+            GetComponent<SpriteRenderer>();
             _animator = GetComponent<Animator>();
             _boxCollider = GetComponent<BoxCollider2D>();
-            _mainGravityScale = _rigidbody.gravityScale;
         }
 
         private void Update()
@@ -63,6 +65,7 @@ namespace Player
             {
                 _coyoteCooldown = coyoteTime; //Resetting coyote time cooldown
                 _jumpCount = extraJumps;
+                _animator.ResetTrigger("jump");
             }
             else
             {
@@ -72,8 +75,9 @@ namespace Player
             if (!_isWallJumping) FlipSprite();
             WallJump();
             WallSlide();
-            _animator.SetBool("run", _xInput != 0);
-            _animator.SetBool("grounded", IsGrounded());
+            _animator.SetBool(Run, _xInput != 0);
+            _animator.SetBool(Grounded, IsGrounded());
+            _animator.SetBool(Falling, IsFalling());
         }
 
         private void FixedUpdate()
@@ -81,15 +85,12 @@ namespace Player
             if (!_isWallJumping) Move();
 
             if (_performJump) Jump();
-
-            //TODO: falling animation
-            //TODO: check if player sprite becoming larger is intended
         }
 
         private void Jump()
         {
             if (_coyoteCooldown <= 0 && !OnWall() && _jumpCount <= 0) return;
-            _animator.Play("jump");
+            _animator.SetTrigger(Jump1);
             if (IsGrounded() || OnEnemy()) //TODO: think about jump of enemies head - can double jump? coyote time?
             {
                 _performJump = false;
@@ -118,8 +119,14 @@ namespace Player
 
         private void Move()
         {
-            //Move animation goes here
             _rigidbody.velocity = new Vector2(_xInput * speed, _rigidbody.velocity.y);
+            //TODO: Try to make move function using MovePosition
+            /*
+            Vector2 tempVect = new Vector2(_xInput, 0);
+            tempVect = tempVect.normalized * speed * Time.fixedDeltaTime;
+            _rigidbody.MovePosition(_rigidbody.position + tempVect);
+            */
+
         }
 
         private void FlipSprite()
@@ -149,7 +156,6 @@ namespace Player
 
         private void WallJump()
         {
-            Debug.Log("Wall jump");
             if (_isWallSliding)
             {
                 _isWallJumping = false;
@@ -170,7 +176,7 @@ namespace Player
                 _wallJumpingCounter = 0;
 
 
-                if (transform.localScale.x != _wallJumpingDirection)
+                if (!Mathf.Approximately(transform.localScale.x, _wallJumpingDirection))
                 {
                     _isFacingRight = !_isFacingRight;
                     var localScale = transform.localScale;

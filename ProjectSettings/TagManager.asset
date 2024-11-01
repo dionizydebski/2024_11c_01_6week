@@ -6,8 +6,10 @@ TagManager:
   tags:
   - Ground
   - Enemy
-  - CollapsingPlatform
-  - BreakablePlatform
+  - Checkpoint
+  - Coin
+  - Diamond
+  - Health Potion
   layers:
   - Default
   - TransparentFX
@@ -20,7 +22,7 @@ TagManager:
   - Enemy
   - Player
   - BreakablePlatform
-  - 
+  - Projectile
   - 
   - 
   - 
