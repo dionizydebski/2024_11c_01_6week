@@ -12,16 +12,16 @@ namespace HUD
         [SerializeField] private Text skullText;
         [SerializeField] private Text keyText;
 
-        private PlayerInventory playerInventory;
+        private PlayerInventory _playerInventory;
 
         private void Start()
         {
-            playerInventory = FindObjectOfType<PlayerInventory>();
-            UpdateCoinsHUD(playerInventory.GetCoins());
-            UpdateDiamondsHUD(playerInventory.GetDiamonds());
-            UpdateHealthPotionsHUD(playerInventory.GetHealthPotions());
-            UpdateSkullsHUD(playerInventory.GetSkulls());
-            UpdateKeysHUD(playerInventory.GetKeys());
+            _playerInventory = FindObjectOfType<PlayerInventory>();
+            UpdateCoinsHUD(_playerInventory.GetCoins());
+            UpdateDiamondsHUD(_playerInventory.GetDiamonds());
+            UpdateHealthPotionsHUD(_playerInventory.GetHealthPotions());
+            UpdateSkullsHUD(_playerInventory.GetSkulls());
+            UpdateKeysHUD(_playerInventory.GetKeys());
         }
 
         public void UpdateCoinsHUD(int coinCount)
