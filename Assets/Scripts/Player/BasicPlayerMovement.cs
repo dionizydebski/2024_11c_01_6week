@@ -190,7 +190,10 @@ namespace Player
         {
             var raycastHit = Physics2D.BoxCast(_boxCollider.bounds.center, _boxCollider.bounds.size, 0, Vector2.down,
                 0.1f, LayerMask.GetMask("Ground"));
-            return raycastHit.collider != null;
+            var platformHit = Physics2D.BoxCast(_boxCollider.bounds.center, _boxCollider.bounds.size, 0, Vector2.down,
+                0.1f, LayerMask.GetMask("Platform"));
+    
+            return raycastHit.collider != null || platformHit.collider != null;
         }
 
         private bool OnWall()
