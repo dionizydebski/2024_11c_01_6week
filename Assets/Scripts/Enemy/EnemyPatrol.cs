@@ -32,7 +32,7 @@ public class EnemyPatrol : MonoBehaviour
 
     private void Update()
     {
-        if (enemy.GetComponent<MeleeEnemy>().knockedBack == false)
+        if (enemy.GetComponent<MeleeEnemy1>().knockedBack == false)
         {
             if (movingLeft)
             {
@@ -76,8 +76,8 @@ public class EnemyPatrol : MonoBehaviour
             initScale.y, initScale.z);
 
         //Move in that direction
-        //enemy.position = new Vector3(enemy.position.x + Time.deltaTime * _direction * speed,
-            //enemy.position.y, enemy.position.z);
+        enemy.position = new Vector3(enemy.position.x + Time.deltaTime * _direction * speed,
+            enemy.position.y, enemy.position.z);
 
         enemy.GetComponent<Rigidbody2D>()
             .MovePosition(new Vector2(enemy.position.x + Time.deltaTime * _direction * speed, enemy.position.y));

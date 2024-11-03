@@ -26,12 +26,16 @@ namespace Health
         [SerializeField] private int numberOfFlashes;
         private SpriteRenderer _spriteRend;
 
+        public HealthBar healthBar;
+
         protected void Awake()
         {
             currentHealth = maxHealth;
             Anim = GetComponent<Animator>();
             _spriteRend = GetComponent<SpriteRenderer>();
             _rigidbody = GetComponent<Rigidbody2D>();
+
+            healthBar.SetMaxHealth(maxHealth);
         }
 
         private void FixedUpdate()
@@ -49,6 +53,7 @@ namespace Health
             if (Invulnerable) return;
             _hit = true;
             currentHealth = Mathf.Clamp(currentHealth - damage, 0, maxHealth);
+            healthBar.SetHealthValue(currentHealth);
             
             if (currentHealth > 0)
             {
@@ -67,9 +72,9 @@ namespace Health
                         GetComponentInParent<EnemyPatrol>().enabled = false;
                     }
 
-                    if (GetComponent<MeleeEnemy>() != null)
+                    if (GetComponent<MeleeEnemy1>() != null)
                     {
-                        GetComponent<MeleeEnemy>().enabled = false;
+                        GetComponent<MeleeEnemy1>().enabled = false;
                     }
 
                     if (GetComponentInParent<PlayerAttack>() != null)
@@ -107,6 +112,7 @@ namespace Health
         public void AddHealth(float value)
         {
             currentHealth = Mathf.Clamp(currentHealth + value, 0, maxHealth);
+            healthBar.SetHealthValue(currentHealth);
         }
         protected IEnumerator Invunerability()
         {
@@ -125,14 +131,19 @@ namespace Health
 
         private void KnockBack(Vector2 knockBack)
         {
-            if (gameObject.GetComponent<MeleeEnemy>() != null) gameObject.GetComponent<MeleeEnemy>().knockedBack = true;
+            if (gameObject.GetComponent<MeleeEnemy1>() != null) gameObject.GetComponent<MeleeEnemy1>().knockedBack = true;
 
             _rigidbody.MovePosition(_rigidbody.position + (knockBack*knockBackForce*Time.fixedDeltaTime));
         }
 
-        public int getCurrentHealth()
+        public float GetCurrentHealth()
         {
             return currentHealth;
+        }
+
+        public float GetMaxHealth()
+        {
+            return maxHealth;
         }
     }
 }
