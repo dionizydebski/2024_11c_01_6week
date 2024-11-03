@@ -11,7 +11,7 @@ namespace Platforms
         private Vector3 _initialPosition;
         private Quaternion _initialRotation;
         
-        private bool _isCollapsing = false;
+        private bool _isCollapsing;
         
         private Collider2D _platformCollider;
         private Renderer _platformRenderer;

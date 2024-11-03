@@ -4,24 +4,16 @@ namespace Platforms
 {
     public class HangingPlatform : MonoBehaviour
     {
-        [SerializeField] private float breakForce = 10f; 
-        [SerializeField] private float downwardVelocityThreshold = -2f; 
-        [SerializeField] private Rigidbody2D rb;
+        private Rigidbody2D _rb;
 
-        void OnCollisionEnter2D(Collision2D collision)
+        private void Awake()
         {
-            if (collision.gameObject.CompareTag("Player"))
-            {
-                Rigidbody2D playerRb = collision.gameObject.GetComponent<Rigidbody2D>();
-
-                if (playerRb != null && playerRb.velocity.y < downwardVelocityThreshold)
-                {
-                    if (collision.relativeVelocity.magnitude > breakForce)
-                    {
-                        rb.bodyType = RigidbodyType2D.Dynamic;
-                    }
-                }
-            }
+            _rb = GetComponent<Rigidbody2D>();
+        }
+        
+        public void Collapse ()
+        {
+            _rb.bodyType = RigidbodyType2D.Dynamic;
         }
     }
 }
