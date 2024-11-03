@@ -304,7 +304,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 512
-  playerHealth: {fileID: 0}
+  playerHealth: {fileID: 488161733268173898, guid: 0dc81ad593e121c89857832c452879f1, type: 3}
   knockedBack: 0
 --- !u!1 &6537069854012257389
 GameObject:
