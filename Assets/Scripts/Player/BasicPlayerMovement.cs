@@ -189,11 +189,9 @@ namespace Player
         private bool IsGrounded()
         {
             var raycastHit = Physics2D.BoxCast(_boxCollider.bounds.center, _boxCollider.bounds.size, 0, Vector2.down,
-                0.1f, LayerMask.GetMask("Ground"));
-            var platformHit = Physics2D.BoxCast(_boxCollider.bounds.center, _boxCollider.bounds.size, 0, Vector2.down,
-                0.1f, LayerMask.GetMask("Platform"));
-    
-            return raycastHit.collider != null || platformHit.collider != null;
+                0.1f, LayerMask.GetMask("Ground", "Platform"));
+
+            return raycastHit.collider != null;
         }
 
         private bool OnWall()
