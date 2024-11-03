@@ -282,6 +282,7 @@ MonoBehaviour:
   knockBackForce: 10
   iFramesDuration: 0
   numberOfFlashes: 0
+  healthBar: {fileID: 0}
   sword: {fileID: 4158477626553808652, guid: 5ff15716133d9e34ca70edd5b1ec3cde, type: 3}
   components:
   - {fileID: 6428986171454278949}
