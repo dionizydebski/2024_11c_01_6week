@@ -107,7 +107,7 @@ namespace Player
             foreach (var platform in hitPlatforms)
             {
                 if (platform.tag == "Breakable Platform")
-                    platform.GetComponent<PlatformHealth>().TakeDamage(damage);
+                    platform.GetComponent<PlatformHealth>().TakeDamage(damage, AttackTypes.Melee);
             }
 
         }
@@ -129,7 +129,7 @@ namespace Player
             {
                 if (platform.tag == "Breakable Platform")
                     Debug.Log("Platform hit");
-                    platform.GetComponent<PlatformHealth>().TakeDamage(damage);
+                    platform.GetComponent<PlatformHealth>().TakeDamage(damage, AttackTypes.JumpSlam);
             }
         }
 

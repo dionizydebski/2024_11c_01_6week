@@ -1,5 +1,6 @@
 using System.Collections;
 using Health;
+using UnityEditor.PackageManager;
 using UnityEngine;
 
 namespace Platforms
@@ -8,12 +9,13 @@ namespace Platforms
     {
         private static readonly int Destroy1 = Animator.StringToHash("Destroy");
         [SerializeField] private float destroyTime = 2f;
+        [SerializeField] private AttackTypes attackType;
 
-        public override void TakeDamage(float damage)
+        public void TakeDamage(float damage, AttackTypes usedAttackType)
         {
             currentHealth = Mathf.Clamp(currentHealth - damage, 0, maxHealth);
 
-            if (currentHealth <= 0)
+            if (currentHealth <= 0 && attackType == usedAttackType)
             {
                 Anim.SetTrigger(Destroy1);
                 StartCoroutine(WaitAndDie());
