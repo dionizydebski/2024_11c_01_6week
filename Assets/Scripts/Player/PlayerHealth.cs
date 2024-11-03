@@ -1,9 +1,10 @@
 using System.Collections;
+using Health;
 using UnityEngine;
 
 namespace Player
 {
-    public class PlayerHealth : Health.Health
+    public class PlayerHealth : HealthScript
     {
         [SerializeField] private GameObject sword;
         [SerializeField] private Behaviour[] components;

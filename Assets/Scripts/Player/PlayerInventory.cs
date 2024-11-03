@@ -1,6 +1,5 @@
 using HUD;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Player
 {
@@ -12,56 +11,56 @@ namespace Player
         [SerializeField] private int skulls = 0;
         [SerializeField] private int keys = 0;
         
-        private PlayerHUD playerHUD;
-        private PlayerHealth playerHealth;
+        private PlayerHUD _playerHUD;
+        private PlayerHealth _playerHealth;
         
         private void Start()
         {
-            playerHUD = FindObjectOfType<PlayerHUD>();
-            playerHealth = FindObjectOfType<PlayerHealth>();
+            _playerHUD = FindObjectOfType<PlayerHUD>();
+            _playerHealth = FindObjectOfType<PlayerHealth>();
         }
         public void AddCoin()
         {
             coins++;
             Debug.Log("Coins collected: " + coins);
-            playerHUD.UpdateCoinsHUD(coins);
+            _playerHUD.UpdateCoinsHUD(coins);
         }
 
         public void AddDiamond()
         {
             diamonds++;
-            playerHUD.UpdateDiamondsHUD(diamonds);
+            _playerHUD.UpdateDiamondsHUD(diamonds);
             Debug.Log("Diamonds collected: " + diamonds);
         }
         
         public void AddHealthPotion()
         {
             healthPotions++;
-            playerHUD.UpdateHealthPotionsHUD(healthPotions);
+            _playerHUD.UpdateHealthPotionsHUD(healthPotions);
             Debug.Log("Hpotions collected: " + healthPotions);
         }
         
         public void AddSkull()
         {
             skulls++;
-            playerHUD.UpdateSkullsHUD(skulls);
+            _playerHUD.UpdateSkullsHUD(skulls);
             Debug.Log("skulls collected: " + skulls);
         }
         
         public void AddKey()
         {
             keys++;
-            playerHUD.UpdateKeysHUD(keys);
+            _playerHUD.UpdateKeysHUD(keys);
             Debug.Log("keys collected: " + keys);
         }
         
         public bool UseHealthPotion()
         {
-            if (healthPotions > 0 && playerHealth != null)
+            if (healthPotions > 0 && _playerHealth != null)
             {
                 healthPotions--;
-                playerHealth.AddHealth(1); 
-                playerHUD.UpdateHealthPotionsHUD(healthPotions);
+                _playerHealth.AddHealth(1); 
+                _playerHUD.UpdateHealthPotionsHUD(healthPotions);
                 Debug.Log("Used a health potion. Remaining: " + healthPotions);
                 return true;
             }

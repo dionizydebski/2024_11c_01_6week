@@ -8,15 +8,15 @@ namespace HUD
     {
         [SerializeField] private Text healthText; 
         [SerializeField] private float lowHealthThreshold = 3;
-        private PlayerHealth playerHealth;
+        private PlayerHealth _playerHealth;
         private PlayerInventory playerInventory;
 
         private void Start()
         {
-            playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
+            _playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
             playerInventory = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInventory>();
         
-            if (playerHealth == null)
+            if (_playerHealth == null)
             {
                 Debug.LogError("Health component not found in the Player object.");
             }
@@ -36,9 +36,9 @@ namespace HUD
 
         private void UpdateHealthText()
         {
-            if (playerHealth != null)
+            if (_playerHealth != null)
             {
-                if (playerHealth.GetCurrentHealth() < lowHealthThreshold && playerInventory.GetHealthPotions() > 0)
+                if (_playerHealth.GetCurrentHealth() < lowHealthThreshold && playerInventory.GetHealthPotions() > 0)
                 {
                     healthText.text = "E"; 
                     healthText.enabled = true;

@@ -1,4 +1,7 @@
+using Health;
+using Platforms;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 //TODO: Delete Debug.Log-s before final build
 //TODO: Create condition for attacking only if player "has" a sword
@@ -39,7 +42,7 @@ namespace Player
         private float _rangedAttackCooldownTimer = Mathf.Infinity;
         private Rigidbody2D _rigidbody;
 
-        public Health.Health health;
+        [FormerlySerializedAs("health")] public HealthScript healthScript;
 
         private void Awake()
         {
@@ -95,23 +98,39 @@ namespace Player
 
             foreach (var enemy in hitEnemies)
                 if(enemy.isTrigger)
-                    enemy.GetComponent<Health.Health>().TakeDamage(damage, transform.position);
+                    enemy.GetComponent<HealthScript>().TakeDamage(damage, transform.position);
 
 
             if (_meleeAttackIndex == 3) _meleeAttackIndex = 1;
             else _meleeAttackIndex++;
 
             foreach (var platform in hitPlatforms)
-                platform.GetComponent<Health.Health>().TakeDamage(damage);
+            {
+                if (platform.tag == "Breakable Platform")
+                    platform.GetComponent<PlatformHealth>().TakeDamage(damage);
+            }
+
         }
 
+        // ReSharper disable Unity.PerformanceAnalysis
         private void JumpSlam()
         {
             Collider2D[] hitEnemies = Physics2D.OverlapBoxAll(
                 jumpSlamPoint.position + new Vector3(0, jumpSlamBoxPositionOffset, 0),
                 new Vector3(jumpSlamBoxWidth, jumpSlamBoxHeight, 0), 0f, enemyLayer);
+            Collider2D[] hitPlatforms = Physics2D.OverlapBoxAll(
+                jumpSlamPoint.position + new Vector3(0, jumpSlamBoxPositionOffset, 0),
+                new Vector3(jumpSlamBoxWidth, jumpSlamBoxHeight, 0), 0f, platformLayer);
+
             foreach (var enemy in hitEnemies)
-                enemy.GetComponent<Health.Health>().TakeDamage(damage, transform.position);
+                enemy.GetComponent<PlatformHealth>().TakeDamage(damage, transform.position);
+
+            foreach (var platform in hitPlatforms)
+            {
+                if (platform.tag == "Breakable Platform")
+                    Debug.Log("Platform hit");
+                    platform.GetComponent<PlatformHealth>().TakeDamage(damage);
+            }
         }
 
         private void RangedAttack()

@@ -10,6 +10,7 @@ TagManager:
   - Coin
   - Diamond
   - Health Potion
+  - Breakable Platform
   layers:
   - Default
   - TransparentFX

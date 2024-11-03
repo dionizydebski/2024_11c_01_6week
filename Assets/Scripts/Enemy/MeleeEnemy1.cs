@@ -1,6 +1,7 @@
 using System;
 using Player;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class MeleeEnemy1 : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class MeleeEnemy1 : MonoBehaviour
 
     //References
     private Animator anim;
-    [SerializeField] public PlayerHealth playerHealth;
+    [FormerlySerializedAs("playerHealthScript")] [SerializeField] public PlayerHealth playerHealth;
     private EnemyPatrol enemyPatrol;
 
     public bool knockedBack = false;
