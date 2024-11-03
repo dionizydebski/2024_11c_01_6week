@@ -18,7 +18,6 @@ GameObject:
   - component: {fileID: 8140652382867845113}
   - component: {fileID: 488161733268173898}
   - component: {fileID: 3904614644429424952}
-  - component: {fileID: 2346708496070119028}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -283,7 +282,7 @@ MonoBehaviour:
   knockBackForce: 10
   iFramesDuration: 0
   numberOfFlashes: 0
-  healthBar: {fileID: 2346708496070119028}
+  healthBar: {fileID: 0}
   sword: {fileID: 4158477626553808652, guid: 5ff15716133d9e34ca70edd5b1ec3cde, type: 3}
   components:
   - {fileID: 6428986171454278949}
@@ -305,19 +304,6 @@ MonoBehaviour:
   healthPotions: 0
   skulls: 0
   keys: 0
---- !u!114 &2346708496070119028
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6338843962022591}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2222f47c01a77444aabfc06e6905d83c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slider: {fileID: 0}
 --- !u!1 &1647693037331982278
 GameObject:
   m_ObjectHideFlags: 0
