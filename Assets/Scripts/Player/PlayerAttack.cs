@@ -140,7 +140,7 @@ namespace Player
                 {
                     HangingPlatform breakablePlatform = platform.GetComponent<HangingPlatform>();
                     if (breakablePlatform != null)
-                        breakablePlatform.Collapse();
+                        breakablePlatform.Fall();
                 }
             }
         }
