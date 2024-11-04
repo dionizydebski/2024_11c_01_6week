@@ -54,7 +54,8 @@ namespace Health
             if (Invulnerable) return;
             _hit = true;
             currentHealth = Mathf.Clamp(currentHealth - damage, 0, maxHealth);
-            healthBar.SetHealthValue(currentHealth);
+            if (gameObject.tag == "Player")
+                healthBar.SetHealthValue(currentHealth);
             
             if (currentHealth > 0)
             {
