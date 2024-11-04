@@ -36,8 +36,9 @@ namespace Health
             Anim = GetComponent<Animator>();
             _spriteRend = GetComponent<SpriteRenderer>();
             _rigidbody = GetComponent<Rigidbody2D>();
-
-            healthBar.SetMaxHealth(maxHealth);
+            
+            if(gameObject.tag == "Player")
+                healthBar.SetMaxHealth(maxHealth);
         }
 
         private void FixedUpdate()

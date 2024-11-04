@@ -417,10 +417,7 @@ PrefabInstance:
     - {fileID: 7002164368116090814, guid: 0dc81ad593e121c89857832c452879f1, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6338843962022591, guid: 0dc81ad593e121c89857832c452879f1, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2145021363}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0dc81ad593e121c89857832c452879f1, type: 3}
 --- !u!1001 &86105893
 PrefabInstance:
@@ -42130,7 +42127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 3
-  playerHealth: {fileID: 1759293004}
+  playerHealthScript: {fileID: 1759293004}
 --- !u!19719996 &1036438199
 TilemapCollider2D:
   m_ObjectHideFlags: 0
@@ -44061,6 +44058,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 4312191808714631326, guid: 0b62420349ffeee49a545cc9df7084c4, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4312191808714631326, guid: 0b62420349ffeee49a545cc9df7084c4, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -44479,7 +44484,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 488161733268173898, guid: 0dc81ad593e121c89857832c452879f1, type: 3}
   m_PrefabInstance: {fileID: 73527938}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2145021353}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 115195536b079d0c3b3509476de2754c, type: 3}
@@ -45088,28 +45093,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a688a98236ec7c6798eeed0d8f3579c, type: 3}
---- !u!1 &2145021353 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6338843962022591, guid: 0dc81ad593e121c89857832c452879f1, type: 3}
-  m_PrefabInstance: {fileID: 73527938}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2145021363
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2145021353}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21200d1a266714942b3f53095fa608f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  coins: 0
-  diamonds: 0
-  healthPotions: 0
-  skulls: 0
-  keys: 0
 --- !u!1001 &1817282105334454522
 PrefabInstance:
   m_ObjectHideFlags: 0
