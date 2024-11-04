@@ -39393,7 +39393,7 @@ GameObject:
   - component: {fileID: 971778121}
   - component: {fileID: 971778123}
   - component: {fileID: 971778122}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Tilemap - Ceilling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42130,7 +42130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 3
-  playerHealth: {fileID: 1759293004}
+  playerHealthScript: {fileID: 1759293004}
 --- !u!19719996 &1036438199
 TilemapCollider2D:
   m_ObjectHideFlags: 0
@@ -42232,6 +42232,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1127481481}
     m_Modifications:
+    - target: {fileID: 294189783450059412, guid: c539968db75284c86aeb56ff61180c86, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -6.94
+      objectReference: {fileID: 0}
     - target: {fileID: 3612633474914685168, guid: c539968db75284c86aeb56ff61180c86, type: 3}
       propertyPath: m_LocalScale.x
       value: 4.46897
@@ -44061,6 +44065,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 4312191808714631326, guid: 0b62420349ffeee49a545cc9df7084c4, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4312191808714631326, guid: 0b62420349ffeee49a545cc9df7084c4, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -44781,6 +44793,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1127481481}
     m_Modifications:
+    - target: {fileID: 294189783450059412, guid: c539968db75284c86aeb56ff61180c86, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -6.73
+      objectReference: {fileID: 0}
     - target: {fileID: 3612633474914685168, guid: c539968db75284c86aeb56ff61180c86, type: 3}
       propertyPath: m_LocalPosition.x
       value: 12.881023
