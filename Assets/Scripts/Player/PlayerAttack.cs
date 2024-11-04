@@ -138,9 +138,9 @@ namespace Player
                         platformHealth.TakeDamage(damage, AttackTypes.JumpSlam);
                 }else if (platform.tag == "Hanging Platform")
                 {
-                    HangingPlatform breakablePlatform = platform.GetComponent<HangingPlatform>();
-                    if (breakablePlatform != null)
-                        breakablePlatform.Fall();
+                    HangingPlatform hangingPlatform = platform.GetComponent<HangingPlatform>();
+                    if (hangingPlatform != null)
+                        hangingPlatform.Fall();
                 }
             }
         }
