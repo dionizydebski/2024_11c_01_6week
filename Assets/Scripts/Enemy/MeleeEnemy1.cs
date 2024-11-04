@@ -54,7 +54,7 @@ public class MeleeEnemy1 : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.tag == "Player")
+        if (col.gameObject.tag == "Player" && !gameObject.GetComponent<HealthScript>().dead)
         {
             col.GetComponent<PlayerHealth>().TakeDamage(damage, transform.position);
         }
