@@ -167,7 +167,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!95 &9113385628442991051
 Animator:
@@ -251,7 +251,7 @@ MonoBehaviour:
   jumpSlamBoxWidth: 1.25
   jumpSlamBoxHeight: 0.25
   jumpSlamBoxPositionOffset: 0.1
-  healthScript: {fileID: 488161733268173898}
+  healthScript: {fileID: 0}
 --- !u!114 &8140652382867845113
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -280,6 +280,7 @@ MonoBehaviour:
   maxHealth: 3
   currentHealth: 0
   knockBackForce: 10
+  dead: 0
   iFramesDuration: 0
   numberOfFlashes: 0
   healthBar: {fileID: 0}

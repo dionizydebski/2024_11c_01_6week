@@ -18,7 +18,7 @@ namespace Player
 
         public void Respawn()
         {
-            Dead = false;
+            dead = false;
             AddHealth(maxHealth);
             Anim.ResetTrigger("die");
             Anim.Play("Idle");

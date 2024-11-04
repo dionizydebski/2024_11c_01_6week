@@ -1,4 +1,5 @@
 using System;
+using Health;
 using Player;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -24,7 +25,7 @@ public class MeleeEnemy1 : MonoBehaviour
     private EnemyPatrol enemyPatrol;
 
     public bool knockedBack = false;
-
+    
     private void Awake()
     {
         anim = GetComponent<Animator>();
@@ -53,7 +54,7 @@ public class MeleeEnemy1 : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.tag == "Player")
+        if (col.gameObject.tag == "Player" && !gameObject.GetComponent<HealthScript>().dead)
         {
             col.GetComponent<PlayerHealth>().TakeDamage(damage, transform.position);
         }

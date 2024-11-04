@@ -22,7 +22,7 @@ public class HealthBar : MonoBehaviour
     {
         slider.maxValue = health;
         slider.value = health;
-        Debug.LogError("Updated health bar");
+        //Debug.LogError("Updated health bar");
     }
 
     public void SetHealthValue(float health)

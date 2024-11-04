@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using Player;
+using UnityEngine.Serialization;
 
 namespace Health
 {
@@ -17,7 +18,7 @@ namespace Health
         [SerializeField] private float knockBackForce;
         protected Animator Anim;
         private Rigidbody2D _rigidbody;
-        protected bool Dead;
+        public bool dead;
         protected bool Invulnerable;
         private bool _hit;
         private Vector2 _hitDirection;
@@ -35,8 +36,9 @@ namespace Health
             Anim = GetComponent<Animator>();
             _spriteRend = GetComponent<SpriteRenderer>();
             _rigidbody = GetComponent<Rigidbody2D>();
-
-            healthBar.SetMaxHealth(maxHealth);
+            
+            if(gameObject.tag == "Player")
+                healthBar.SetMaxHealth(maxHealth);
         }
 
         private void FixedUpdate()
@@ -54,7 +56,8 @@ namespace Health
             if (Invulnerable) return;
             _hit = true;
             currentHealth = Mathf.Clamp(currentHealth - damage, 0, maxHealth);
-            healthBar.SetHealthValue(currentHealth);
+            if (gameObject.tag == "Player")
+                healthBar.SetHealthValue(currentHealth);
             
             if (currentHealth > 0)
             {
@@ -63,7 +66,7 @@ namespace Health
             }
             else
             {
-                if (!Dead)
+                if (!dead)
                 {
                     Anim.SetTrigger(Die);
 
@@ -88,7 +91,7 @@ namespace Health
                         GetComponent<BasicPlayerMovement>().enabled = false;
                     }
 
-                    Dead = true;
+                    dead = true;
                     StartCoroutine(WaitAndDie());
 
                 }
