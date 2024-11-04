@@ -251,7 +251,7 @@ MonoBehaviour:
   jumpSlamBoxWidth: 1.25
   jumpSlamBoxHeight: 0.25
   jumpSlamBoxPositionOffset: 0.1
-  healthScript: {fileID: 488161733268173898}
+  healthScript: {fileID: 0}
 --- !u!114 &8140652382867845113
 MonoBehaviour:
   m_ObjectHideFlags: 0
