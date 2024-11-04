@@ -12,6 +12,9 @@ TagManager:
   - Health Potion
   - Breakable Platform
   - Hanging Platform
+  - Skull
+  - Key
+  - Chest
   layers:
   - Default
   - TransparentFX
