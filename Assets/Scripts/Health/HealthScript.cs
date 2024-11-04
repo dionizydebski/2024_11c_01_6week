@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using Player;
+using UnityEngine.Serialization;
 
 namespace Health
 {
@@ -17,7 +18,7 @@ namespace Health
         [SerializeField] private float knockBackForce;
         protected Animator Anim;
         private Rigidbody2D _rigidbody;
-        protected bool Dead;
+        public bool dead;
         protected bool Invulnerable;
         private bool _hit;
         private Vector2 _hitDirection;
@@ -64,7 +65,7 @@ namespace Health
             }
             else
             {
-                if (!Dead)
+                if (!dead)
                 {
                     Anim.SetTrigger(Die);
 
@@ -89,7 +90,7 @@ namespace Health
                         GetComponent<BasicPlayerMovement>().enabled = false;
                     }
 
-                    Dead = true;
+                    dead = true;
                     StartCoroutine(WaitAndDie());
 
                 }
