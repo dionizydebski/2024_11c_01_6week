@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 70aef7e3afb77fa45952850f4aec5b6d
+guid: 19bfa5ef877df4d3abd5d1e6f7949402
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Platforms (32x32)_0
+      name: Tile-Sets (64-64)_0
       rect:
         serializedVersion: 2
-        x: 32
-        y: 87
-        width: 128
-        height: 8
+        x: 0
+        y: 0
+        width: 384
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,29 +111,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 50fdb4e463e09425cb5031bce4269729
-      internalID: 842582917
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Platforms (32x32)_1
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 52
-        width: 128
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 16e0b4ac6fe904fee9c014c5c2d67ff7
-      internalID: -1822383007
+      spriteID: 7608ca00d2b4d491782844f3990e4f3c
+      internalID: -2016273316
       vertices: []
       indices: 
       edges: []
@@ -149,8 +128,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Platforms (32x32)_0: 842582917
-      Platforms (32x32)_1: -1822383007
+      Tile-Sets (64-64)_0: -2016273316
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

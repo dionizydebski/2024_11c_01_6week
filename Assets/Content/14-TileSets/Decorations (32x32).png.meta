@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 70aef7e3afb77fa45952850f4aec5b6d
+guid: 2be8a100d8eda406ea8c894cebd5f9cf
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,43 +97,127 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Platforms (32x32)_0
+      name: Decorations (32x32)_0
       rect:
         serializedVersion: 2
-        x: 32
-        y: 87
-        width: 128
-        height: 8
+        x: 35
+        y: 71
+        width: 26
+        height: 89
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 50fdb4e463e09425cb5031bce4269729
-      internalID: 842582917
+      spriteID: 6213d58f04a2a4ae090a8ffb5e4d4155
+      internalID: -643690901
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Platforms (32x32)_1
+      name: Decorations (32x32)_1
       rect:
         serializedVersion: 2
-        x: 32
-        y: 52
+        x: 64
+        y: 153
         width: 128
-        height: 11
+        height: 7
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 16e0b4ac6fe904fee9c014c5c2d67ff7
-      internalID: -1822383007
+      spriteID: e818853abdb144e7fb9c7236b16c3ff2
+      internalID: -774978139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Decorations (32x32)_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 113
+        width: 96
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 1, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42e38ac7bf1a44a45a6d9dbe515689b8
+      internalID: 728179611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Decorations (32x32)_3
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 39
+        width: 26
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fb98c77329c1496da9368e218539784
+      internalID: 550486207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Decorations (32x32)_4
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 32
+        width: 55
+        height: 57
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca12637c15634483391ce7f0ddbb7b32
+      internalID: 1211333263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Decorations (32x32)_5
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 32
+        width: 55
+        height: 57
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b06d878054baa456bb4f8d6f5511564f
+      internalID: 1315943664
       vertices: []
       indices: 
       edges: []
@@ -149,8 +233,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Platforms (32x32)_0: 842582917
-      Platforms (32x32)_1: -1822383007
+      Decorations (32x32)_0: -643690901
+      Decorations (32x32)_1: -774978139
+      Decorations (32x32)_2: 728179611
+      Decorations (32x32)_3: 550486207
+      Decorations (32x32)_4: 1211333263
+      Decorations (32x32)_5: 1315943664
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
