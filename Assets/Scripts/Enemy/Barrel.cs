@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace enemy
 {
@@ -11,7 +12,7 @@ namespace enemy
         [SerializeField] private float rotationSpeed;
         [SerializeField] private float respawnTime;
         [SerializeField] private int damage;
-        [SerializeField] private Health.Health playerHealth;
+        [FormerlySerializedAs("playerHealth")] [SerializeField] private Health.HealthScript playerHealthScript;
 
         private Quaternion initialRotation;
         private Collider2D platformCollider;
@@ -40,7 +41,7 @@ namespace enemy
         {
             if (collision.CompareTag("Player"))
             {
-                playerHealth.TakeDamage(damage);
+                playerHealthScript.TakeDamage(damage);
             }
         }
 

@@ -245,13 +245,13 @@ MonoBehaviour:
   jumpSlamForce: 15
   platformLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   damage: 1
   jumpSlamPoint: {fileID: 8568628551618966713}
   jumpSlamBoxWidth: 1.25
   jumpSlamBoxHeight: 0.25
   jumpSlamBoxPositionOffset: 0.1
-  health: {fileID: 0}
+  healthScript: {fileID: 488161733268173898}
 --- !u!114 &8140652382867845113
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -528,7 +528,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.625, y: 0.625}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0

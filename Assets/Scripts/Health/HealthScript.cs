@@ -1,13 +1,14 @@
-using System;
 using UnityEngine;
 using System.Collections;
 using Player;
-using UnityEngine.Serialization;
 
 namespace Health
 {
-    public class Health : MonoBehaviour
+    public class HealthScript : MonoBehaviour
     {
+        private static readonly int Hurt = Animator.StringToHash("hurt");
+        private static readonly int Die = Animator.StringToHash("die");
+
         [Header ("Health")]
         [SerializeField] protected float maxHealth;
         [SerializeField] protected float currentHealth;
@@ -48,7 +49,7 @@ namespace Health
             }
         }
 
-        public void TakeDamage(float damage)
+        public virtual void TakeDamage(float damage)
         {
             if (Invulnerable) return;
             _hit = true;
@@ -57,14 +58,14 @@ namespace Health
             
             if (currentHealth > 0)
             {
-                Anim.SetTrigger("hurt");
+                Anim.SetTrigger(Hurt);
                 StartCoroutine(Invunerability());
             }
             else
             {
                 if (!Dead)
                 {
-                    Anim.SetTrigger("die");
+                    Anim.SetTrigger(Die);
 
                     //Deactivate all attached component classes
                     if (GetComponentInParent<EnemyPatrol>() != null)
@@ -133,7 +134,7 @@ namespace Health
         {
             if (gameObject.GetComponent<MeleeEnemy1>() != null) gameObject.GetComponent<MeleeEnemy1>().knockedBack = true;
 
-            _rigidbody.MovePosition(_rigidbody.position + (knockBack*knockBackForce*Time.fixedDeltaTime));
+            _rigidbody.MovePosition(_rigidbody.position + (knockBack * (knockBackForce * Time.fixedDeltaTime)));
         }
 
         public float GetCurrentHealth()

@@ -162,7 +162,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 6304147116233145594}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 329b2c6ee2bdd48a4b95d9ef80e09529, type: 3}
+  m_Script: {fileID: 11500000, guid: e3642bf26abe49f9b138218545ade442, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collectibleType: 0
   pickUpSound: {fileID: 8300000, guid: 3f3beca80cc60e34aa1c3611c1699ac2, type: 3}
