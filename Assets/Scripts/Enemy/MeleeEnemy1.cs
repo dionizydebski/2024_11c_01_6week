@@ -1,4 +1,5 @@
 using System;
+using Health;
 using Player;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -24,7 +25,7 @@ public class MeleeEnemy1 : MonoBehaviour
     private EnemyPatrol enemyPatrol;
 
     public bool knockedBack = false;
-
+    
     private void Awake()
     {
         anim = GetComponent<Animator>();

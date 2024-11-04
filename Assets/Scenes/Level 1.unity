@@ -541,38 +541,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyPatrol
       objectReference: {fileID: 0}
-    - target: {fileID: 5798878602552252797, guid: ea2e5fba56b2e874f86e11367676e5cb, type: 3}
-      propertyPath: m_Size.x
-      value: 0.62851715
-      objectReference: {fileID: 0}
-    - target: {fileID: 5798878602552252797, guid: ea2e5fba56b2e874f86e11367676e5cb, type: 3}
-      propertyPath: m_Size.y
-      value: 0.72370625
-      objectReference: {fileID: 0}
-    - target: {fileID: 5798878602552252797, guid: ea2e5fba56b2e874f86e11367676e5cb, type: 3}
-      propertyPath: m_Offset.x
-      value: 0.002002716
-      objectReference: {fileID: 0}
-    - target: {fileID: 5798878602552252797, guid: ea2e5fba56b2e874f86e11367676e5cb, type: 3}
-      propertyPath: m_Offset.y
-      value: 0.03557825
-      objectReference: {fileID: 0}
-    - target: {fileID: 7067985419198101001, guid: ea2e5fba56b2e874f86e11367676e5cb, type: 3}
-      propertyPath: m_Size.x
-      value: 0.6012988
-      objectReference: {fileID: 0}
-    - target: {fileID: 7067985419198101001, guid: ea2e5fba56b2e874f86e11367676e5cb, type: 3}
-      propertyPath: m_Size.y
-      value: 0.70537597
-      objectReference: {fileID: 0}
-    - target: {fileID: 7067985419198101001, guid: ea2e5fba56b2e874f86e11367676e5cb, type: 3}
-      propertyPath: m_Offset.x
-      value: -0.0055868626
-      objectReference: {fileID: 0}
-    - target: {fileID: 7067985419198101001, guid: ea2e5fba56b2e874f86e11367676e5cb, type: 3}
-      propertyPath: m_Offset.y
-      value: 0.038297504
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
