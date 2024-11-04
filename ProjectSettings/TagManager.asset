@@ -23,7 +23,7 @@ TagManager:
   - Wall
   - Enemy
   - Player
-  - BreakablePlatform
+  - Platform
   - Projectile
   - Fallen Sward
   - Ceilling
