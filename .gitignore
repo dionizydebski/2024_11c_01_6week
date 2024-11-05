@@ -73,3 +73,6 @@ crashlytics-build.properties
 
 # System-specific files
 .DS_Store
+
+#Vscode files
+.vscode/*
