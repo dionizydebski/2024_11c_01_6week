@@ -14,6 +14,7 @@ namespace Platforms
         private bool _isCollapsing;
         
         private Collider2D _platformCollider;
+        private Collider2D _triggerCollider;
         private Renderer _platformRenderer;
 
         [SerializeField] private Rigidbody2D rb;
@@ -24,12 +25,13 @@ namespace Platforms
             _initialRotation = transform.rotation;
             
             _platformCollider = GetComponent<Collider2D>();
+            _triggerCollider = GetComponents<Collider2D>()[1];
             _platformRenderer = GetComponent<Renderer>();
         }
 
-        private void OnCollisionEnter2D(Collision2D collision)
+        private void OnTriggerEnter2D(Collider2D other)
         {
-            if (!_isCollapsing && collision.gameObject.CompareTag("Player"))
+            if (!_isCollapsing && other.CompareTag("Player"))
             {
                 StartCoroutine(Collapse());
             }
@@ -43,6 +45,7 @@ namespace Platforms
             // Wyłącz platformę (ukryj i dezaktywuj collider)
             _platformRenderer.enabled = false;
             _platformCollider.enabled = false;
+            _triggerCollider.enabled = false;
             
             yield return new WaitForSeconds(_respawnTime);
             
@@ -56,6 +59,7 @@ namespace Platforms
             
             _platformRenderer.enabled = true;
             _platformCollider.enabled = true;
+            _triggerCollider.enabled = true;
 
             _isCollapsing = false;
         }
