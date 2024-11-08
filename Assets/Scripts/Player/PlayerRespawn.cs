@@ -29,6 +29,7 @@ namespace Player
                other.GetComponent<Collider2D>().enabled = false;
                Debug.Log("Checkpoint enabled");
                SoundManager.instance.PlaySound(checkpointSound);
+               other.gameObject.GetComponent<Animator>().SetTrigger("Rise");
                //TODO: Add animation or smth for checkpoint unlock
            }
        }
