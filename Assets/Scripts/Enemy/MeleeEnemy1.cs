@@ -21,10 +21,10 @@ public class MeleeEnemy1 : MonoBehaviour
 
     //References
     private Animator anim;
-    [FormerlySerializedAs("playerHealthScript")] [SerializeField] public PlayerHealth playerHealth;
+    [SerializeField] public PlayerHealth playerHealth;
     private EnemyPatrol enemyPatrol;
 
-    public bool knockedBack = false;
+    private bool knockedBack = false;
     
     private void Awake()
     {
@@ -90,5 +90,15 @@ public class MeleeEnemy1 : MonoBehaviour
         var raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down,
             0.1f, LayerMask.GetMask("Ground"));
         return raycastHit.collider != null;
+    }
+
+    public bool GetKnockedBack()
+    {
+        return knockedBack;
+    }
+
+    public void SetKnockedBack(bool value)
+    {
+        knockedBack = value;
     }
 }

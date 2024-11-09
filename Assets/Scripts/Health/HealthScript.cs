@@ -106,9 +106,11 @@ namespace Health
 
         protected virtual IEnumerator WaitAndDie()
         {
+            Debug.Log("Wait and die");
+            var boxCollider = gameObject.GetComponent<BoxCollider2D>();
+            boxCollider.excludeLayers = LayerMask.GetMask("Player");
             // Czekaj 5 sekund
             yield return new WaitForSeconds(2f);
-
             // Po 5 sekundach wykonaj akcję
             Destroy(gameObject);
         }
@@ -135,7 +137,7 @@ namespace Health
 
         private void KnockBack(Vector2 knockBack)
         {
-            if (gameObject.GetComponent<MeleeEnemy1>() != null) gameObject.GetComponent<MeleeEnemy1>().knockedBack = true;
+            if (gameObject.GetComponent<MeleeEnemy1>() != null) gameObject.GetComponent<MeleeEnemy1>().SetKnockedBack(true);
 
             _rigidbody.MovePosition(_rigidbody.position + (knockBack * (knockBackForce * Time.fixedDeltaTime)));
         }

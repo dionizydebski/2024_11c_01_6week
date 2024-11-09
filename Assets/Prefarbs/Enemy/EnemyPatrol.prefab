@@ -227,7 +227,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0055868626, y: 0.038297504}
+  m_Offset: {x: 0.0037641227, y: 0.038966283}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -238,7 +238,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.6012988, y: 0.70537597}
+  m_Size: {x: 0.6200008, y: 0.7040384}
   m_EdgeRadius: 0
 --- !u!61 &5798878602552252797
 BoxCollider2D:
@@ -272,7 +272,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.002002716, y: 0.03557825}
+  m_Offset: {x: 0.0043067634, y: 0.042122602}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -283,7 +283,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.62851715, y: 0.72370625}
+  m_Size: {x: 0.63312525, y: 0.71061754}
   m_EdgeRadius: 0
 --- !u!114 &4864983566191936992
 MonoBehaviour:
@@ -300,6 +300,7 @@ MonoBehaviour:
   maxHealth: 3
   currentHealth: 0
   knockBackForce: 15
+  dead: 0
   iFramesDuration: 0
   numberOfFlashes: 0
   healthBar: {fileID: 0}
@@ -343,7 +344,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackCooldown: 1
-  range: 1.5
+  range: 1
   damage: 1
   colliderDistance: -0.5
   boxCollider: {fileID: 7067985419198101001}

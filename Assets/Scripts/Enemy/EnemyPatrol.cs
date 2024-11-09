@@ -32,7 +32,7 @@ public class EnemyPatrol : MonoBehaviour
 
     private void Update()
     {
-        if (enemy.GetComponent<MeleeEnemy1>().knockedBack == false)
+        if (enemy.GetComponent<MeleeEnemy1>().GetKnockedBack() == false)
         {
             if (movingLeft)
             {
