@@ -8003,7 +8003,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 950930199635103168, guid: d1f210b6498d14d40923c643c4ce8ed0, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.0543752
+      value: 0.6725992
       objectReference: {fileID: 0}
     - target: {fileID: 950930199635103168, guid: d1f210b6498d14d40923c643c4ce8ed0, type: 3}
       propertyPath: m_LocalScale.y
@@ -8015,7 +8015,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 950930199635103168, guid: d1f210b6498d14d40923c643c4ce8ed0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -21.447
+      value: -21.45013
       objectReference: {fileID: 0}
     - target: {fileID: 950930199635103168, guid: d1f210b6498d14d40923c643c4ce8ed0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -21029,6 +21029,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8893166480474769191, guid: f4ad78a5789044e1ba5405f84d2b4a72, type: 3}
   m_PrefabInstance: {fileID: 1373363166}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1379067499
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 814012309198086065, guid: 32fb1c31bafcb28b88bdd700332c8579, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 81.157
+      objectReference: {fileID: 0}
+    - target: {fileID: 814012309198086065, guid: 32fb1c31bafcb28b88bdd700332c8579, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -11.704
+      objectReference: {fileID: 0}
+    - target: {fileID: 814012309198086065, guid: 32fb1c31bafcb28b88bdd700332c8579, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 814012309198086065, guid: 32fb1c31bafcb28b88bdd700332c8579, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 814012309198086065, guid: 32fb1c31bafcb28b88bdd700332c8579, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 814012309198086065, guid: 32fb1c31bafcb28b88bdd700332c8579, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 814012309198086065, guid: 32fb1c31bafcb28b88bdd700332c8579, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 814012309198086065, guid: 32fb1c31bafcb28b88bdd700332c8579, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 814012309198086065, guid: 32fb1c31bafcb28b88bdd700332c8579, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 814012309198086065, guid: 32fb1c31bafcb28b88bdd700332c8579, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4158477626553808652, guid: 32fb1c31bafcb28b88bdd700332c8579, type: 3}
+      propertyPath: m_Name
+      value: Sword Unlocking Attacks
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 32fb1c31bafcb28b88bdd700332c8579, type: 3}
 --- !u!1001 &1386890507
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -63561,3 +63618,4 @@ SceneRoots:
   - {fileID: 2049379470}
   - {fileID: 1741965409}
   - {fileID: 547516780}
+  - {fileID: 1379067499}
