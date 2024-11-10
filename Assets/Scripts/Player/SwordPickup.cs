@@ -6,6 +6,7 @@ namespace Player
     {
         private void OnCollisionEnter2D(Collision2D other)
         {
+            Debug.Log("Sword Pickup");
             Animator otherAnimator = other.gameObject.GetComponent<Animator>();
             otherAnimator.Play("Idle with sword");
             otherAnimator.SetBool("withSword", true);

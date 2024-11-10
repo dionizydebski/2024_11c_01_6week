@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4250855228232743806}
   - component: {fileID: 5796454894906744099}
   - component: {fileID: 1845478028788418249}
+  - component: {fileID: 4464611836696190072}
   m_Layer: 0
   m_Name: Sword Unlocking Attacks
   m_TagString: Untagged
@@ -180,3 +181,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.62444925, y: 0.4357335}
   m_EdgeRadius: 0
+--- !u!114 &4464611836696190072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4158477626553808652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 151e6bd6e0cf47e17aed3ac45888fb81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
