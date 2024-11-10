@@ -8,7 +8,9 @@ namespace Pirate_Ship
     public class PlayerLockPoint : MonoBehaviour
     {
         private static readonly int Running = Animator.StringToHash("run");
+        private static readonly int ShipLock = Animator.StringToHash("shipLock");
         private PirateShipMovement _pirateShipMovement;
+        private bool _locked;
         private void Awake()
         {
             _pirateShipMovement = gameObject.transform.parent.gameObject.GetComponent<PirateShipMovement>();
@@ -16,11 +18,12 @@ namespace Pirate_Ship
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.gameObject.CompareTag("Player"))
+            if (collision.gameObject.CompareTag("Player") && !_locked)
             {
-                collision.transform.SetParent(transform);
+                collision.transform.SetParent(transform.parent);
                 DisablePlayerMovement(collision.gameObject);
                 StartCoroutine(Wait(1f));
+                _locked = true;
             }
         }
 
@@ -30,6 +33,7 @@ namespace Pirate_Ship
             {
                 player.GetComponent<BasicPlayerMovement>().StopMovement();
                 player.GetComponent<Animator>().SetBool(Running, false);
+                player.GetComponent<Animator>().SetBool(ShipLock, true);
                 if (player.GetComponent<BasicPlayerMovement>() != null) player.GetComponent<BasicPlayerMovement>().enabled = false;
                 if (player.GetComponent<PlayerAttack>() != null) player.GetComponent<PlayerAttack>().enabled = false;
             }

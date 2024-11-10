@@ -75,7 +75,6 @@ namespace Player
             if (!_isWallJumping) FlipSprite();
             WallJump();
             WallSlide();
-            Debug.Log(_xInput);
             _animator.SetBool(Run, _xInput != 0);
             _animator.SetBool(Grounded, IsGrounded() && IsFalling());
             _animator.SetBool(Falling, IsFalling() && !IsGrounded());

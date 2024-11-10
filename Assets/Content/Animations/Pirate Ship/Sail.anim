@@ -54,6 +54,38 @@ AnimationClip:
     classID: 212
     script: {fileID: 0}
     flags: 2
+  - serializedVersion: 2
+    curve:
+    - time: 0
+      value: {fileID: 21300000, guid: 7ac4f84d3731ae346a533a4998aec1ac, type: 3}
+    - time: 0.1
+      value: {fileID: 21300000, guid: d0cfeb83a31a3a64f9fdb1b3330b2f8b, type: 3}
+    - time: 0.2
+      value: {fileID: 21300000, guid: f880a4923376cdb44bb939c6029a5645, type: 3}
+    - time: 0.31666666
+      value: {fileID: 21300000, guid: 0eecb85f671178c429ad0bc59f1c4ea8, type: 3}
+    - time: 0.41666666
+      value: {fileID: 21300000, guid: 2b6d14f6d8ca16a4ab924f7be7a8c028, type: 3}
+    attribute: m_Sprite
+    path: Water Splash/Water Splash 1
+    classID: 212
+    script: {fileID: 0}
+    flags: 2
+  - serializedVersion: 2
+    curve:
+    - time: 0
+      value: {fileID: 21300000, guid: 35a72e20700e9074baf7e61f70738cf9, type: 3}
+    - time: 0.13333334
+      value: {fileID: 21300000, guid: ba7ac64084b8f5f44a686087d7e4fb40, type: 3}
+    - time: 0.28333333
+      value: {fileID: 21300000, guid: 549b5786744cc9e478969d06f8afbff2, type: 3}
+    - time: 0.41666666
+      value: {fileID: 21300000, guid: 19d4970651344cb4b8b94c9023b63da5, type: 3}
+    attribute: m_Sprite
+    path: Water Splash/Water Splash 2
+    classID: 212
+    script: {fileID: 0}
+    flags: 2
   m_SampleRate: 60
   m_WrapMode: 0
   m_Bounds:
@@ -79,6 +111,24 @@ AnimationClip:
       isPPtrCurve: 1
       isIntCurve: 0
       isSerializeReferenceCurve: 0
+    - serializedVersion: 2
+      path: 3122317688
+      attribute: 0
+      script: {fileID: 0}
+      typeID: 212
+      customType: 23
+      isPPtrCurve: 1
+      isIntCurve: 0
+      isSerializeReferenceCurve: 0
+    - serializedVersion: 2
+      path: 588486850
+      attribute: 0
+      script: {fileID: 0}
+      typeID: 212
+      customType: 23
+      isPPtrCurve: 1
+      isIntCurve: 0
+      isSerializeReferenceCurve: 0
     pptrCurveMapping:
     - {fileID: 21300000, guid: d97dbdabd87d074449aea9917ba6f028, type: 3}
     - {fileID: 21300000, guid: d3f70e85a37049c46b51ab373b1e7c53, type: 3}
@@ -91,6 +141,15 @@ AnimationClip:
     - {fileID: 21300000, guid: 317e23f5c800e0d4293680fd2464d65b, type: 3}
     - {fileID: 21300000, guid: 3b80a8cedd0a71c42b11f6dce35f5300, type: 3}
     - {fileID: 21300000, guid: 9ab2b129e84ff754c839f7fa872f10d9, type: 3}
+    - {fileID: 21300000, guid: 7ac4f84d3731ae346a533a4998aec1ac, type: 3}
+    - {fileID: 21300000, guid: d0cfeb83a31a3a64f9fdb1b3330b2f8b, type: 3}
+    - {fileID: 21300000, guid: f880a4923376cdb44bb939c6029a5645, type: 3}
+    - {fileID: 21300000, guid: 0eecb85f671178c429ad0bc59f1c4ea8, type: 3}
+    - {fileID: 21300000, guid: 2b6d14f6d8ca16a4ab924f7be7a8c028, type: 3}
+    - {fileID: 21300000, guid: 35a72e20700e9074baf7e61f70738cf9, type: 3}
+    - {fileID: 21300000, guid: ba7ac64084b8f5f44a686087d7e4fb40, type: 3}
+    - {fileID: 21300000, guid: 549b5786744cc9e478969d06f8afbff2, type: 3}
+    - {fileID: 21300000, guid: 19d4970651344cb4b8b94c9023b63da5, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

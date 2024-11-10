@@ -13,8 +13,6 @@ namespace Pirate_Ship
         private bool _move;
         private bool _canMove = true;
         private Vector2 _targetVector;
-        [SerializeField] private Behaviour[] components;
-
 
         private void Start()
         {
@@ -31,11 +29,13 @@ namespace Pirate_Ship
                     _animator.SetBool("Sail", false);
                     _move = false;
                     _canMove = false;
-                    GameObject player = gameObject.transform.GetChild(2).gameObject;
+                    GameObject player = gameObject.transform.GetChild(3).gameObject;
+                    /*
                     if (gameObject.activeInHierarchy)
                     {
                         player.transform.SetParent(null);
                     }
+                    */
                     _animator.SetBool("Wind", false);
                 }
                 else
