@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 namespace Pirate_Ship
@@ -7,13 +8,16 @@ namespace Pirate_Ship
     {
         [SerializeField] private float speed;
         [SerializeField] private Transform target;
+        private Animator _animator;
         private bool _move;
         private bool _canMove = true;
         private Vector2 _targetVector;
 
+
         private void Start()
         {
             _targetVector = target.position;
+            _animator = gameObject.transform.GetChild(0).gameObject.GetComponent<Animator>();
         }
 
         private void FixedUpdate()
@@ -21,14 +25,16 @@ namespace Pirate_Ship
             if (_move && _canMove)
             {
                 if (Vector2.Distance(transform.position, _targetVector) < 0.1f)
-                {
+                { 
+                    _animator.SetBool("Sail", false);
                     _move = false;
                     _canMove = false;
-                    GameObject player = gameObject.transform.GetChild(3).gameObject;
+                    GameObject player = gameObject.transform.GetChild(2).gameObject;
                     if (gameObject.activeInHierarchy)
                     {
                         player.transform.SetParent(null);
                     }
+                    _animator.SetBool("Wind", false);
                 }
                 else
                 {
@@ -43,7 +49,7 @@ namespace Pirate_Ship
             {
                 collision.transform.SetParent(transform);
             }
-            _move = true;
+            StartCoroutine(Wait(1f));
         }
 
         private void Movement()
@@ -60,6 +66,15 @@ namespace Pirate_Ship
                     other.gameObject.transform.SetParent(null);
                 }
             }
+        }
+
+        private IEnumerator Wait(float time)
+        {
+            yield return new WaitForSeconds(time);
+            _animator.SetBool("Wind", true);
+            _animator.SetBool("Sail", true);
+            yield return new WaitForSeconds(time/2);
+            _move = true;
         }
     }
 }
