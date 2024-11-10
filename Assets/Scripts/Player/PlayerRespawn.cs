@@ -1,3 +1,4 @@
+using LevelMenager;
 using UnityEngine;
 
 namespace Player
@@ -30,6 +31,8 @@ namespace Player
                Debug.Log("Checkpoint enabled");
                SoundManager.instance.PlaySound(checkpointSound);
                other.gameObject.GetComponent<Animator>().SetTrigger("Rise");
+               SimpleSaveSystem.SaveXML();
+               Debug.Log("Checkpoint saved");
                //TODO: Add animation or smth for checkpoint unlock
            }
        }

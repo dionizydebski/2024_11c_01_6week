@@ -1,4 +1,6 @@
+using System;
 using HUD;
+using LevelMenager;
 using UnityEngine;
 
 namespace Player
@@ -13,7 +15,37 @@ namespace Player
         
         private PlayerHUD _playerHUD;
         private PlayerHealth _playerHealth;
+
+        private void Awake()
+        {
+            EventSystem.OnSaveGame += SaveGame;
+            EventSystem.OnLoadGame += LoadGame;
+        }
         
+        private void OnDestroy()
+        {
+            EventSystem.OnSaveGame -= SaveGame;
+            EventSystem.OnLoadGame -= LoadGame;
+        }
+        
+        private void SaveGame(SaveData data)
+        {
+            data.coins = coins;
+            data.diamonds = diamonds;
+            data.healthPotions = healthPotions;
+            data.skulls = skulls;
+            data.keys = keys;
+        }
+        
+        private void LoadGame(SaveData data)
+        {
+            _playerHUD.UpdateCoinsHUD(data.coins);
+            _playerHUD.UpdateDiamondsHUD(data.diamonds);
+            _playerHUD.UpdateHealthPotionsHUD(data.healthPotions);
+            _playerHUD.UpdateSkullsHUD(data.skulls);
+            _playerHUD.UpdateKeysHUD(data.keys);
+        }
+
         private void Start()
         {
             _playerHUD = FindObjectOfType<PlayerHUD>();

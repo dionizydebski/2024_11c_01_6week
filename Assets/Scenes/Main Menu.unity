@@ -1724,7 +1724,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1211004934}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1710173966}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: ContinueClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1211004934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2661,6 +2673,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 047e6afe755c17246b0a7238408e6caf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _continue: {fileID: 1211004931}
 --- !u!114 &1710173968
 MonoBehaviour:
   m_ObjectHideFlags: 0
