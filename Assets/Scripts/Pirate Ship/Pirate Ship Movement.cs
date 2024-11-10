@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Player;
 using UnityEngine;
 
 namespace Pirate_Ship
@@ -12,6 +13,7 @@ namespace Pirate_Ship
         private bool _move;
         private bool _canMove = true;
         private Vector2 _targetVector;
+        [SerializeField] private Behaviour[] components;
 
 
         private void Start()
@@ -25,7 +27,7 @@ namespace Pirate_Ship
             if (_move && _canMove)
             {
                 if (Vector2.Distance(transform.position, _targetVector) < 0.1f)
-                { 
+                {
                     _animator.SetBool("Sail", false);
                     _move = false;
                     _canMove = false;
@@ -43,38 +45,37 @@ namespace Pirate_Ship
             }
         }
 
-        private void OnCollisionEnter2D(Collision2D collision)
-        {
-            if (collision.gameObject.CompareTag("Player"))
-            {
-                collision.transform.SetParent(transform);
-            }
-            StartCoroutine(Wait(1f));
-        }
-
         private void Movement()
         {
             transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
         }
 
-        private void OnCollisionExit2D(Collision2D other)
+        public void SetMove(bool value)
         {
-            if (other.gameObject.CompareTag("Player"))
+            _move = value;
+        }
+
+        public bool GetMove()
+        {
+            return _move;
+        }
+
+        public void SetAnimatorBool(string name, bool value)
+        {
+            if (HasParameter(name, _animator))
             {
-                if (gameObject.activeInHierarchy)
-                {
-                    other.gameObject.transform.SetParent(null);
-                }
+                _animator.SetBool(name, value);
             }
         }
 
-        private IEnumerator Wait(float time)
+        private static bool HasParameter( string paramName, Animator animator )
         {
-            yield return new WaitForSeconds(time);
-            _animator.SetBool("Wind", true);
-            _animator.SetBool("Sail", true);
-            yield return new WaitForSeconds(time/2);
-            _move = true;
+            foreach( AnimatorControllerParameter param in animator.parameters )
+            {
+                if( param.name == paramName )
+                    return true;
+            }
+            return false;
         }
     }
 }

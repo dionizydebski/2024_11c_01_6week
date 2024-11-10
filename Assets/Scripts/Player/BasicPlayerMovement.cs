@@ -9,6 +9,7 @@ namespace Player
         private static readonly int Grounded = Animator.StringToHash("grounded");
         private static readonly int Falling = Animator.StringToHash("falling");
         private static readonly int Jump1 = Animator.StringToHash("jump");
+        private static readonly int WithSword = Animator.StringToHash("withSword");
 
         [Header("Movement Parameters")]
         [SerializeField] private float speed;
@@ -74,6 +75,7 @@ namespace Player
             if (!_isWallJumping) FlipSprite();
             WallJump();
             WallSlide();
+            Debug.Log(_xInput);
             _animator.SetBool(Run, _xInput != 0);
             _animator.SetBool(Grounded, IsGrounded() && IsFalling());
             _animator.SetBool(Falling, IsFalling() && !IsGrounded());
@@ -228,6 +230,11 @@ namespace Player
             var raycastHit = Physics2D.BoxCast(_boxCollider.bounds.center, _boxCollider.bounds.size, 0, Vector2.down,
                 0.1f, LayerMask.GetMask("Ground"));
             return raycastHit.collider == null;
+        }
+
+        public void StopMovement()
+        {
+            _rigidbody.velocity = Vector2.zero;
         }
     }
 }
