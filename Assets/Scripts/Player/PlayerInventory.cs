@@ -86,6 +86,20 @@ namespace Player
             Debug.Log("keys collected: " + keys);
         }
         
+        public bool UseKey()
+        {
+            if (keys > 0)
+            {
+                keys--;
+                _playerHUD.UpdateKeysHUD(keys);
+                Debug.Log("Key used. Left keys: " + keys);
+                return true;
+            }
+            Debug.Log("No keys!");
+            return false;
+        }
+
+        
         public bool UseHealthPotion()
         {
             if (healthPotions > 0 && _playerHealth != null)

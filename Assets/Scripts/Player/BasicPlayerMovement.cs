@@ -11,6 +11,7 @@ namespace Player
         private static readonly int Grounded = Animator.StringToHash("grounded");
         private static readonly int Falling = Animator.StringToHash("falling");
         private static readonly int Jump1 = Animator.StringToHash("jump");
+        private static readonly int WithSword = Animator.StringToHash("withSword");
 
         [Header("Movement Parameters")]
         [SerializeField] private float speed;
@@ -214,7 +215,7 @@ namespace Player
 
         public bool CanAttack()
         {
-            return !OnWall(); //TODO: Possibly add other conditions for attack
+            return !OnWall() && !InAir(); //TODO: Possibly add other conditions for attack
         }
 
         private bool IsFalling()
@@ -226,7 +227,7 @@ namespace Player
 
             return travel < 0;
         }
-
+        
         private void OnDestroy()
         {
             EventSystem.OnSaveGame -= SaveGame;
@@ -239,7 +240,7 @@ namespace Player
             data.PositionX = position.x;
             data.PositionY = position.y;
         }
-        
+
         private void LoadGame(SaveData data)
         {
             Vector2 position = new Vector2()
@@ -248,6 +249,18 @@ namespace Player
                 y = data.PositionY
             };
             transform.position = position;
+        }
+
+        private bool InAir()
+        {
+            var raycastHit = Physics2D.BoxCast(_boxCollider.bounds.center, _boxCollider.bounds.size, 0, Vector2.down,
+                0.1f, LayerMask.GetMask("Ground"));
+            return raycastHit.collider == null;
+        }
+
+        public void StopMovement()
+        {
+            _rigidbody.velocity = Vector2.zero;
         }
     }
 }
