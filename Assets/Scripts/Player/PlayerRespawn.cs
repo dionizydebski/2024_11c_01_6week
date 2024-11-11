@@ -5,6 +5,7 @@ namespace Player
 {
     public class PlayerRespawn : MonoBehaviour
     {
+        private static readonly int Rise = Animator.StringToHash("Rise");
         private Transform _currentCheckpoint;
         private PlayerHealth _playerHealth;
 
@@ -33,7 +34,7 @@ namespace Player
                 Debug.Log("Checkpoint enabled");
                 SimpleSaveSystem.SaveXML();
                 _audioManager.PlaySFX(_audioManager.checkpoint);
-                other.gameObject.GetComponent<Animator>().SetTrigger("Rise");
+                other.gameObject.GetComponent<Animator>().SetTrigger(Rise);
                 //TODO: Add animation or smth for checkpoint unlock
             }
         }

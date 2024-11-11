@@ -113,7 +113,7 @@ namespace Player
 
             foreach (var platform in hitPlatforms)
             {
-                if (platform.tag == "Breakable Platform")
+                if (platform.CompareTag("Breakable Platform"))
                 {
                     PlatformHealth platformHealth = platform.GetComponent<PlatformHealth>();
                     if (platformHealth != null)
@@ -138,13 +138,13 @@ namespace Player
 
             foreach (var platform in hitPlatforms)
             {
-                if (platform.tag == "Breakable Platform")
+                if (platform.CompareTag("Breakable Platform"))
                 {
                     PlatformHealth platformHealth = platform.GetComponent<PlatformHealth>();
                     if (platformHealth != null)
                         platformHealth.TakeDamage(damage, AttackTypes.JumpSlam);
                 }
-                else if (platform.tag == "Hanging Platform")
+                else if (platform.CompareTag("Hanging Platform"))
                 {
                     HangingPlatform hangingPlatform = platform.GetComponent<HangingPlatform>();
                     if (hangingPlatform != null)
