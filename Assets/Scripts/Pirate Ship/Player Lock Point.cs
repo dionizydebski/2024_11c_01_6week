@@ -2,11 +2,13 @@ using System;
 using System.Collections;
 using Player;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Pirate_Ship
 {
     public class PlayerLockPoint : MonoBehaviour
     {
+        [SerializeField] private GameObject hud;
         private static readonly int Running = Animator.StringToHash("run");
         private static readonly int ShipLock = Animator.StringToHash("shipLock");
         private PirateShipMovement _pirateShipMovement;
@@ -22,6 +24,7 @@ namespace Pirate_Ship
             {
                 collision.transform.SetParent(transform.parent);
                 DisablePlayerMovement(collision.gameObject);
+                DisableHud();
                 StartCoroutine(Wait(1f));
                 _locked = true;
             }
@@ -46,6 +49,11 @@ namespace Pirate_Ship
             _pirateShipMovement.SetAnimatorBool("Sail", true);
             yield return new WaitForSeconds(time/2);
             _pirateShipMovement.SetMove(true);
+        }
+
+        private void DisableHud()
+        {
+            hud.SetActive(false);
         }
     }
 }
