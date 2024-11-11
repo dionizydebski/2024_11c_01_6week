@@ -9,20 +9,21 @@ namespace Collectibles
         public enum CollectibleType { Coin, Diamond, HealthPotion, Key, Skull }
         public CollectibleType collectibleType;
         
-        public AudioClip pickUpSound;
+        private AudioManager _audioManager;
         
         private Animator _animator;
 
         private void Awake()
         {
             _animator = GetComponent<Animator>();
+            _audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         }
         
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.CompareTag("Player"))
             {
-                AudioSource.PlayClipAtPoint(pickUpSound, transform.position);
+                _audioManager.PlaySFX(_audioManager.pickUp);
                 var playerInventory = other.GetComponent<PlayerInventory>();
 
                 if (playerInventory != null)

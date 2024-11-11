@@ -9,13 +9,15 @@ namespace Collectibles
     {
         public GameObject[] itemPrefabs;
         public int itemsToSpawn = 3;
-        public AudioClip openSound;
         private bool _isOpened = false;
+        
         private Animator _animator;
+        private AudioManager _audioManager;
 
         private void Awake()
         {
             _animator = GetComponent<Animator>();
+            _audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         }
 
         private void OnTriggerEnter2D(Collider2D other)
@@ -39,7 +41,9 @@ namespace Collectibles
         {
             _isOpened = true;
             playerInventory.UseKey();
-            AudioSource.PlayClipAtPoint(openSound, transform.position);
+            
+            _audioManager.PlaySFX(_audioManager.chestOpen);
+            
             _animator.SetTrigger("Open");
             
             Invoke(nameof(SpawnItems), 0.5f);

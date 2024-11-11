@@ -15,6 +15,7 @@ TagManager:
   - Skull
   - Key
   - Chest
+  - Audio
   layers:
   - Default
   - TransparentFX
