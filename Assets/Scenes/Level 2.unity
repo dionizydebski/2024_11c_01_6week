@@ -53793,6 +53793,133 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 725082770810208877, guid: 24fc6cf3710214e77976154a91bb33cc, type: 3}
   m_PrefabInstance: {fileID: 1986663765}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2023004439
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 760326980181329205, guid: 3a71bcc91e8c97f5382bebc57fe47008, type: 3}
+      propertyPath: m_text
+      value: 'Wall Slide: Falling touching the wall slows you down and may help you
+        dodge some traps'
+      objectReference: {fileID: 0}
+    - target: {fileID: 947436701352125123, guid: 3a71bcc91e8c97f5382bebc57fe47008, type: 3}
+      propertyPath: m_Name
+      value: Wall slide
+      objectReference: {fileID: 0}
+    - target: {fileID: 1379909184958653412, guid: 3a71bcc91e8c97f5382bebc57fe47008, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1379909184958653412, guid: 3a71bcc91e8c97f5382bebc57fe47008, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1379909184958653412, guid: 3a71bcc91e8c97f5382bebc57fe47008, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1379909184958653412, guid: 3a71bcc91e8c97f5382bebc57fe47008, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1379909184958653412, guid: 3a71bcc91e8c97f5382bebc57fe47008, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1379909184958653412, guid: 3a71bcc91e8c97f5382bebc57fe47008, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1379909184958653412, guid: 3a71bcc91e8c97f5382bebc57fe47008, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1379909184958653412, guid: 3a71bcc91e8c97f5382bebc57fe47008, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1379909184958653412, guid: 3a71bcc91e8c97f5382bebc57fe47008, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1379909184958653412, guid: 3a71bcc91e8c97f5382bebc57fe47008, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1379909184958653412, guid: 3a71bcc91e8c97f5382bebc57fe47008, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1379909184958653412, guid: 3a71bcc91e8c97f5382bebc57fe47008, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1379909184958653412, guid: 3a71bcc91e8c97f5382bebc57fe47008, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1379909184958653412, guid: 3a71bcc91e8c97f5382bebc57fe47008, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1379909184958653412, guid: 3a71bcc91e8c97f5382bebc57fe47008, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1379909184958653412, guid: 3a71bcc91e8c97f5382bebc57fe47008, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1379909184958653412, guid: 3a71bcc91e8c97f5382bebc57fe47008, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1379909184958653412, guid: 3a71bcc91e8c97f5382bebc57fe47008, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1379909184958653412, guid: 3a71bcc91e8c97f5382bebc57fe47008, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1379909184958653412, guid: 3a71bcc91e8c97f5382bebc57fe47008, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1822548144406642501, guid: 3a71bcc91e8c97f5382bebc57fe47008, type: 3}
+      propertyPath: m_text
+      value: 'Wall Jump: Press [Space] while on wall to push from the wall'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2225407228326697139, guid: 3a71bcc91e8c97f5382bebc57fe47008, type: 3}
+      propertyPath: m_Name
+      value: Wall Jump
+      objectReference: {fileID: 0}
+    - target: {fileID: 4831327607144839274, guid: 3a71bcc91e8c97f5382bebc57fe47008, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5029753697193663943, guid: 3a71bcc91e8c97f5382bebc57fe47008, type: 3}
+      propertyPath: m_Name
+      value: Info window canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 7278383792596856104, guid: 3a71bcc91e8c97f5382bebc57fe47008, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8558466305392318296, guid: 3a71bcc91e8c97f5382bebc57fe47008, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 150
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects:
+    - {fileID: 4165634691797458415, guid: 3a71bcc91e8c97f5382bebc57fe47008, type: 3}
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3a71bcc91e8c97f5382bebc57fe47008, type: 3}
 --- !u!1001 &2049661904
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -54150,3 +54277,4 @@ SceneRoots:
   - {fileID: 1749540043}
   - {fileID: 1031120387}
   - {fileID: 518914186}
+  - {fileID: 2023004439}
