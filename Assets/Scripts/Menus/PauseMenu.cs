@@ -48,9 +48,10 @@ public class PauseMenu : MonoBehaviour
         
     }
     
-    public void LoadGame()
+    public void Settings()
     {
-        
+        settingsMenuUI.SetActive(true);
+        pauseMenuUI.SetActive(false);
     }
     
     public void BackToMainMenu()

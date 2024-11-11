@@ -10,6 +10,9 @@ public class SettingsMenu : MonoBehaviour
     [SerializeField] private Slider musicSlider;
     [SerializeField] private Slider sfxSlider;
     [SerializeField] private Slider masterSlider;
+    
+    public GameObject pauseMenuUI;
+    public GameObject settingsMenuUI;
 
     public void SetMusicVolume()
     {
@@ -27,5 +30,11 @@ public class SettingsMenu : MonoBehaviour
     {
         float volume = masterSlider.value;
         audioMixer.SetFloat("master", volume);
+    }
+    
+    public void GoBack()
+    {
+        settingsMenuUI.SetActive(false);
+        pauseMenuUI.SetActive(true);
     }
 }
