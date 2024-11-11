@@ -58,7 +58,6 @@ namespace Player
 
         private void Update()
         {
-            Debug.Log(_playerAbilityManager.MeleeUnlocked());
             if (Input.GetButtonDown("Fire1") && _meleeAttackCooldownTimer > meleeAttackCooldown &&
                 _basicPlayerMovement.CanAttack() && _playerAbilityManager.MeleeUnlocked() )
                 MeleeAttack();
