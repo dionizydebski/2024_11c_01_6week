@@ -1,4 +1,4 @@
-using System;
+using LevelMenager;
 using UnityEngine;
 
 namespace Player
@@ -60,6 +60,8 @@ namespace Player
             _boxCollider = GetComponent<BoxCollider2D>();
             _playerAbilityManager = GetComponent<PlayerAbilityManager>();
             _animator.SetBool(WithSword, _playerAbilityManager.GetHasSword());
+            EventSystem.OnSaveGame += SaveGame;
+            EventSystem.OnLoadGame += LoadGame;
         }
 
         private void Update()
@@ -231,6 +233,29 @@ namespace Player
             _prevY = currY;
 
             return travel < 0;
+        }
+        
+        private void OnDestroy()
+        {
+            EventSystem.OnSaveGame -= SaveGame;
+            EventSystem.OnLoadGame -= LoadGame;
+        }
+
+        private void SaveGame(SaveData data)
+        {
+            Vector3 position = transform.position;
+            data.PositionX = position.x;
+            data.PositionY = position.y;
+        }
+
+        private void LoadGame(SaveData data)
+        {
+            Vector2 position = new Vector2()
+            {
+                x = data.PositionX,
+                y = data.PositionY
+            };
+            transform.position = position;
         }
 
         private bool InAir()
