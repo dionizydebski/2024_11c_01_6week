@@ -8,12 +8,13 @@ namespace MainMenu
 {
     public class MainMenu : MonoBehaviour
     {
-        [SerializeField] private GameObject _continue;
+        public GameObject settingsMenuUI;
+        public GameObject mainMenuUI;
 
-        private void Awake()
+        /*private void Awake()
         {
             _continue.SetActive(PlayerPrefs.HasKey("LastLevel"));
-        }
+        }*/
 
         public void PlayGame()
         {
@@ -33,6 +34,17 @@ namespace MainMenu
         public void OpenLevelMenu()
         {
             SceneManager.LoadSceneAsync(2);
+        }
+        
+        public void Settings()
+        {
+            settingsMenuUI.SetActive(true);
+            mainMenuUI.SetActive(false);
+        }
+        
+        public void BackToMainMenu()
+        {
+            SceneManager.LoadSceneAsync("Main Menu");
         }
 
         public void QuitGame()
