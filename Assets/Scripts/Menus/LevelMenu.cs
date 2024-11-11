@@ -13,6 +13,6 @@ public class LevelMenu : MonoBehaviour
     
     public void GoBackToMainMenu()
     {
-        SceneManager.LoadSceneAsync(0);
+        SceneManager.LoadSceneAsync("Main Menu");
     }
 }
