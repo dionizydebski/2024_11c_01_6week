@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using LevelMenager;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -40,12 +41,12 @@ public class PauseMenu : MonoBehaviour
     
     public void SaveGame()
     {
-        
+        SimpleSaveSystem.SaveXML();
     }
 
     public void LoadGame()
     {
-        
+        SimpleSaveSystem.LoadXML();
     }
     
     public void Settings()

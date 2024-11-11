@@ -1,23 +1,44 @@
+
 using System.Collections;
-using System.Collections.Generic;
+using LevelMenager;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenu : MonoBehaviour
+namespace MainMenu
 {
-    public void PlayGame()
+    public class MainMenu : MonoBehaviour
     {
-        SceneManager.LoadSceneAsync(2);
-    }
+        [SerializeField] private GameObject _continue;
 
-    public void OpenLevelMenu()
-    {
-        SceneManager.LoadSceneAsync(1);
-    }
+        private void Awake()
+        {
+            _continue.SetActive(PlayerPrefs.HasKey("LastLevel"));
+        }
 
-    public void QuitGame()
-    {
-        Debug.Log("quit");
-        Application.Quit();
+        public void PlayGame()
+        {
+            PlayerPrefs.DeleteAll();
+            PlayerPrefs.SetString("LastLevel", "Level 0");
+            SceneManager.LoadSceneAsync(2);
+        }
+
+        public void ContinueClicked()
+        {
+            string lastLevel = PlayerPrefs.GetString("LastLevel");
+            SceneManager.LoadScene(lastLevel);
+            
+            SimpleSaveSystem.LoadXML();
+        }
+
+        public void OpenLevelMenu()
+        {
+            SceneManager.LoadSceneAsync(1);
+        }
+
+        public void QuitGame()
+        {
+            Debug.Log("quit");
+            Application.Quit();
+        }
     }
 }
