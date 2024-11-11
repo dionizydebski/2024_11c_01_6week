@@ -19,7 +19,7 @@ namespace MainMenu
         {
             PlayerPrefs.DeleteAll();
             PlayerPrefs.SetString("LastLevel", "Level 0");
-            SceneManager.LoadSceneAsync(2);
+            SceneManager.LoadSceneAsync(3);
         }
 
         public void ContinueClicked()
@@ -32,7 +32,7 @@ namespace MainMenu
 
         public void OpenLevelMenu()
         {
-            SceneManager.LoadSceneAsync(1);
+            SceneManager.LoadSceneAsync(2);
         }
 
         public void QuitGame()
