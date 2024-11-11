@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <SaveData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <PositionX>9.099999</PositionX>
-  <PositionY>-0.606351</PositionY>
-  <coins>15</coins>
+  <PositionX>5.79999733</PositionX>
+  <PositionY>-0.5790036</PositionY>
+  <coins>2</coins>
   <diamonds>0</diamonds>
   <healthPotions>0</healthPotions>
   <skulls>0</skulls>

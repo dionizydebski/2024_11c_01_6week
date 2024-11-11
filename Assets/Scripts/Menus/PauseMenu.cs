@@ -40,13 +40,11 @@ public class PauseMenu : MonoBehaviour
     
     public void SaveGame()
     {
-        Debug.Log("Saved");
         SimpleSaveSystem.SaveXML();
     }
 
     public void LoadGame()
     {
-        Debug.Log("Loaded");
         SimpleSaveSystem.LoadXML();
     }
     

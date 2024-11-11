@@ -10,7 +10,7 @@ public class NextLevel : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         PlayerPrefs.SetString("LastLevel", _levelToLoad);
-        SceneManager.LoadSceneAsync(_levelToLoad);
+        SceneManager.LoadScene(_levelToLoad);
         SimpleSaveSystem.SaveXML();
     }
 }

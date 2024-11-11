@@ -1,3 +1,5 @@
+
+using System.Collections;
 using LevelMenager;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -23,7 +25,8 @@ namespace MainMenu
         public void ContinueClicked()
         {
             string lastLevel = PlayerPrefs.GetString("LastLevel");
-            SceneManager.LoadSceneAsync(lastLevel);
+            SceneManager.LoadScene(lastLevel);
+            
             SimpleSaveSystem.LoadXML();
         }
 
@@ -37,6 +40,5 @@ namespace MainMenu
             Debug.Log("quit");
             Application.Quit();
         }
-        
     }
 }
