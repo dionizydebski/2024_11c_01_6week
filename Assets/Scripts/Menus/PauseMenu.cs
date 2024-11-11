@@ -47,6 +47,10 @@ public class PauseMenu : MonoBehaviour
     public void LoadGame()
     {
         SimpleSaveSystem.LoadXML();
+        
+        pauseMenuUI.SetActive(false);
+        Time.timeScale = 1f;
+        gameIsPaused = false;
     }
     
     public void Settings()
