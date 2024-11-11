@@ -8,7 +8,6 @@ namespace Player
         {
             if (other.gameObject.CompareTag("Player"))
             {
-                Debug.Log("Sword Pickup");
                 Animator otherAnimator = other.gameObject.GetComponent<Animator>();
                 otherAnimator.Play("Idle with sword");
                 otherAnimator.SetBool("withSword", true);

@@ -1,15 +1,16 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class CloseWindow : MonoBehaviour
 {
-    private float _time = 1f;
+    [SerializeField] private float time = 1f;
     private bool _closed = false;
     private void Update()
     {
         if (!_closed)
         {
-            if (_time > 0) _time -= Time.deltaTime;
+            if (time > 0) time -= Time.deltaTime;
             else
             {
                 gameObject.transform.GetChild(0).gameObject.SetActive(true);
@@ -20,7 +21,6 @@ public class CloseWindow : MonoBehaviour
 
     public void Close()
     {
-        Debug.Log(gameObject.transform.GetChild(0).gameObject.name);
         gameObject.transform.GetChild(0).gameObject.SetActive(false);
     }
 }
