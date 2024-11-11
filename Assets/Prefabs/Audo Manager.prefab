@@ -307,3 +307,4 @@ MonoBehaviour:
   background: {fileID: 8300000, guid: 4b5cd678e8116fc42a798cf6125f6bd0, type: 3}
   checkpoint: {fileID: 0}
   pickUp: {fileID: 8300000, guid: 3f3beca80cc60e34aa1c3611c1699ac2, type: 3}
+  chestOpen: {fileID: 8300000, guid: 868fe7a52864f4105a073c8d77ad3c53, type: 3}

@@ -12,6 +12,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip background;
     public AudioClip checkpoint;
     public AudioClip pickUp;
+    public AudioClip chestOpen;
 
     private void Start()
     {
