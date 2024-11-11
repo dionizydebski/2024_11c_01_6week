@@ -41509,22 +41509,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 814829163}
     m_Modifications:
-    - target: {fileID: 4185763349192191037, guid: 2e15682f843a55444b3db65417dc6522, type: 3}
-      propertyPath: m_Size.x
-      value: 0.922467
-      objectReference: {fileID: 0}
-    - target: {fileID: 4185763349192191037, guid: 2e15682f843a55444b3db65417dc6522, type: 3}
-      propertyPath: m_Size.y
-      value: 0.7265111
-      objectReference: {fileID: 0}
-    - target: {fileID: 4185763349192191037, guid: 2e15682f843a55444b3db65417dc6522, type: 3}
-      propertyPath: m_Offset.x
-      value: 0.0033784509
-      objectReference: {fileID: 0}
-    - target: {fileID: 4185763349192191037, guid: 2e15682f843a55444b3db65417dc6522, type: 3}
-      propertyPath: m_Offset.y
-      value: -0.12838468
-      objectReference: {fileID: 0}
     - target: {fileID: 7231040675716071848, guid: 2e15682f843a55444b3db65417dc6522, type: 3}
       propertyPath: m_Name
       value: Chest
