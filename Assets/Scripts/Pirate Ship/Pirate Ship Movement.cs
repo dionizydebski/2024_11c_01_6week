@@ -9,6 +9,7 @@ namespace Pirate_Ship
     {
         [SerializeField] private float speed;
         [SerializeField] private Transform target;
+        [SerializeField] private GameObject button;
         private Animator _animator;
         private bool _move;
         private bool _canMove = true;
@@ -29,14 +30,8 @@ namespace Pirate_Ship
                     _animator.SetBool("Sail", false);
                     _move = false;
                     _canMove = false;
-                    GameObject player = gameObject.transform.GetChild(3).gameObject;
-                    /*
-                    if (gameObject.activeInHierarchy)
-                    {
-                        player.transform.SetParent(null);
-                    }
-                    */
                     _animator.SetBool("Wind", false);
+                    button.SetActive(true);
                 }
                 else
                 {

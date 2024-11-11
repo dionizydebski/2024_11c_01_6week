@@ -903,11 +903,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4063521172304830241, guid: 58fc2808db05cbabe85e0c6e5f3be3bb, type: 3}
       propertyPath: m_Pivot.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4063521172304830241, guid: 58fc2808db05cbabe85e0c6e5f3be3bb, type: 3}
       propertyPath: m_Pivot.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4063521172304830241, guid: 58fc2808db05cbabe85e0c6e5f3be3bb, type: 3}
       propertyPath: m_AnchorMax.x
@@ -927,11 +927,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4063521172304830241, guid: 58fc2808db05cbabe85e0c6e5f3be3bb, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 1942.2333
       objectReference: {fileID: 0}
     - target: {fileID: 4063521172304830241, guid: 58fc2808db05cbabe85e0c6e5f3be3bb, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 1112.61
       objectReference: {fileID: 0}
     - target: {fileID: 4063521172304830241, guid: 58fc2808db05cbabe85e0c6e5f3be3bb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -963,11 +963,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4063521172304830241, guid: 58fc2808db05cbabe85e0c6e5f3be3bb, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 681.466
       objectReference: {fileID: 0}
     - target: {fileID: 4063521172304830241, guid: 58fc2808db05cbabe85e0c6e5f3be3bb, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 334.0819
       objectReference: {fileID: 0}
     - target: {fileID: 4063521172304830241, guid: 58fc2808db05cbabe85e0c6e5f3be3bb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -980,10 +980,6 @@ PrefabInstance:
     - target: {fileID: 4063521172304830241, guid: 58fc2808db05cbabe85e0c6e5f3be3bb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5098269968788084072, guid: 58fc2808db05cbabe85e0c6e5f3be3bb, type: 3}
-      propertyPath: m_ReferencePixelsPerUnit
-      value: 32
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
