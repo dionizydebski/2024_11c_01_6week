@@ -32,9 +32,11 @@ namespace Player
         [SerializeField] private float jumpSlamBoxWidth = 0.5f;
         [SerializeField] private float jumpSlamBoxHeight = 0.5f;
         [SerializeField] private float jumpSlamBoxPositionOffset = 0.5f;
+
         private Animator _animator;
         private BasicPlayerMovement _basicPlayerMovement;
         private BoxCollider2D _boxCollider;
+        private PlayerAbilityManager _playerAbilityManager;
 
         private bool _jumpSlamed;
         private float _meleeAttackCooldownTimer = Mathf.Infinity;
@@ -51,15 +53,17 @@ namespace Player
             _rigidbody = GetComponent<Rigidbody2D>();
             _basicPlayerMovement = GetComponent<BasicPlayerMovement>();
             _animator = GetComponent<Animator>();
+            _playerAbilityManager = GetComponent<PlayerAbilityManager>();
         }
 
         private void Update()
         {
+            Debug.Log(_playerAbilityManager.MeleeUnlocked());
             if (Input.GetButtonDown("Fire1") && _meleeAttackCooldownTimer > meleeAttackCooldown &&
-                _basicPlayerMovement.CanAttack())
+                _basicPlayerMovement.CanAttack() && _playerAbilityManager.MeleeUnlocked() )
                 MeleeAttack();
 
-            if (InAir())
+            if (InAir() && _playerAbilityManager.JumpSlamUnlocked())
                 if ((Input.GetButtonDown("Fire1") && Input.GetKey(KeyCode.S)) ||
                     (Input.GetButton("Fire1") && Input.GetKeyDown(KeyCode.S)))
                 {
@@ -68,7 +72,7 @@ namespace Player
                 }
 
             if (Input.GetButtonDown("Fire2") && _rangedAttackCooldownTimer > rangedAttackCooldown &&
-                _basicPlayerMovement.CanAttack())
+                _basicPlayerMovement.CanAttack() && _playerAbilityManager.RangedUnlocked())
                 RangedAttack();
 
             if ((CollideWithEnemy() || !InAir()) && _jumpSlamed)

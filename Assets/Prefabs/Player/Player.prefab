@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 8140652382867845113}
   - component: {fileID: 488161733268173898}
   - component: {fileID: 3904614644429424952}
+  - component: {fileID: 5761309309103069351}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -265,7 +266,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac508bcc195506c3fa2478219f503e03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  checkpointSound: {fileID: 8300000, guid: 2667a0a008b044e218b63df62e2be749, type: 3}
 --- !u!114 &488161733268173898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -306,6 +306,23 @@ MonoBehaviour:
   healthPotions: 0
   skulls: 0
   keys: 0
+--- !u!114 &5761309309103069351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6338843962022591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae18e982ea7ad5775abc8042ad2eb2a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doubleJumpUnlockIndex: 4
+  meleeUnlockIndex: 4
+  jumpSlamUnlockIndex: 4
+  wallSlideUnlockIndex: 5
+  rangedUnlockIndex: 6
 --- !u!1 &1647693037331982278
 GameObject:
   m_ObjectHideFlags: 0

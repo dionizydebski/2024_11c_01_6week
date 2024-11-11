@@ -10,6 +10,7 @@ namespace Player
             Animator otherAnimator = other.gameObject.GetComponent<Animator>();
             otherAnimator.Play("Idle with sword");
             otherAnimator.SetBool("withSword", true);
+            other.gameObject.GetComponent<PlayerAbilityManager>().SetHasSword(true);
             //TODO:Open Text message with tutorial about sword usage
             //TODO: Unlock melee attacks
             Destroy(gameObject);

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Player
@@ -35,25 +36,30 @@ namespace Player
         [Header("Jump Parameters")]
         private bool _performJump;
 
-        private Rigidbody2D _rigidbody;
+
 
         private float _wallJumpCooldown;
         private float _wallJumpingCounter;
         private float _wallJumpingDirection;
         private float _xInput;
         private float _prevY;
+        private float _coyoteCooldown;
+
         private Animator _animator;
         private BoxCollider2D _boxCollider;
-        private float _coyoteCooldown;
+        private Rigidbody2D _rigidbody;
+        private PlayerAbilityManager _playerAbilityManager;
+
         private bool _isFacingRight = true;
 
         private void Awake()
         {
             _rigidbody = GetComponent<Rigidbody2D>();
             _rigidbody.freezeRotation = true;
-            GetComponent<SpriteRenderer>();
             _animator = GetComponent<Animator>();
             _boxCollider = GetComponent<BoxCollider2D>();
+            _playerAbilityManager = GetComponent<PlayerAbilityManager>();
+            _animator.SetBool(WithSword, _playerAbilityManager.GetHasSword());
         }
 
         private void Update()
@@ -73,8 +79,11 @@ namespace Player
             }
 
             if (!_isWallJumping) FlipSprite();
-            WallJump();
-            WallSlide();
+            if (_playerAbilityManager.WallJumpUnlocked())
+            {
+                WallJump();
+                WallSlide();
+            }
             _animator.SetBool(Run, _xInput != 0);
             _animator.SetBool(Grounded, IsGrounded() && IsFalling());
             _animator.SetBool(Falling, IsFalling() && !IsGrounded());
@@ -105,9 +114,9 @@ namespace Player
                 }
                 else
                 {
-                    if (_jumpCount > 0)
+                    _performJump = false;
+                    if (_jumpCount > 0 && _playerAbilityManager.DoubleJumpUnlocked())
                     {
-                        _performJump = false;
                         _rigidbody.velocity = Vector2.zero;
                         _rigidbody.AddForce(new Vector2(0, jumpForce * extraJumpForceModifier), ForceMode2D.Impulse);
                         _jumpCount--;
