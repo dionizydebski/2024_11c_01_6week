@@ -50,11 +50,11 @@ public class PauseMenu : MonoBehaviour
     }
     
     public void Settings()
-    {
-        settingsMenuUI.SetActive(true);
-        pauseMenuUI.SetActive(false);
-    }
-    
+        {
+            settingsMenuUI.SetActive(true);
+            pauseMenuUI.SetActive(false);
+        }
+        
     public void BackToMainMenu()
     {
         SceneManager.LoadSceneAsync("Main Menu");
