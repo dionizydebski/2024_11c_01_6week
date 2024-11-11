@@ -37,5 +37,6 @@ namespace MainMenu
             Debug.Log("quit");
             Application.Quit();
         }
+        
     }
 }

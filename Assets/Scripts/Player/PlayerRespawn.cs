@@ -1,3 +1,4 @@
+using LevelMenager;
 using UnityEngine;
 
 namespace Player
@@ -30,7 +31,7 @@ namespace Player
                 _currentCheckpoint = other.transform;
                 other.GetComponent<Collider2D>().enabled = false;
                 Debug.Log("Checkpoint enabled");
-                
+                SimpleSaveSystem.SaveXML();
                 _audioManager.PlaySFX(_audioManager.checkpoint);
                 other.gameObject.GetComponent<Animator>().SetTrigger("Rise");
                 //TODO: Add animation or smth for checkpoint unlock

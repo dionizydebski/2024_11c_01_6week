@@ -30,20 +30,28 @@ namespace Player
         
         private void SaveGame(SaveData data)
         {
-            data.coins = coins;
+            data.coins = 15;
             data.diamonds = diamonds;
             data.healthPotions = healthPotions;
             data.skulls = skulls;
             data.keys = keys;
+            Debug.Log("Coins saved: " + data.coins);  // Debuguj zapis
         }
         
         private void LoadGame(SaveData data)
         {
+            coins = data.coins;
+            diamonds = data.diamonds;
+            healthPotions = data.healthPotions;
+            skulls = data.skulls;
+            keys = data.keys;
+            
             _playerHUD.UpdateCoinsHUD(data.coins);
             _playerHUD.UpdateDiamondsHUD(data.diamonds);
             _playerHUD.UpdateHealthPotionsHUD(data.healthPotions);
             _playerHUD.UpdateSkullsHUD(data.skulls);
             _playerHUD.UpdateKeysHUD(data.keys);
+            Debug.Log("Coins loaded: " + data.coins);  // Debuguj wczytywanie
         }
 
         private void Start()
