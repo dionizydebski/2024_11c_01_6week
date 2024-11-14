@@ -26,4 +26,20 @@ public class CloseWindow : MonoBehaviour
     {
         gameObject.transform.GetChild(0).gameObject.SetActive(false);
     }
+
+    private void OnDestroy()
+    {
+        EventSystem.OnLoadGame -= LoadGame;
+        EventSystem.OnSaveGame -= SaveGame;
+    }
+
+    private void LoadGame(SaveData data)
+    {
+        _closed = true;
+    }
+
+    private void SaveGame(SaveData data)
+    {
+        _closed = true;
+    }
 }

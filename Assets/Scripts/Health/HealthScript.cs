@@ -61,14 +61,16 @@ namespace Health
             
             if (currentHealth > 0)
             {
-                Anim.SetTrigger(Hurt);
+                Anim.SetTrigger("hurt");
                 StartCoroutine(Invunerability());
             }
             else
             {
                 if (!dead)
                 {
+                    Debug.Log(dead);
                     Anim.SetTrigger(Die);
+                    Debug.Log(Anim.GetCurrentAnimatorStateInfo(0).IsName("Dead Hit"));
 
                     //Deactivate all attached component classes
                     if (GetComponentInParent<EnemyPatrol>() != null)
@@ -93,6 +95,8 @@ namespace Health
 
                     dead = true;
                     StartCoroutine(WaitAndDie());
+
+                    if(gameObject.tag.Equals("Player")) gameObject.GetComponent<PlayerRespawn>().CheckpointRespawn();
 
                 }
             }
