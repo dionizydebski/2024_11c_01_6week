@@ -13,7 +13,8 @@ namespace Player
         {
             ItemDrop();
             // Czekaj 5 sekund
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(5);
+
         }
 
         public void Respawn()
