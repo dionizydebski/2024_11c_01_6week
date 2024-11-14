@@ -17,8 +17,9 @@ namespace Player
            _audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         }
 
-        private void CheckpointRespawn()
+        public void CheckpointRespawn()
         {
+            Debug.Log("Checkpoint Respawn");
             transform.position = _currentCheckpoint.position;
             _playerHealth.Respawn();
 

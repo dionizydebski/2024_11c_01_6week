@@ -68,6 +68,7 @@ namespace Health
             {
                 if (!dead)
                 {
+                    Debug.Log(dead);
                     Anim.SetTrigger(Die);
 
                     //Deactivate all attached component classes
